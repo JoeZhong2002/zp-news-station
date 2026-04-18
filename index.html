@@ -1,569 +1,414 @@
-<!DOCTYPE html>
+<\!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>zp的三合一新闻资讯推送小站</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-  <style>
-    /* ─── Design tokens (Claude Desktop inspired) ─── */
-    :root {
-      --bg:            #F9F9F7;
-      --surface:       #FFFFFF;
-      --surface-2:     #F5F5F3;
-      --border:        #E8E8E4;
-      --border-soft:   #F0F0EC;
-
-      --txt-1:  #1A1A1A;
-      --txt-2:  #555550;
-      --txt-3:  #99998F;
-
-      /* brand purples */
-      --purple:        #7C3AED;
-      --purple-mid:    #A78BFA;
-      --purple-light:  #EDE9FE;
-      --purple-xlight: #F5F3FF;
-
-      /* section accents */
-      --green:         #059669;
-      --green-light:   #D1FAE5;
-      --green-xlight:  #F0FDF4;
-      --amber:         #B45309;
-      --amber-light:   #FDE68A;
-      --amber-xlight:  #FFFBEB;
-
-      --radius-lg: 14px;
-      --radius:    10px;
-      --radius-sm: 6px;
-
-      --shadow-xs: 0 1px 2px rgba(0,0,0,.05);
-      --shadow-sm: 0 1px 4px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
-      --shadow-md: 0 4px 12px rgba(0,0,0,.07), 0 2px 4px rgba(0,0,0,.04);
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: var(--bg);
-      color: var(--txt-1);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
-
-    /* ─── Site Header ─── */
-    .site-header {
-      position: sticky; top: 0; z-index: 200;
-      background: rgba(255,255,255,0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      box-shadow: var(--shadow-xs);
-    }
-    .header-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 0 24px;
-      height: 60px;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-    .site-brand {
-      display: flex; align-items: center; gap: 10px;
-    }
-    .brand-icon {
-      width: 34px; height: 34px;
-      background: linear-gradient(135deg, #7C3AED 0%, #A78BFA 100%);
-      border-radius: 9px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 17px;
-      box-shadow: 0 2px 6px rgba(124,58,237,.35);
-    }
-    .brand-name {
-      font-size: 15px; font-weight: 600;
-      color: var(--txt-1); letter-spacing: -0.3px;
-    }
-    .header-badge {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12px; color: var(--txt-3);
-    }
-    .pulse-dot {
-      width: 7px; height: 7px;
-      background: #10B981; border-radius: 50%;
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50%       { opacity: .6; transform: scale(.85); }
-    }
-
-    /* ─── Nav Tabs ─── */
-    .nav-wrap {
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-    }
-    .nav-inner {
-      max-width: 1100px; margin: 0 auto;
-      padding: 0 24px;
-      display: flex; gap: 2px;
-    }
-    .tab-btn {
-      padding: 13px 18px;
-      font-size: 13.5px; font-weight: 500;
-      color: var(--txt-2);
-      cursor: pointer; user-select: none;
-      border: none; background: none;
-      border-bottom: 2.5px solid transparent;
-      transition: color .15s, border-color .15s;
-      display: flex; align-items: center; gap: 6px;
-      white-space: nowrap;
-    }
-    .tab-btn:hover { color: var(--txt-1); }
-    .tab-btn.tab-ai.active      { color: var(--purple); border-color: var(--purple); }
-    .tab-btn.tab-markets.active { color: var(--green);  border-color: var(--green);  }
-    .tab-btn.tab-crypto.active  { color: var(--amber);  border-color: var(--amber);  }
-
-    /* ─── Main ─── */
-    .main-wrap {
-      max-width: 1100px; margin: 0 auto;
-      padding: 24px 24px 60px;
-    }
-
-    /* ─── Date Banner ─── */
-    .date-banner {
-      background: var(--purple-xlight);
-      border: 1px solid var(--purple-light);
-      border-radius: var(--radius-lg);
-      padding: 16px 20px;
-      margin-bottom: 22px;
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px;
-    }
-    .date-left {}
-    .date-title {
-      font-size: 15px; font-weight: 600;
-      color: var(--purple); letter-spacing: -0.2px;
-    }
-    .date-sub {
-      font-size: 12px; color: var(--txt-3); margin-top: 2px;
-    }
-    .date-chip {
-      flex-shrink: 0;
-      font-size: 12px; font-weight: 500;
-      background: white; color: var(--purple);
-      border: 1px solid var(--purple-light);
-      padding: 5px 12px; border-radius: 20px;
-      box-shadow: var(--shadow-xs);
-    }
-
-    /* ─── Panels ─── */
-    .panel { display: none; }
-    .panel.active { display: block; }
-
-    /* ─── Section Grid ─── */
-    .section-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(480px, 1fr));
-      gap: 16px;
-    }
-    .section-grid.wide { grid-template-columns: 1fr; }
-
-    /* ─── Section Card ─── */
-    .s-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      box-shadow: var(--shadow-sm);
-      transition: box-shadow .15s ease, transform .15s ease;
-    }
-    .s-card:hover {
-      box-shadow: var(--shadow-md);
-      transform: translateY(-1px);
-    }
-    .s-card-head {
-      padding: 13px 18px;
-      display: flex; align-items: center; gap: 10px;
-      border-bottom: 1px solid var(--border-soft);
-    }
-    .s-icon {
-      width: 30px; height: 30px; border-radius: var(--radius-sm);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 15px; flex-shrink: 0;
-    }
-    .s-title {
-      font-size: 13.5px; font-weight: 600;
-      color: var(--txt-1); letter-spacing: -0.1px;
-    }
-    .s-card-body { padding: 14px 18px; }
-
-    /* AI icon bg */
-    .ic-purple  { background: var(--purple-light); }
-    .ic-violet  { background: #F3E8FF; }
-    .ic-indigo  { background: #E0E7FF; }
-    .ic-pink    { background: #FCE7F3; }
-
-    /* Markets icon bg */
-    .ic-green   { background: var(--green-light); }
-    .ic-teal    { background: #CCFBF1; }
-    .ic-yellow  { background: #FEF9C3; }
-    .ic-red     { background: #FFE4E6; }
-    .ic-emerald { background: #D1FAE5; }
-    .ic-orange  { background: #FFEDD5; }
-    .ic-sky     { background: #E0F2FE; }
-
-    /* Crypto icon bg */
-    .ic-amber   { background: var(--amber-light); }
-    .ic-rose    { background: #FFE4E6; }
-    .ic-blue    { background: #DBEAFE; }
-    .ic-lime    { background: #ECFCCB; }
-
-    /* ─── News Items ─── */
-    .news-item {
-      padding: 9px 0;
-      border-bottom: 1px solid var(--border-soft);
-    }
-    .news-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .news-item:first-child { padding-top: 0; }
-
-    .news-source {
-      font-size: 10.5px; font-weight: 600;
-      color: var(--txt-3);
-      text-transform: uppercase; letter-spacing: .6px;
-      margin-bottom: 3px;
-    }
-    .news-text {
-      font-size: 13.5px; line-height: 1.65;
-      color: var(--txt-1);
-    }
-
-    .no-news {
-      font-size: 13px; color: var(--txt-3);
-      font-style: italic; padding: 4px 0;
-    }
-
-    /* ─── Market Overview: special wide card ─── */
-    .overview-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin-bottom: 8px;
-    }
-    .market-chip {
-      background: var(--surface-2);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 10px 14px;
-      text-align: center;
-    }
-    .mc-label { font-size: 11px; color: var(--txt-3); font-weight: 500; }
-    .mc-value { font-size: 15px; font-weight: 700; color: var(--txt-1); margin: 2px 0; }
-    .mc-change { font-size: 11.5px; font-weight: 600; }
-    .mc-change.up   { color: #059669; }
-    .mc-change.down { color: #DC2626; }
-    .mc-change.flat { color: var(--txt-3); }
-
-    /* ─── Crypto Ticker Row ─── */
-    .crypto-tickers {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-      gap: 10px;
-      margin-bottom: 6px;
-    }
-    .ticker-chip {
-      background: var(--amber-xlight);
-      border: 1px solid var(--amber-light);
-      border-radius: var(--radius);
-      padding: 10px 12px;
-      text-align: center;
-    }
-    .tc-name  { font-size: 11px; color: var(--amber); font-weight: 700; letter-spacing: .4px; }
-    .tc-price { font-size: 14px; font-weight: 700; color: var(--txt-1); margin: 3px 0 2px; }
-    .tc-chg   { font-size: 11px; font-weight: 600; }
-    .tc-chg.up   { color: #059669; }
-    .tc-chg.down { color: #DC2626; }
-
-    /* ─── Empty / loading state ─── */
-    .loading-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 48px 24px;
-      text-align: center;
-      box-shadow: var(--shadow-sm);
-    }
-    .loading-icon { font-size: 32px; margin-bottom: 12px; }
-    .loading-title { font-size: 15px; font-weight: 600; color: var(--txt-2); margin-bottom: 6px; }
-    .loading-sub   { font-size: 13px; color: var(--txt-3); }
-
-    /* ─── Footer ─── */
-    .footer {
-      max-width: 1100px; margin: 0 auto;
-      padding: 18px 24px;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 12px; flex-wrap: wrap;
-    }
-    .footer-left { font-size: 12px; color: var(--txt-3); }
-    .footer-right { font-size: 11.5px; color: var(--txt-3); text-align: right; line-height: 1.7; }
-
-    /* ─── Responsive ─── */
-    @media (max-width: 700px) {
-      .header-inner { padding: 0 16px; }
-      .nav-inner     { padding: 0 12px; }
-      .main-wrap     { padding: 16px 16px 48px; }
-      .section-grid  { grid-template-columns: 1fr; }
-      .overview-grid { grid-template-columns: repeat(2, 1fr); }
-      .brand-name    { font-size: 13.5px; }
-      .tab-btn       { padding: 12px 12px; font-size: 13px; }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ZP News Station — 每日三合一日报</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; background: #0f1117; color: #e0e0e0; min-height: 100vh; }
+  header { background: linear-gradient(135deg, #1a1d2e 0%, #16213e 100%); border-bottom: 1px solid #2a2d40; padding: 24px 40px; display: flex; align-items: center; justify-content: space-between; }
+  header h1 { font-size: 1.8rem; font-weight: 700; background: linear-gradient(90deg, #4fc3f7, #a78bfa, #f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+  header .meta { font-size: 0.85rem; color: #7a8090; text-align: right; }
+  header .meta span { display: block; }
+  .tabs { display: flex; gap: 0; border-bottom: 2px solid #2a2d40; padding: 0 40px; background: #13151f; }
+  .tab-btn { padding: 14px 28px; border: none; background: none; color: #7a8090; font-size: 1rem; cursor: pointer; border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all 0.2s; font-weight: 500; }
+  .tab-btn:hover { color: #e0e0e0; }
+  .tab-btn.active { color: #4fc3f7; border-bottom-color: #4fc3f7; }
+  .tab-btn.tab-markets.active { color: #34d399; border-bottom-color: #34d399; }
+  .tab-btn.tab-crypto.active { color: #f472b6; border-bottom-color: #f472b6; }
+  .container { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+  .section { margin-bottom: 28px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 14px; }
+  .section-header h2 { font-size: 1rem; font-weight: 600; color: #c0c8d8; text-transform: uppercase; letter-spacing: 0.08em; }
+  .section-badge { background: #1e2235; border: 1px solid #2d3352; border-radius: 6px; padding: 2px 8px; font-size: 0.75rem; color: #7a8090; }
+  .news-grid { display: grid; gap: 10px; }
+  .news-card { background: #16192a; border: 1px solid #242742; border-radius: 10px; padding: 14px 18px; transition: border-color 0.2s, transform 0.15s; }
+  .news-card:hover { border-color: #3a3f60; transform: translateY(-1px); }
+  .news-source { font-size: 0.73rem; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 5px; }
+  .news-text { font-size: 0.92rem; line-height: 1.6; color: #d0d8e8; }
+  .ai .news-source { color: #4fc3f7; }
+  .markets .news-source { color: #34d399; }
+  .crypto .news-source { color: #f472b6; }
+  .grid-2 { grid-template-columns: repeat(2, 1fr); }
+  @media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } header { flex-direction: column; gap: 8px; } .tabs { overflow-x: auto; } .container { padding: 20px; } }
+  .empty-state { color: #4a5060; font-size: 0.85rem; font-style: italic; padding: 10px 0; }
+  .section-divider { border: none; border-top: 1px solid #1e2235; margin: 24px 0; }
+  footer { text-align: center; padding: 24px; color: #3a4050; font-size: 0.8rem; border-top: 1px solid #1a1d2e; }
+</style>
 </head>
 <body>
-
-<!-- ═══ HEADER ═══ -->
-<header class="site-header">
-  <div class="header-inner">
-    <div class="site-brand">
-      <div class="brand-icon">📡</div>
-      <span class="brand-name">zp的三合一新闻资讯推送小站</span>
-    </div>
-    <div class="header-badge">
-      <span class="pulse-dot"></span>
-      每日 10:30 自动更新
-    </div>
+<header>
+  <h1>📰 ZP News Station</h1>
+  <div class="meta">
+    <span id="report-date">--</span>
+    <span>更新于 <span id="report-time">--</span></span>
   </div>
 </header>
-
-<!-- ═══ NAV TABS ═══ -->
-<nav class="nav-wrap">
-  <div class="nav-inner">
-    <button class="tab-btn tab-ai active" onclick="switchTab('ai',this)">🤖 AI 科技</button>
-    <button class="tab-btn tab-markets"   onclick="switchTab('markets',this)">📈 资本市场</button>
-    <button class="tab-btn tab-crypto"    onclick="switchTab('crypto',this)">🪙 Crypto</button>
-  </div>
-</nav>
-
-<!-- ═══ MAIN ═══ -->
-<main class="main-wrap">
-
-  <!-- Date banner -->
-  <div class="date-banner">
-    <div class="date-left">
-      <div class="date-title" id="js-date">加载中…</div>
-      <div class="date-sub">三合一日报 · AI科技 · 全球资本市场（亚太&北美）· Crypto</div>
+<div class="tabs">
+  <button class="tab-btn active" onclick="switchTab('ai')">🤖 AI科技</button>
+  <button class="tab-btn tab-markets" onclick="switchTab('markets')">📈 资本市场</button>
+  <button class="tab-btn tab-crypto" onclick="switchTab('crypto')">🪙 Crypto</button>
+</div>
+<div class="container">
+  <\!-- AI Tab -->
+  <div id="tab-ai" class="tab-content ai active">
+    <div class="section">
+      <div class="section-header"><h2>🏢 大厂动态</h2><span class="section-badge">Bigtech</span></div>
+      <div class="news-grid" id="ai-bigtech"></div>
     </div>
-    <div class="date-chip" id="js-updated">—</div>
-  </div>
-
-  <!-- ─── AI PANEL ─── -->
-  <div class="panel active" id="panel-ai">
-    <div class="section-grid" id="grid-ai">
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-purple">🏢</div><span class="s-title">大厂动态</span></div>
-        <div class="s-card-body" id="ai-bigtech"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-violet">📊</div><span class="s-title">行业趋势</span></div>
-        <div class="s-card-body" id="ai-trends"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-indigo">🔬</div><span class="s-title">前沿技术进展</span></div>
-        <div class="s-card-body" id="ai-tech"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-pink">🚀</div><span class="s-title">初创公司动态</span></div>
-        <div class="s-card-body" id="ai-startup"></div>
-      </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>📊 行业趋势</h2><span class="section-badge">Trends</span></div>
+      <div class="news-grid grid-2" id="ai-trends"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>🔬 前沿技术</h2><span class="section-badge">Tech</span></div>
+      <div class="news-grid grid-2" id="ai-tech"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>🚀 初创公司</h2><span class="section-badge">Startup</span></div>
+      <div class="news-grid" id="ai-startup"></div>
     </div>
   </div>
-
-  <!-- ─── MARKETS PANEL ─── -->
-  <div class="panel" id="panel-markets">
-    <div class="section-grid">
-      <div class="s-card" style="grid-column:1/-1">
-        <div class="s-card-head"><div class="s-icon ic-green">🌏</div><span class="s-title">全球资本市场概览（亚太 &amp; 北美重点）</span></div>
-        <div class="s-card-body" id="mkt-overview"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-teal">🌐</div><span class="s-title">全球宏观</span></div>
-        <div class="s-card-body" id="mkt-macro"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-yellow">🏛️</div><span class="s-title">政策 / 政治动态</span></div>
-        <div class="s-card-body" id="mkt-policy"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-red">🏦</div><span class="s-title">投资机构动态</span></div>
-        <div class="s-card-body" id="mkt-institution"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-emerald">📉</div><span class="s-title">个股异动</span></div>
-        <div class="s-card-body" id="mkt-stocks"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-orange">🛢️</div><span class="s-title">大宗商品</span></div>
-        <div class="s-card-body" id="mkt-commodity"></div>
-      </div>
-      <div class="s-card" style="grid-column:1/-1">
-        <div class="s-card-head"><div class="s-icon ic-sky">📰</div><span class="s-title">其他财经相关新闻</span></div>
-        <div class="s-card-body" id="mkt-other"></div>
-      </div>
+  <\!-- Markets Tab -->
+  <div id="tab-markets" class="tab-content markets">
+    <div class="section">
+      <div class="section-header"><h2>🌍 全球概览</h2><span class="section-badge">Overview</span></div>
+      <div class="news-grid" id="markets-overview"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>📉 宏观经济</h2><span class="section-badge">Macro</span></div>
+      <div class="news-grid grid-2" id="markets-macro"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>🏛️ 政策/地缘</h2><span class="section-badge">Policy</span></div>
+      <div class="news-grid grid-2" id="markets-policy"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>🏦 投资机构</h2><span class="section-badge">Institution</span></div>
+      <div class="news-grid grid-2" id="markets-institution"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>📋 个股异动</h2><span class="section-badge">Stocks</span></div>
+      <div class="news-grid grid-2" id="markets-stocks"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>🛢️ 大宗商品</h2><span class="section-badge">Commodity</span></div>
+      <div class="news-grid grid-2" id="markets-commodity"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>📌 其他财经</h2><span class="section-badge">Other</span></div>
+      <div class="news-grid grid-2" id="markets-other"></div>
     </div>
   </div>
-
-  <!-- ─── CRYPTO PANEL ─── -->
-  <div class="panel" id="panel-crypto">
-    <div class="section-grid">
-      <div class="s-card" style="grid-column:1/-1">
-        <div class="s-card-head"><div class="s-icon ic-amber">💹</div><span class="s-title">市场行情</span></div>
-        <div class="s-card-body" id="crypto-market"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-rose">📢</div><span class="s-title">重大新闻</span></div>
-        <div class="s-card-body" id="crypto-news"></div>
-      </div>
-      <div class="s-card">
-        <div class="s-card-head"><div class="s-icon ic-blue">⛓️</div><span class="s-title">链上与技术动态</span></div>
-        <div class="s-card-body" id="crypto-onchain"></div>
-      </div>
-      <div class="s-card" style="grid-column:1/-1">
-        <div class="s-card-head"><div class="s-icon ic-lime">💰</div><span class="s-title">融资与市场动态</span></div>
-        <div class="s-card-body" id="crypto-funding"></div>
-      </div>
+  <\!-- Crypto Tab -->
+  <div id="tab-crypto" class="tab-content crypto">
+    <div class="section">
+      <div class="section-header"><h2>📊 市场行情</h2><span class="section-badge">Market</span></div>
+      <div class="news-grid" id="crypto-market"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>📰 重大新闻</h2><span class="section-badge">News</span></div>
+      <div class="news-grid grid-2" id="crypto-news"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>⛓️ 链上与技术</h2><span class="section-badge">Onchain</span></div>
+      <div class="news-grid grid-2" id="crypto-onchain"></div>
+    </div>
+    <hr class="section-divider">
+    <div class="section">
+      <div class="section-header"><h2>💰 融资与市场</h2><span class="section-badge">Funding</span></div>
+      <div class="news-grid grid-2" id="crypto-funding"></div>
     </div>
   </div>
+</div>
+<footer>ZP News Station · 自动生成 · 数据来源 TechCrunch / CNBC / Bloomberg / CoinDesk 等</footer>
 
-</main>
-
-<footer class="footer">
-  <div class="footer-left">Powered by Claude · 每日 10:30 自动抓取更新</div>
-  <div class="footer-right">
-    AI：MIT Tech Review · TechCrunch · Wired · The Verge<br>
-    市场：Bloomberg · FT · Reuters · 财新 · 第一财经 · 21世纪经济报道<br>
-    Crypto：Marsbit · 金色财经 · CoinDesk
-  </div>
-</footer>
-
-<!-- ═══ DATA INJECTION ═══
-     每日定时任务会替换下方 REPORT_DATA 对象内容
-     ════════════════════════════════════════════ -->
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "",
-  "updatedAt": "",
+  "date": "2026-04-18",
+  "updatedAt": "03:19",
   "ai": {
-    "bigtech":  [],
-    "trends":   [],
-    "tech":     [],
-    "startup":  []
+    "bigtech": [
+      {
+        "source": "CNBC",
+        "text": "Anthropic内部正测试代号'Claude Mythos'前沿模型，被描述为'能力阶梯式跃升'，预计4月或Q2 2026发布；年化收入突破300亿美元，较年初9亿美元大幅增长。"
+      },
+      {
+        "source": "CNBC",
+        "text": "Meta发布首个重磅AI模型'Muse Spark'（代号Avocado），出自Meta超级智能实验室（Meta Superintelligence Labs）；2026年AI资本支出预计1150-1350亿美元，同比接近翻倍。"
+      },
+      {
+        "source": "CNBC",
+        "text": "OpenAI最新估值超8500亿美元；GPT-5.4创计算机使用基准OSWorld-Verified和WebArena Verified历史新高；预测2026年广告收入25亿美元，2030年将达千亿/年规模。"
+      },
+      {
+        "source": "AI Weekly / Google",
+        "text": "Google Gemini 3.1 Pro登顶推理基准，GPQA Diamond得分94.3%；开源Gemma 4模型已可在iPhone上实现完全本地离线推理。"
+      }
+    ],
+    "trends": [
+      {
+        "source": "Consumer Finance Monitor",
+        "text": "白宫3月20日发布《国家AI政策框架》，建议由现有监管机构分散治理AI，反对新设专门监管机构；欧盟AI法案第二阶段将于2026年8月生效，适用高风险AI系统。"
+      },
+      {
+        "source": "CNBC",
+        "text": "公众对AI和数据中心的支持度持续下降，而Anthropic和OpenAI正加速筹备IPO；AI网络安全保险市场兴起，保险公司开始要求企业具备AI专项安全认证。"
+      },
+      {
+        "source": "Bloomberg",
+        "text": "OpenAI、Anthropic、Google联合行动，打击中国企业通过API蒸馏美国前沿AI模型的行为，强化模型知识产权保护。"
+      },
+      {
+        "source": "AI Funding Tracker",
+        "text": "全球AI初创融资2026年突破1300亿美元，较2025年970亿美元大幅增长；前五大基础模型公司独揽超40%的LLM专项融资，行业集中度持续提升。"
+      }
+    ],
+    "tech": [
+      {
+        "source": "OpenAI",
+        "text": "GPT-Rosalind发布——专为药物发现设计的前沿推理模型，结合先进生物化学和基因组学能力，旨在将传统10-15年的新药研发周期大幅压缩。"
+      },
+      {
+        "source": "AI Weekly / 奇瑞",
+        "text": "中国奇瑞汽车推出售价4.2万美元消费级人形机器人，成为全球首款面向大众的量产人形机器人；人形机器人赛道2026年预计吸引逾200亿美元投资。"
+      },
+      {
+        "source": "247 Wall St.",
+        "text": "AMD股价单日涨6%，宣布法国AI合作并向英国自动驾驶初创Wayve投资6000万美元，联合Arm与高通共同押注AI自动驾驶芯片基础设施。"
+      },
+      {
+        "source": "AI Weekly",
+        "text": "最新学术研究显示：AI技术已阻止约50万新编程岗位产生；聊天机器人存在比人类更强的机械性偏见，基于僵化逻辑对用户进行判断。"
+      }
+    ],
+    "startup": [
+      {
+        "source": "AI Funding Tracker",
+        "text": "Reflection AI正洽谈以250亿美元估值融资25亿美元，估值不到一年内从5.45亿飙升至250亿，成为AI领域估值增速最快初创之一。"
+      },
+      {
+        "source": "AI Funding Tracker",
+        "text": "Shield AI完成G轮15亿美元融资，加黑石5亿美元优先股，估值达127亿美元，专注军用自主飞行AI系统。"
+      },
+      {
+        "source": "AI Funding Tracker",
+        "text": "AMI Labs成立仅4个月即完成10.3亿美元种子轮，估值35亿美元；由Yann LeCun（离开Meta后）联合创办，创下AI初创融资历史纪录。"
+      }
+    ]
   },
   "markets": {
-    "overview":    [],
-    "macro":       [],
-    "policy":      [],
-    "institution": [],
-    "stocks":      [],
-    "commodity":   [],
-    "other":       []
+    "overview": [
+      {
+        "source": "CNBC / Yahoo Finance",
+        "text": "美股强劲收涨：道指涨1026点(+2.1%)报49,605；S&P 500涨1.31%报7,133，创历史新高，首次突破7100；纳斯达克涨1.53%报24,472，亦创历史新高。核心催化剂：以色列与黎巴嫩达成停火，伊朗宣布霍尔木兹海峡'完全开放'。"
+      },
+      {
+        "source": "CNBC / SCMP",
+        "text": "亚太市场分化：港股恒生指数4月16日涨0.3%报25,947，延续两连升；日经225周五受止盈盘冲击跌1.75%至58,475，此前创历史新高；印度、韩国市场整体谨慎。"
+      },
+      {
+        "source": "KPMG",
+        "text": "香港IPO市场2026年Q1融资港币1099亿元，同比大涨489%，创五年最佳季度表现；A股Q1融资273亿元人民币，同比增8%；北交所IPO活动显著提速。"
+      }
+    ],
+    "macro": [
+      {
+        "source": "Federal Reserve",
+        "text": "美联储3月FOMC会议维持联邦基金利率目标区间3.5%-3.75%不变，连续第二次会议按兵不动；全年仍预期一次25bp降息；PCE与核心PCE通胀预期均上修至2.7%，高于12月预期的2.4%与2.5%。下次FOMC会议4月28-29日。"
+      },
+      {
+        "source": "Goldman Sachs",
+        "text": "高盛预期2026年美国GDP增长2.5%，高于2%的潜在增速；美联储预计全年再降息50bp；就业市场依然稳健，通胀略有粘性，经济'软着陆'基本实现。"
+      },
+      {
+        "source": "Yahoo Finance",
+        "text": "伊朗战争引发油价大幅飙升，布伦特原油此前高达97美元/桶，推高通胀并可能延迟降息预期，美国家庭期望中的通胀缓解或推迟兑现。"
+      }
+    ],
+    "policy": [
+      {
+        "source": "CNBC / Yahoo Finance",
+        "text": "中东局势：以色列与黎巴嫩实现停火，伊朗宣布霍尔木兹海峡'完全开放'；美伊据报正间接接触，讨论延长4月22日到期的停火协议。这是本周推动美股、油价剧烈波动的核心地缘催化剂。"
+      },
+      {
+        "source": "Consumer Finance Monitor",
+        "text": "白宫发布《国家AI政策框架》，推动AI产业自律与分散监管，明确美国AI发展以创新优先、国家竞争力优先的战略取向。"
+      },
+      {
+        "source": "Morgan Lewis",
+        "text": "美国各州AI立法提速：加州透明度法案已生效；科罗拉多AI法案预计6月30日落地，要求开发者和部署方采取措施防范算法歧视并建立风险管理体系。"
+      }
+    ],
+    "institution": [
+      {
+        "source": "Goldman Sachs",
+        "text": "高盛维持2026年美股看涨立场：预测美国经济增长2.5%、企业盈利两位数增长，同时提示估值偏高风险，全年出现10%以上回调的概率超80%，但年底回调持续概率仅约20%。"
+      },
+      {
+        "source": "Morgan Stanley",
+        "text": "摩根士丹利Q2展望：预测美股全年涨幅14%，持续关注杠杆风险、新兴市场盈利驱动因素及地缘政治（油价、中东局势）对市场的影响。"
+      }
+    ],
+    "stocks": [
+      {
+        "source": "CNBC",
+        "text": "Netflix Q1财报混合，盘前跌10%，若维持将是自2025年10月以来最大单日跌幅；用户增长放缓引发市场对流媒体订阅增速见顶的担忧。"
+      },
+      {
+        "source": "247 Wall St.",
+        "text": "AMD单日涨6%：宣布法国AI合作及对Wayve自动驾驶的战略投资，市场对AMD在AI芯片领域挑战英伟达的预期升温，5月财报前景受关注。"
+      }
+    ],
+    "commodity": [
+      {
+        "source": "Trading Economics",
+        "text": "黄金涨至4878美元/盎司，为3月以来最高；过去4周涨0.93%，近12个月累涨41.64%；停火与霍尔木兹开放消息令金价短期承压但避险需求支撑整体高位。"
+      },
+      {
+        "source": "CNBC",
+        "text": "原油：WTI报93.57美元/桶(-1.18%)，布伦特报98.43美元/桶(-0.97%)；霍尔木兹开放与停火消息推动油价单日暴跌逾10%，大幅缓解此前因伊朗战争引发的能源通胀担忧。"
+      }
+    ],
+    "other": [
+      {
+        "source": "KPMG",
+        "text": "香港Q1 IPO市值1099亿港元，同比增489%，创五年最佳；中国内地A股Q1融资273亿元，同比增8%，北交所尤为活跃，完成16个IPO融资49亿元，同比大幅增长。"
+      },
+      {
+        "source": "iShares / Fed",
+        "text": "债券市场：美联储利率政策持续引导短端利率；油价下跌与通胀预期修正带动长端收益率有所波动，固收市场关注下次FOMC（4月28-29日）前瞻指引。"
+      }
+    ]
   },
   "crypto": {
-    "market":  [],
-    "news":    [],
-    "onchain": [],
-    "funding": []
+    "market": [
+      {
+        "source": "Coinbase / Bankless Times",
+        "text": "BTC当前报75,573美元(+1% 24h)，过去一周涨5%；美国现货比特币ETF连续两日净流入，单日约1.86亿美元，摩根士丹利MSBT超越WisdomTree成为当日最大净流入产品。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "ETH近期报约2,343美元，ETH/BTC比例从2026年低点反弹；恐惧贪婪指数'极度恐惧'（得分23），以太坊市场情绪偏空，仅37%看涨。BTC在75,000-76,000美元区间遭遇强阻力，上方堆积4.5亿美元卖单，清算风险上升。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "以太坊Q1链上交易量突破2亿笔（2.004亿），创历史首次，显示链上活跃度持续提升；以太坊持有全球2096亿美元代币化资产市场的61.1%份额。"
+      }
+    ],
+    "news": [
+      {
+        "source": "SEC / CoinDesk",
+        "text": "SEC发布新指引：明确加密货币钱包界面软件无需注册为经纪商，为Web3 DApp开发者扫清重大合规障碍；'Regulation Crypto'规则草案已提交白宫OIRA，即将正式发布。"
+      },
+      {
+        "source": "Forvis Mazars / SEC",
+        "text": "SEC联合CFTC于3月17日发布《加密资产联合解释》，为美国首个系统性加密监管框架，明确主要加密资产的证券/商品属性划分，为行业长期发展提供法律确定性。"
+      },
+      {
+        "source": "DL News",
+        "text": "稳定币迈入主流金融元年：2025年完成规模与信誉重建后，2026年监管清晰度提升、基础设施成熟，稳定币正加速进入日常支付与跨境结算场景。"
+      },
+      {
+        "source": "PYMNTS",
+        "text": "SEC主席Atkins宣布即将发布长期待定的'创新豁免'规则，为Web3项目在美国融资和代币发行提供更清晰的合规路径，业界反响积极。"
+      }
+    ],
+    "onchain": [
+      {
+        "source": "CoinDesk",
+        "text": "以太坊Q1交易量首次突破2亿笔创历史记录，链上活跃度持续提升；以太坊主导全球代币化资产市场，市占率61.1%，托管规模2096亿美元。"
+      },
+      {
+        "source": "CoinDesk / DL News",
+        "text": "2026 DeFi重启：Aave V4、Lido V3等主要协议发布重要升级；首尔Korea BUIDL Week（4月13-19日）与香港Web3 Festival汇聚全球顶级建设者，展示Layer2扩容与跨链互操作最新成果。"
+      }
+    ],
+    "funding": [
+      {
+        "source": "PYMNTS / SEC",
+        "text": "'Regulation Crypto'创新豁免即将落地，为Web3项目在美国融资提供明确法律路径；SEC-CFTC联合框架大幅降低机构入场的合规成本，市场预期更多传统金融机构加速布局。"
+      },
+      {
+        "source": "Bankless Times / Bloomberg",
+        "text": "摩根士丹利MSBT现货比特币ETF当日净流入超越WisdomTree，机构持续通过ETF渠道增配比特币；过去两个月BTC持续承压于76,000美元关口，多空博弈激烈，衍生品市场清算激增。"
+      }
+    ]
   }
 };
+
 </script>
 
 <script>
-/* ─── Tab switching ─── */
-const TAB_CLS = { ai:'tab-ai', markets:'tab-markets', crypto:'tab-crypto' };
-function switchTab(name, el) {
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('panel-' + name).classList.add('active');
-  el.classList.add('active');
+function switchTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  const idx = ['ai','markets','crypto'].indexOf(name);
+  document.querySelectorAll('.tab-btn')[idx].classList.add('active');
 }
 
-/* ─── Render helpers ─── */
-function renderItems(id, items) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  if (!items || !items.length) {
-    el.innerHTML = '<p class="no-news">暂无重要动态</p>';
+function renderCards(containerId, items) {
+  const el = document.getElementById(containerId);
+  if (\!el) return;
+  if (\!items || items.length === 0) {
+    el.innerHTML = '<p class="empty-state">暂无数据</p>';
     return;
   }
-  el.innerHTML = items.map(it => `
-    <div class="news-item">
-      ${it.source ? `<div class="news-source">${it.source}</div>` : ''}
-      <div class="news-text">${it.text}</div>
-    </div>`).join('');
+  el.innerHTML = items.map(item =>
+    `<div class="news-card">
+      <div class="news-source">${escHtml(item.source || '')}</div>
+      <div class="news-text">${escHtml(item.text || '')}</div>
+    </div>`
+  ).join('');
 }
 
-function renderTickers(items) {
-  const el = document.getElementById('crypto-market');
-  if (!el) return;
-  if (!items || !items.length) { el.innerHTML = '<p class="no-news">暂无行情数据</p>'; return; }
-
-  // Check if first item looks like a ticker object
-  const hasTickers = items[0] && items[0].symbol;
-  let html = '';
-  if (hasTickers) {
-    html += '<div class="crypto-tickers">' +
-      items.filter(i => i.symbol).map(i => `
-        <div class="ticker-chip">
-          <div class="tc-name">${i.symbol}</div>
-          <div class="tc-price">${i.price || '—'}</div>
-          <div class="tc-chg ${i.dir || 'flat'}">${i.change || '—'}</div>
-        </div>`).join('') +
-      '</div>';
-    const rest = items.filter(i => !i.symbol);
-    if (rest.length) {
-      html += rest.map(it => `
-        <div class="news-item">
-          ${it.source ? `<div class="news-source">${it.source}</div>` : ''}
-          <div class="news-text">${it.text}</div>
-        </div>`).join('');
-    }
-  } else {
-    html = items.map(it => `
-      <div class="news-item">
-        ${it.source ? `<div class="news-source">${it.source}</div>` : ''}
-        <div class="news-text">${it.text}</div>
-      </div>`).join('');
-  }
-  el.innerHTML = html;
+function escHtml(str) {
+  return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-/* ─── Render all ─── */
-function renderAll() {
+function init() {
   const d = REPORT_DATA;
-  document.getElementById('js-date').textContent =
-    d.date ? `📅 ${d.date} 日报` : '⏳ 等待首次更新（每日 10:30）';
-  document.getElementById('js-updated').textContent =
-    d.updatedAt ? `更新于 ${d.updatedAt}` : '尚未更新';
-
-  renderItems('ai-bigtech',      d.ai.bigtech);
-  renderItems('ai-trends',       d.ai.trends);
-  renderItems('ai-tech',         d.ai.tech);
-  renderItems('ai-startup',      d.ai.startup);
-
-  renderItems('mkt-overview',    d.markets.overview);
-  renderItems('mkt-macro',       d.markets.macro);
-  renderItems('mkt-policy',      d.markets.policy);
-  renderItems('mkt-institution', d.markets.institution);
-  renderItems('mkt-stocks',      d.markets.stocks);
-  renderItems('mkt-commodity',   d.markets.commodity);
-  renderItems('mkt-other',       d.markets.other);
-
-  renderTickers(d.crypto.market);
-  renderItems('crypto-news',     d.crypto.news);
-  renderItems('crypto-onchain',  d.crypto.onchain);
-  renderItems('crypto-funding',  d.crypto.funding);
+  if (\!d || \!d.date) return;
+  document.getElementById('report-date').textContent = d.date;
+  document.getElementById('report-time').textContent = d.updatedAt || '--';
+  if (d.ai) {
+    renderCards('ai-bigtech', d.ai.bigtech);
+    renderCards('ai-trends', d.ai.trends);
+    renderCards('ai-tech', d.ai.tech);
+    renderCards('ai-startup', d.ai.startup);
+  }
+  if (d.markets) {
+    renderCards('markets-overview', d.markets.overview);
+    renderCards('markets-macro', d.markets.macro);
+    renderCards('markets-policy', d.markets.policy);
+    renderCards('markets-institution', d.markets.institution);
+    renderCards('markets-stocks', d.markets.stocks);
+    renderCards('markets-commodity', d.markets.commodity);
+    renderCards('markets-other', d.markets.other);
+  }
+  if (d.crypto) {
+    renderCards('crypto-market', d.crypto.market);
+    renderCards('crypto-news', d.crypto.news);
+    renderCards('crypto-onchain', d.crypto.onchain);
+    renderCards('crypto-funding', d.crypto.funding);
+  }
 }
-
-renderAll();
+init();
 </script>
-
 </body>
 </html>
