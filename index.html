@@ -212,93 +212,250 @@ const REPORT_DATA = {
   "updatedAt": "16:39",
   "ai": {
     "bigtech": [
-      {"source": "CNBC", "text": "Anthropic 发布 Claude Opus 4.7，在软件工程、指令遵循、真实工作任务完成方面全面提升，为其目前最强通用可用模型；同时确认最强模型 Claude Mythos 仅向50家机构限制开放（Project Glasswing），专用于防御性漏洞扫描。"},
-      {"source": "CNBC", "text": "Meta 推出首款 Muse Spark 模型（前代号 Avocado），出自新成立的 Meta Superintelligence Labs，这是聘入 Scale AI 创始人 Alexandr Wang 后首款重大模型发布；2026年AI资本支出预计达1150-1350亿美元，近乎去年两倍。"},
-      {"source": "CNBC", "text": "OpenAI 内部备忘录称微软"限制了其触达客户的能力"，同时大力宣传与 Amazon 的战略联盟；最新融资后估值超8500亿美元，正积极争夺企业市场份额。"},
-      {"source": "Bloomberg", "text": "OpenAI、Anthropic、Google 三巨头联合合作，共同打击中国竞争对手从美国前沿AI模型提取核心成果的行为。"}
+      {
+        "source": "CNBC",
+        "text": "Anthropic 发布 Claude Opus 4.7，在软件工程、指令遵循、真实工作任务完成方面全面提升，为其目前最强通用可用模型；同时确认最强模型 Claude Mythos 仅向50家机构限制开放（Project Glasswing），专用于防御性漏洞扫描。"
+      },
+      {
+        "source": "CNBC",
+        "text": "Meta 推出首款 Muse Spark 模型（前代号 Avocado），出自新成立的 Meta Superintelligence Labs，这是聘入 Scale AI 创始人 Alexandr Wang 后首款重大模型发布；2026年AI资本支出预计达1150-1350亿美元，近乎去年两倍。"
+      },
+      {
+        "source": "CNBC",
+        "text": "OpenAI 内部备忘录称微软\"限制了其触达客户的能力\"，同时大力宣传与 Amazon 的战略联盟；最新融资后估值超8500亿美元，正积极争夺企业市场份额。"
+      },
+      {
+        "source": "Bloomberg",
+        "text": "OpenAI、Anthropic、Google 三巨头联合合作，共同打击中国竞争对手从美国前沿AI模型提取核心成果的行为。"
+      }
     ],
     "trends": [
-      {"source": "PwC", "text": "PwC 2026年AI绩效研究：AI经济收益的75%被仅20%的头部企业捕获，领先企业战略重心已从生产力提升转向业务增长。"},
-      {"source": "Alston & Bird", "text": "美国两党议员提出《AI基础模型透明度法案（AI FMTA）》，要求ChatGPT、Claude等大模型开发者公开训练数据集及模型关键信息。"},
-      {"source": "Wilson Sonsini", "text": "2026年立法季全美已提出超600项AI法案；科罗拉多州AI Act将于6月30日生效，要求开发者进行风险评估、偏见审查及数据集披露。"},
-      {"source": "CNBC", "text": "公众对AI和数据中心的热情有所降温，但 Anthropic 和 OpenAI 均在积极准备IPO，Anthropic 估值3800亿美元，OpenAI 超8500亿美元。"}
+      {
+        "source": "PwC",
+        "text": "PwC 2026年AI绩效研究：AI经济收益的75%被仅20%的头部企业捕获，领先企业战略重心已从生产力提升转向业务增长。"
+      },
+      {
+        "source": "Alston & Bird",
+        "text": "美国两党议员提出《AI基础模型透明度法案（AI FMTA）》，要求ChatGPT、Claude等大模型开发者公开训练数据集及模型关键信息。"
+      },
+      {
+        "source": "Wilson Sonsini",
+        "text": "2026年立法季全美已提出超600项AI法案；科罗拉多州AI Act将于6月30日生效，要求开发者进行风险评估、偏见审查及数据集披露。"
+      },
+      {
+        "source": "CNBC",
+        "text": "公众对AI和数据中心的热情有所降温，但 Anthropic 和 OpenAI 均在积极准备IPO，Anthropic 估值3800亿美元，OpenAI 超8500亿美元。"
+      }
     ],
     "tech": [
-      {"source": "llm-stats.com", "text": "Claude Sonnet 4.6 以1633分领跑 GDPval-AA Elo 基准，以接近Opus的性能维持Sonnet定价，Anthropic在2026年3月模型排名中居首。"},
-      {"source": "llm-stats.com", "text": "GPT-5.4（3月发布）在OSWorld-Verified、WebArena Verified等计算机操控基准测试中刷新纪录，GDPval知识工作测试得分83%。Gemini 3.1 Pro 在 GPQA Diamond 推理榜以94.3%领先。"},
-      {"source": "llm-stats.com", "text": "OpenAI 推出 GPT-Rosalind，专为药物研发设计的前沿推理模型，目标将传统10-15年新药研发周期大幅压缩，结合生物化学与遗传学推理能力。"},
-      {"source": "Nature", "text": "Nature 最新研究：在复杂科学任务上，人类科学家仍显著超越最佳AI智能体，AI在专业深度推理方面存在明显差距。"}
+      {
+        "source": "llm-stats.com",
+        "text": "Claude Sonnet 4.6 以1633分领跑 GDPval-AA Elo 基准，以接近Opus的性能维持Sonnet定价，Anthropic在2026年3月模型排名中居首。"
+      },
+      {
+        "source": "llm-stats.com",
+        "text": "GPT-5.4（3月发布）在OSWorld-Verified、WebArena等计算机操控基准创新高；Gemini 3.1 Pro 在 GPQA Diamond 推理榜以94.3%领先。"
+      },
+      {
+        "source": "llm-stats.com",
+        "text": "OpenAI 推出 GPT-Rosalind，专为药物研发设计的前沿推理模型，目标将传统10-15年新药研发周期大幅压缩。"
+      },
+      {
+        "source": "Nature",
+        "text": "Nature 最新研究：在复杂科学任务上，人类科学家仍显著超越最佳AI智能体，AI在专业深度推理方面存在明显差距。"
+      }
     ],
     "startup": [
-      {"source": "Fortune", "text": "中国设计AI初创 Manycore Tech 登陆香港交易所，募资最高10.2亿港元，成为杭州"六小龙"中首家上市企业，推动"空间智能"概念受到资本市场关注。"},
-      {"source": "AI Funding Tracker", "text": "Yann LeCun 新AI初创（专注"世界模型"—具备推理、规划、持久记忆的AI系统）完成10.3亿美元融资，创欧洲史上最大种子轮纪录。"},
-      {"source": "AI Funding Tracker", "text": "Hippocratic AI 完成1.26亿美元C轮融资，专注医疗行业"安全优先"大语言模型，持续拓展医疗AI应用场景。"},
-      {"source": "AI News", "text": "Snap CEO宣布裁员约1000人并关闭300多个招聘职位，AI已生成超65%新代码，小团队可实现同等产出，成为AI驱动人力效率变革的标志性案例。"},
-      {"source": "AI Funding Tracker", "text": "2026年全球AI初创融资总额突破1300亿美元，较2025年的970亿大幅跃升；但前五大基础模型公司吸收了LLM专项融资的40%以上，新入局者须有极强差异化叙事。"}
+      {
+        "source": "Fortune",
+        "text": "中国设计AI初创 Manycore Tech 登陆香港交易所，募资最高10.2亿港元，成为杭州六小龙中首家上市企业，推动空间智能概念受到资本市场关注。"
+      },
+      {
+        "source": "AI Funding Tracker",
+        "text": "Yann LeCun 新AI初创（专注世界模型——具备推理、规划、持久记忆的AI系统）完成10.3亿美元融资，创欧洲史上最大种子轮纪录。"
+      },
+      {
+        "source": "AI Funding Tracker",
+        "text": "Hippocratic AI 完成1.26亿美元C轮融资，专注医疗行业安全优先大语言模型，持续拓展医疗AI应用场景。"
+      },
+      {
+        "source": "AI News",
+        "text": "Snap CEO宣布裁员约1000人，AI已生成超65%新代码，小团队可实现同等产出，成为AI驱动人力效率变革的标志性案例。"
+      },
+      {
+        "source": "AI Funding Tracker",
+        "text": "2026年全球AI初创融资总额突破1300亿美元，较2025年的970亿大幅跃升；前五大基础模型公司吸收了LLM专项融资的40%以上。"
+      }
     ]
   },
   "markets": {
     "overview": [
-      {"source": "Yahoo Finance / CNBC", "text": "美股周五（4/18）全线上涨：道琼斯+869点（+1.79%）收49,447；S&P 500收7,022.95（再创历史新高）；纳斯达克100+1.5%。伊朗宣布开放霍尔木兹海峡，缓解能源滞胀担忧，为股市强劲上涨的核心催化剂。"},
-      {"source": "多家媒体", "text": "欧洲股市全面走强：德国DAX+3.77%，意大利富时MIB+2.65%，法国CAC 40+2.00%，英国富时100+0.63%。"},
-      {"source": "多家媒体", "text": "亚太市场表现亮眼：日经225+2.73%并创历史新高；中国沪深300+1.99%，上证综指+1.64%；港股恒生指数+1.03%。"},
-      {"source": "STL News", "text": "2026年全球股市整体走强，韩国、巴西、土耳其等新兴市场跑赢多数发达市场；AI算力、芯片需求爆发是最主要的市场驱动力。"}
+      {
+        "source": "Yahoo Finance / CNBC",
+        "text": "美股周五（4/18）全线上涨：道琼斯+869点（+1.79%）收49,447；S&P 500收7,022.95（再创历史新高）；纳斯达克100+1.5%。伊朗宣布开放霍尔木兹海峡，缓解能源滞胀担忧，为股市强劲上涨的核心催化剂。"
+      },
+      {
+        "source": "多家媒体",
+        "text": "欧洲股市全面走强：德国DAX+3.77%，意大利富时MIB+2.65%，法国CAC 40+2.00%，英国富时100+0.63%。"
+      },
+      {
+        "source": "多家媒体",
+        "text": "亚太市场：日经225+2.73%并创历史新高；中国沪深300+1.99%，上证综指+1.64%；港股恒生指数+1.03%。"
+      },
+      {
+        "source": "STL News",
+        "text": "2026年全球股市整体走强，韩国、巴西、土耳其等新兴市场跑赢多数发达市场；AI算力、芯片需求爆发是最主要的市场驱动力。"
+      }
     ],
     "macro": [
-      {"source": "iShares / KPMG", "text": "美联储主席鲍威尔任期将于2026年4月届满，新任主席任命引发市场对Fed独立性的高度关注；预计新主席就任后可能降息1-2次，引导隔夜利率至3%-3.25%区间。"},
-      {"source": "ECB", "text": "欧央行2月维持三大关键利率不变，预计全年通胀稳定于2%目标附近，降息周期基本结束；未来两年通胀预计低于2%目标，无意外不再启动降息。"},
-      {"source": "IMF WEO 2026", "text": "IMF将2026年全球增长预测从3.3%下调至3.1%，但市场情绪仍然乐观，投资者押注中东冲突最终化解及美国经济韧性持续。"}
+      {
+        "source": "iShares / KPMG",
+        "text": "美联储主席鲍威尔任期将于2026年4月届满，新任主席任命引发市场对Fed独立性的高度关注；预计新主席就任后可能降息1-2次，引导隔夜利率至3%-3.25%区间。"
+      },
+      {
+        "source": "ECB",
+        "text": "欧央行2月维持三大关键利率不变，预计全年通胀稳定于2%目标附近，降息周期基本结束；未来两年通胀预计低于2%目标，无意外不再启动降息。"
+      },
+      {
+        "source": "IMF WEO 2026",
+        "text": "IMF将2026年全球增长预测从3.3%下调至3.1%，但市场情绪仍然乐观，投资者押注中东冲突最终化解及美国经济韧性持续。"
+      }
     ],
     "policy": [
-      {"source": "NBC News / CNBC", "text": "伊朗宣布开放霍尔木兹海峡供非伊朗商船通行，国际油价大幅下跌10%以上，美股受此利好强势反弹，S&P 500再创历史新高。此前中东冲突曾推动布伦特原油涨至100美元/桶上方。"},
-      {"source": "多家媒体", "text": "中美关税紧张态势持续影响全球贸易格局，市场密切关注双边贸易政策走向；地缘政治风险（俄乌、中东）继续作为全球市场的重要变量存在。"},
-      {"source": "证券时报 / 上交所", "text": "中国持续推进资本市场改革，2026年A+H两地上市数量显著增加；港股Q1 IPO融资约1099亿港元，全球居前，沪港通机制进一步优化。"}
+      {
+        "source": "NBC News / CNBC",
+        "text": "伊朗宣布开放霍尔木兹海峡供非伊朗商船通行，国际油价大幅下跌10%以上，美股受此利好强势反弹，S&P 500再创历史新高。此前中东冲突曾推动布伦特原油涨至100美元/桶上方。"
+      },
+      {
+        "source": "多家媒体",
+        "text": "中美关税紧张态势持续影响全球贸易格局，市场密切关注双边贸易政策走向；地缘政治风险（俄乌、中东）继续作为全球市场的重要变量。"
+      },
+      {
+        "source": "证券时报 / 上交所",
+        "text": "中国持续推进资本市场改革，2026年A+H两地上市数量显著增加；港股Q1 IPO融资约1099亿港元，全球居前，沪港通机制进一步优化。"
+      }
     ],
     "institution": [
-      {"source": "Goldman Sachs / Motley Fool", "text": "高盛Q1 EPS 16.22美元（同比+15%），营收预计169亿美元（+12%）；全年预测全球GDP增长2.8%，美国2.6%，维持对全球股票超配建议，认为"热估值"带来波动但收益仍将持续增长。"},
-      {"source": "Morgan Stanley", "text": "摩根士丹利Q1 EPS 3.02美元（同比+15%），营收约196亿美元（+11%）；2026年投资观点：超配股票，平配固定收益，低配大宗商品和现金，强烈偏好美国资产。"},
-      {"source": "多家媒体", "text": "摩根大通预测MSCI中国指数年内上涨约18%；汇丰私人银行预测港股恒生指数年底达31,000点；摩根士丹利王滢称2026年将是巩固中国股市"胜利果实"的一年。"}
+      {
+        "source": "Goldman Sachs",
+        "text": "高盛Q1 EPS 16.22美元（同比+15%），营收约169亿美元（+12%）；全年预测全球GDP增长2.8%，美国2.6%，维持对全球股票超配建议。"
+      },
+      {
+        "source": "Morgan Stanley",
+        "text": "摩根士丹利Q1 EPS 3.02美元（同比+15%），营收约196亿美元（+11%）；2026年观点：超配股票，强烈偏好美国资产，低配大宗商品和现金。"
+      },
+      {
+        "source": "多家媒体",
+        "text": "摩根大通预测MSCI中国指数年内上涨约18%；汇丰私人银行预测港股恒生指数年底达31,000点；摩根士丹利王滢称2026年将是巩固中国股市胜利果实的一年。"
+      }
     ],
     "stocks": [
-      {"source": "Motley Fool / CNBC", "text": "高盛（GS）和摩根士丹利（MS）Q1均超预期（EPS同比+15%），带动金融板块强势，成为近期美股主要亮点。"},
-      {"source": "Fortune", "text": "Manycore Tech（芒果科技）在港交所上市，成为港股AI概念新标的，推动AI+港股IPO主题热度上升。"},
-      {"source": "AI News / CNBC", "text": "Snap 宣布裁员1000人，AI驱动效率提升成裁员依据，科技板块人力结构调整趋势加速，市场关注AI替代对就业的深远影响。"}
+      {
+        "source": "Motley Fool / CNBC",
+        "text": "高盛（GS）和摩根士丹利（MS）Q1均超预期（EPS同比+15%），带动金融板块强势，成为近期美股主要亮点。"
+      },
+      {
+        "source": "Fortune",
+        "text": "Manycore Tech（芒果科技）在港交所上市，成为港股AI概念新标的，推动AI+港股IPO主题热度上升。"
+      },
+      {
+        "source": "AI News / CNBC",
+        "text": "Snap 宣布裁员1000人，AI驱动效率提升成裁员依据，科技板块人力结构调整趋势加速。"
+      }
     ],
     "commodity": [
-      {"source": "Trading Economics / SSGA", "text": "黄金价格升至4878美元/盎司，创近期新高；过去12个月累计涨幅达41.64%，避险需求、美元走弱及央行购金支撑金价持续强势。"},
-      {"source": "Fortune / IEA", "text": "布伦特原油4月14日触及100.19美元/桶，4月16日为97.06美元/桶；伊朗宣布开放霍尔木兹海峡后，油价大幅回落逾10%，市场供应担忧缓解。"},
-      {"source": "Physical Gold", "text": "黄金与原油2026年双双走强，但驱动因素不同：油价由中东地缘政治供应风险驱动，金价由全球避险情绪和央行需求驱动，两类资产仍受投资者青睐。"}
+      {
+        "source": "Trading Economics / SSGA",
+        "text": "黄金价格升至4878美元/盎司，创近期新高；过去12个月累计涨幅达41.64%，避险需求、美元走弱及央行购金支撑金价强势。"
+      },
+      {
+        "source": "Fortune / IEA",
+        "text": "布伦特原油4月14日触及100.19美元/桶，4月16日为97.06美元/桶；伊朗宣布开放霍尔木兹海峡后，油价大幅回落逾10%，供应担忧缓解。"
+      },
+      {
+        "source": "Physical Gold",
+        "text": "黄金与原油2026年双双走强，但驱动因素不同：油价由中东地缘政治供应风险驱动，金价由全球避险情绪和央行需求驱动。"
+      }
     ],
     "other": [
-      {"source": "证券时报", "text": "港股2026年Q1 IPO融资额约1099亿港元，全球领先，A+H双重上市成主流趋势；宁德时代、Lanxitech等龙头A股相对H股溢价已收窄至20%以内。"},
-      {"source": "STL News", "text": "AI赋能算力、数据处理和先进芯片需求持续爆发，成为2026年全球股市最主要的结构性驱动力，科技板块在全球市场中持续领跑。"},
-      {"source": "IMF WEO 2026", "text": "IMF 2026年4月《世界经济展望》下调全球增长预测，同时警示地缘政治分裂和贸易保护主义对全球经济长期增长的潜在拖累。"}
+      {
+        "source": "证券时报",
+        "text": "港股2026年Q1 IPO融资额约1099亿港元，全球领先，A+H双重上市成主流趋势；宁德时代等龙头A股相对H股溢价已收窄至20%以内。"
+      },
+      {
+        "source": "STL News",
+        "text": "AI赋能算力、数据处理和先进芯片需求持续爆发，成为2026年全球股市最主要的结构性驱动力。"
+      },
+      {
+        "source": "IMF WEO 2026",
+        "text": "IMF警示地缘政治分裂和贸易保护主义对全球经济长期增长的潜在拖累，下调2026年全球增速预测至3.1%。"
+      }
     ]
   },
   "crypto": {
     "market": [
-      {"source": "Blockchain Magazine / CoinDesk", "text": "BTC约75,997美元（-0.26%），4月17日曾突破78,000美元后回落，目前测试75K关键支撑位。贪婪恐惧指数：21（极度恐惧）。Q1机构BTC ETF净流入累计达187亿美元，BlackRock IBIT 4/17单日吸金2.84亿美元。"},
-      {"source": "Fortune / Phemex", "text": "ETH约2,343美元（4/16数据），过去六周在2,100-2,400区间震荡。DeFi TVL约940亿美元维持稳健，Aave USDC借贷利率4.2% APY，DEX日成交量约123亿美元。"},
-      {"source": "Blockchain Magazine", "text": "加密市场整体情绪偏谨慎，BTC技术面中性偏多（50%看涨），市场等待宏观信号及机构资金下一步动向。"}
+      {
+        "source": "Blockchain Magazine / CoinDesk",
+        "text": "BTC约75,997美元（-0.26%），4月17日曾突破78,000美元后回落，目前测试75K关键支撑位。贪婪恐惧指数：21（极度恐惧）。Q1机构BTC ETF净流入累计达187亿美元，BlackRock IBIT 4/17单日吸金2.84亿美元。"
+      },
+      {
+        "source": "Fortune / Phemex",
+        "text": "ETH约2,343美元，过去六周在2,100-2,400区间震荡。DeFi TVL约940亿美元，Aave USDC借贷利率4.2% APY，DEX日成交量约123亿美元。"
+      },
+      {
+        "source": "Blockchain Magazine",
+        "text": "加密市场整体情绪偏谨慎，BTC技术面中性偏多（50%看涨），市场等待宏观信号及机构资金下一步动向。"
+      }
     ],
     "news": [
-      {"source": "SEC / Sidley Austin", "text": "SEC（4月13日）发布重要声明：允许特定"用户界面提供商"在不注册经纪商的情况下运营加密资产证券交易界面，为DeFi前端合规打开突破口，条件是不得对交易结果、路由有任何自由裁量权。"},
-      {"source": "SEC / CFTC", "text": "SEC主席 Paul Atkins 与 CFTC主席 Michael Selig 签署合作备忘录，强调以"最低有效监管剂量"促进加密市场合规创新，两大监管机构协调加强。"},
-      {"source": "Blockpass / Cleary Gottlieb", "text": "2026年4月上旬，全球主要司法管辖区加速将数字资产纳入传统金融监管框架，MiCA、稳定币监管等持续落地，数字资产正式告别"监管灰色地带"。"},
-      {"source": "Blockchain Magazine", "text": "BlackRock IBIT 4月17日单日净流入2.84亿美元，机构资金持续通过合规渠道配置BTC，ETF成为主流机构建仓工具。"}
+      {
+        "source": "SEC / Sidley Austin",
+        "text": "SEC（4月13日）发布重要声明：允许特定用户界面提供商在不注册经纪商的情况下运营加密资产证券交易界面，为DeFi前端合规打开突破口。"
+      },
+      {
+        "source": "SEC / CFTC",
+        "text": "SEC主席 Paul Atkins 与 CFTC主席 Michael Selig 签署合作备忘录，强调以最低有效监管剂量促进加密市场合规创新，两大监管机构协调加强。"
+      },
+      {
+        "source": "Blockpass / Cleary Gottlieb",
+        "text": "2026年4月，全球主要司法管辖区加速将数字资产纳入传统金融监管框架，MiCA、稳定币监管等持续落地，数字资产正式告别监管灰色地带。"
+      },
+      {
+        "source": "Blockchain Magazine",
+        "text": "BlackRock IBIT 4月17日单日净流入2.84亿美元，机构资金持续通过合规渠道配置BTC，ETF成为主流机构建仓工具。"
+      }
     ],
     "onchain": [
-      {"source": "Phemex / CoinMarketCap", "text": "Ethereum Glamsterdam 升级（2026年上半年）：通过并行执行和更高Gas限制提升基础层吞吐量，改善用户体验和开发者效率。"},
-      {"source": "Phemex", "text": "Ethereum Hegota 升级（2026年下半年）：引入Verkle树实现无状态化，显著增强网络抗审查性和去中心化特性。"},
-      {"source": "CoinMarketCap AI", "text": "DeFi协议总锁仓量（TVL）维持在约940亿美元，生态整体稳健；主流协议Aave、Uniswap等持续运营，未发生重大安全事件。"}
+      {
+        "source": "Phemex",
+        "text": "Ethereum Glamsterdam 升级（2026年上半年）：通过并行执行和更高Gas限制提升基础层吞吐量，改善用户体验和开发者效率。"
+      },
+      {
+        "source": "Phemex",
+        "text": "Ethereum Hegota 升级（2026年下半年）：引入Verkle树实现无状态化，显著增强网络抗审查性和去中心化特性。"
+      },
+      {
+        "source": "CoinMarketCap AI",
+        "text": "DeFi协议总锁仓量（TVL）维持在约940亿美元，生态整体稳健；主流协议Aave、Uniswap等持续运营，未发生重大安全事件。"
+      }
     ],
     "funding": [
-      {"source": "Qubit Capital", "text": "2026年Q1全球加密风险投资总额达48亿美元，较2025年同期显著回暖，市场重燃投资热情，RWA、基础设施和稳定币赛道最受青睐。"},
-      {"source": "Peony / OpenVC", "text": "Web3投资机构2026年投资逻辑全面转变：从白皮书叙事转向链上KPI（DAU、TVL、留存率、审计状态），要求项目有清晰的代币/手续费模型，避免监管风险。"},
-      {"source": "Peony", "text": "头部基金持续活跃：Paradigm、Pantera、Coinbase Ventures、DWF Labs等持续出手；Framework Ventures管理4亿美元DeFi+游戏专项基金，Multicoin Capital聚焦Solana生态。"}
+      {
+        "source": "Qubit Capital",
+        "text": "2026年Q1全球加密风险投资总额达48亿美元，较2025年同期显著回暖，RWA、基础设施和稳定币赛道最受青睐。"
+      },
+      {
+        "source": "Peony / OpenVC",
+        "text": "Web3投资机构2026年投资逻辑全面转变：从白皮书叙事转向链上KPI（DAU、TVL、留存率、审计状态），要求项目有清晰的代币或手续费模型。"
+      },
+      {
+        "source": "Peony",
+        "text": "头部基金持续活跃：Paradigm、Pantera、Coinbase Ventures、DWF Labs等持续出手；Framework Ventures管理4亿美元DeFi+游戏专项基金。"
+      }
     ]
   }
 };
+
 </script>
 
 <script>
