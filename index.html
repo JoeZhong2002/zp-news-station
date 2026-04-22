@@ -102,99 +102,246 @@
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-04-21",
-  "updatedAt": "16:02",
+  "date": "2026-04-22",
+  "updatedAt": "16:07",
   "ai": {
     "bigtech": [
-      {"source": "CNBC", "text": "Amazon 宣布将追加最多 250 亿美元投资 Anthropic，进一步扩大 AI 云计算基础设施合作规模，在现有 80 亿美元基础上再注入资金。"},
-      {"source": "CNBC", "text": "Bezos 旗下 AI 实验室接近完成 100 亿美元融资轮，消息人士透露融资工作已进入收官阶段。"},
-      {"source": "llm-stats.com / Fortune", "text": "OpenAI 年化营收突破 250 亿美元，正进行 IPO 前期筹备（目标 2026 年底前上市）；4 月 20 日 ChatGPT 遭遇大规模宕机。"},
-      {"source": "CNBC", "text": "Meta 发布 Muse Spark（内部代号 Avocado），这是 Meta Superintelligence Labs 推出的首个重量级 AI 模型，正面对标 OpenAI、Anthropic 与 Google。"},
-      {"source": "Anthropic / llm-stats.com", "text": "Anthropic 的 Model Context Protocol（MCP）在 2026 年 3 月突破 9700 万次安装，已成为 AI 智能体连接外部工具的行业默认标准。"}
+      {
+        "source": "CNBC",
+        "text": "Meta发布Muse Spark模型(内部代号Avocado)，这是Scale AI创始人Alexandr Wang加入后首个重磅成果，目标对标OpenAI与Anthropic。"
+      },
+      {
+        "source": "llm-stats.com",
+        "text": "Anthropic向约50家合作机构发布Claude Mythos Preview(Project Glasswing计划)，聚焦网络安全漏洞检测、推理与编程能力。"
+      },
+      {
+        "source": "llm-stats.com",
+        "text": "OpenAI推出GPT-5 Turbo，支持原生图像与音频生成，文本、图像、音频融合于单一模型中。"
+      },
+      {
+        "source": "Fortune",
+        "text": "Snap CEO宣布裁员约1,000人，称AI技术进步使小团队可实现相同产出，AI已生成超65%的新代码。"
+      }
     ],
     "trends": [
-      {"source": "Holistic AI / Wilson Sonsini", "text": "全球 AI 监管 2026 年进入关键落地期：Colorado AI Act 将于 6 月 30 日生效；特朗普政府推动联邦统一框架，阻止各州零散立法。"},
-      {"source": "CNBC / Novo Nordisk", "text": "OpenAI 与丹麦药企诺和诺德达成战略合作，将 AI 全面整合至药物研发、临床试验及制造供应链，计划 2026 年底前完成全面部署。"},
-      {"source": "Fortune", "text": "反 AI 情绪上升，Sam Altman 住所遭袭击事件折射社会对 AI 浪潮深层不满；MIT Tech Review 发布图表剖析 AI 现状。"},
-      {"source": "多来源", "text": "Snap 宣布裁员约 1000 人并关闭逾 300 个职位（约削减公司规划员工总数的四分之一），CEO Evan Spiegel 明确将此归因于 AI 快速进步。"}
+      {
+        "source": "PwC",
+        "text": "PwC 2026年AI绩效研究：AI经济收益的75%被20%的头部企业获取，领先企业聚焦增长而非单纯提升生产效率。"
+      },
+      {
+        "source": "Fortune",
+        "text": "Gen Z对AI的兴奋度在一年内从36%骤降至22%，愤怒情绪从22%升至31%，主因是入门级工作岗位受AI冲击。"
+      },
+      {
+        "source": "MIT Technology Review",
+        "text": "MIT Technology Review发布2026年十大AI趋势，涵盖智能体基础设施、多模态大模型、AI监管等核心议题。"
+      },
+      {
+        "source": "World Today News",
+        "text": "Anthropic、OpenAI、Google与Microsoft在AI Agent定价策略上出现明显分化，行业议价博弈持续加剧。"
+      }
     ],
     "tech": [
-      {"source": "llm-stats.com", "text": "2026 年 Q1 重要模型发布：GPT-5.4（OpenAI，3 月）、Gemini 3.1 Pro/Flash-Lite（Google，2-3 月）、Claude Sonnet 4.6/Opus 4.6（Anthropic，2 月）、Grok 4.20 Beta 2（xAI，3 月）、Mistral Small 4。"},
-      {"source": "World Today News", "text": "Anthropic、OpenAI、Google、Microsoft 在 AI Agent 定价策略上出现明显分化，B2B 市场将进入激烈竞争阶段。"},
-      {"source": "CNBC", "text": "Marvell 与 Alphabet 合作开发新一代 TPU 及 AI 存储芯片，正面对抗英伟达 GPU，Marvell 股价单日涨逾 4%。"},
-      {"source": "Axios", "text": "OpenAI 斥资数亿美元收购科技直播脱口秀节目 TBPN，由政治操盘手 Chris Lehane 负责，加速媒体影响力布局。"}
+      {
+        "source": "fazm.ai",
+        "text": "OpenAI推出GPT-6，Google同期在Apache 2.0协议下开源Gemma 4四个变体，4月成为LLM发布最密集月份之一。"
+      },
+      {
+        "source": "fazm.ai",
+        "text": "中国开源大模型持续突破：智谱GLM-5.1(744B MoE)、阿里Qwen 3.6-Plus(1M token上下文)、Meta Llama 4 Scout(10M token)相继发布。"
+      },
+      {
+        "source": "crescendo.ai",
+        "text": "Anthropic MCP(Model Context Protocol) 3月突破9,700万次安装，已成为AI Agent领域的基础设施标准。"
+      },
+      {
+        "source": "ScienceDaily",
+        "text": "最新研究揭示新型AI架构在保持精度前提下能耗降低100倍，引发学界与产业界广泛关注。"
+      }
     ],
     "startup": [
-      {"source": "GlobeNewswire", "text": "SoundHound AI 宣布收购数字客服平台 LivePerson，整合语音 AI 与数字消息能力，每月可处理 10 亿条客户消息，打造全渠道对话 AI 平台。"},
-      {"source": "Crunchbase", "text": "2026 年 Q1 全球风险投资达 3000 亿美元，其中 AI 占 2420 亿美元（80%），创历史记录；OpenAI 累计融资规模达 1220 亿美元，估值 8520 亿美元。"},
-      {"source": "多来源", "text": "Anthropic 完成 300 亿美元 G 轮融资（GIC 和 Coatue 领投），估值 3800 亿美元，成立至今累计融资近 640 亿美元。"},
-      {"source": "多来源", "text": "马斯克 xAI 完成 200 亿美元 E 轮融资，总融资（含债权）427 亿美元；Q1 基础 AI 公司融资额已超 2025 年全年总和。"}
+      {
+        "source": "CNBC",
+        "text": "AI编程工具Cursor正与a16z、Nvidia、Thrive Capital洽谈20亿美元新融资，估值超500亿美元。"
+      },
+      {
+        "source": "Bloomberg",
+        "text": "据《金融时报》，Jeff Bezos旗下专注物理世界理解的AI实验室即将完成100亿美元融资。"
+      },
+      {
+        "source": "Crunchbase",
+        "text": "2026年Q1全球VC投资创纪录：总额3,000亿美元，AI占80%(2,420亿美元)，OpenAI单轮融资1,220亿美元领跑。"
+      },
+      {
+        "source": "crescendo.ai",
+        "text": "AI辅助医疗器械销售平台AcuityMD完成8,000万美元C轮融资，估值接近10亿美元。"
+      }
     ]
   },
   "markets": {
     "overview": [
-      {"source": "Yahoo Finance / TheStreet", "text": "4 月 21 日美股：S&P 500 报 7,100.54（-0.12%），道指报 49,400.77（-0.08%），纳指报 24,431.16（+0.11%）；市场在美伊谈判乐观情绪与油价上涨压力间震荡。"},
-      {"source": "CNBC", "text": "韩国 KOSPI 创历史新高 6,388.47（+2.72%），三星电子涨 2.1%，SK 海力士涨 4.97%，AI 芯片需求强劲带动亚洲半导体股上行。"},
-      {"source": "CNBC", "text": "日经 225 涨 0.89% 至 59,349.17；TOPIX 微跌 0.18%。"},
-      {"source": "Trading Economics / HKEX", "text": "上证综指涨约 0.5% 至 4,071；恒生指数涨 0.3% 至约 26,442；港股 IPO 市场 2026 年 Q1 融资 HK$1099 亿，同比增 489%，创近五年最佳。"}
+      {
+        "source": "Yahoo Finance",
+        "text": "美股三大指数全线上涨：纳指涨1.2%创历史新高，标普500涨0.9%，道指涨371点(+0.8%)，受特朗普延长美伊停火协议及强劲企业财报双重提振。"
+      },
+      {
+        "source": "东方财富",
+        "text": "A股午盘翻红：上证指数涨0.24%，创业板指涨0.63%，AI科技主线引领，个股情绪回暖，涨跌比2556:2768。"
+      },
+      {
+        "source": "CNBC",
+        "text": "港股恒生指数盘中涨0.3%至26,442点，但尾盘受油价大涨与地缘不确定性影响转跌，全日跌约1.19%。"
+      },
+      {
+        "source": "Bloomberg",
+        "text": "亚太市场整体随美股情绪波动，中东停火消息提供短期支撑，CSI 300涨0.66%至4,799.62点。"
+      }
     ],
     "macro": [
-      {"source": "CBS News / CNBC / NPR", "text": "Kevin Warsh 4 月 21 日出席参议院银行委员会美联储主席确认听证会，宣示货币政策保持\"严格独立\"，但市场仍忧虑其在特朗普政府压力下倾向降息。"},
-      {"source": "IEA / Fortune", "text": "中东局势主导大宗商品：WTI 原油向 89 美元冲击，布伦特高于 96 美元；IEA 指出 3 月全球供应下降 1010 万桶/日，系史上最大单月供应中断。"},
-      {"source": "FX Leaders", "text": "金价约 4770-4800 美元/盎司，受油价飙升引发通胀担忧与避险需求交织影响，在高位震荡。"}
+      {
+        "source": "Federal Reserve",
+        "text": "美联储3月FOMC维持联邦基金利率目标区间3.5%-3.75%，预计全年核心通胀缓慢回落至2%附近，就业市场风险偏向走弱。"
+      },
+      {
+        "source": "St. Louis Fed",
+        "text": "中东冲突与关税政策不确定性或压制上半年消费与投资支出，通胀与就业双重风险并存。"
+      },
+      {
+        "source": "招银研究",
+        "text": "招银研究4月权益策略：地缘拐点初现，聚焦三条主线，国内宽松政策预期延续，A股估值仍具吸引力。"
+      }
     ],
     "policy": [
-      {"source": "CNBC / TheStreet", "text": "特朗普表示美伊有望在 4 月 22 日停火期限前达成协议，并警告若谈判失败将启动军事打击；伊朗宣布霍尔木兹海峡\"完全开放\"，推动市场短暂反弹。"},
-      {"source": "Yahoo Finance", "text": "Apple 宣布 Tim Cook 将于 2026 年 9 月 1 日卸任 CEO，由硬件主管 John Ternus 接班，成为全球科技行业最受关注的领导层更迭事件。"},
-      {"source": "多来源", "text": "关税政策不确定性持续困扰市场，中美贸易关系动向和关税谈判进展仍是全球投资者的核心宏观变量。"}
+      {
+        "source": "24/7 Wall St.",
+        "text": "特朗普宣布延长美伊停火协议，带动风险资产全面上涨，VIX恐慌指数回落至19附近。"
+      },
+      {
+        "source": "CNBC",
+        "text": "分析师警告市场正误读伊朗战争相关新闻，市场情绪随停火协议进展剧烈震荡。"
+      },
+      {
+        "source": "24/7 Wall St.",
+        "text": "特朗普宣布通过ARPA-H拨款5,000万美元用于迷幻药精神疾病研究，相关概念股当日大幅上涨。"
+      }
     ],
     "institution": [
-      {"source": "CNBC / Morgan Stanley", "text": "摩根士丹利维持 Apple 增持评级，看好其即将发布的财报，指出营收上行空间受供应约束，但基本面稳健。"},
-      {"source": "CNBC / Jefferies", "text": "Jefferies 将 Tesla 目标价从 300 美元上调至 350 美元，看好 Robotaxi 在得克萨斯州的快速扩张，一季度财报将于 4 月 22 日盘后公布。"},
-      {"source": "CNBC / The Information", "text": "Marvell 与 Alphabet 合作开发新一代 TPU 芯片以替代英伟达 GPU，消息引发 Marvell 股价大涨逾 4%，半导体板块受到关注。"}
+      {
+        "source": "Goldman Sachs AM",
+        "text": "高盛资管4月市场脉搏报告：在地缘风险与美联储政策不确定性背景下，建议适度防御配置。"
+      },
+      {
+        "source": "T. Rowe Price",
+        "text": "T. Rowe Price全球市场周报：停火消息短期提振情绪，中长期需关注通胀持续性与地缘政治风险。"
+      }
     ],
     "stocks": [
-      {"source": "Yahoo Finance / Motley Fool", "text": "Apple（AAPL）：Tim Cook 宣布 9 月退休，接任者 John Ternus 来自硬件部门，市场分析其面临 AI 战略落地与产品创新的双重挑战，短期股价承压。"},
-      {"source": "CNBC / 24/7 Wall St.", "text": "Tesla（TSLA）：Jefferies 上调目标价至 350 美元；Robotaxi 扩展至达拉斯/休斯顿；一季度财报 4 月 22 日盘后公布，市场关注资本开支及自动驾驶进展。"},
-      {"source": "CNBC", "text": "SK Hynix（韩国）：AI 存储芯片需求旺盛带动股价单日涨 4.97%，是 KOSPI 创历史新高的重要推手。"},
-      {"source": "CNBC", "text": "Marvell（MRVL）：TPU 合作报道引发盘中涨逾 4%，AI 芯片生态格局多元化趋势受到关注。"}
+      {
+        "source": "Yahoo Finance",
+        "text": "波音(BA) Q1调整后亏损仅0.20美元/股(预期亏损0.83美元)，营收222.2亿美元超预期，盘前涨逾3%。"
+      },
+      {
+        "source": "新浪财经",
+        "text": "A股AI科技主线走强，以AI为核心的科技板块是4月22日市场唯一强势主线，带动指数从低开翻红。"
+      }
     ],
     "commodity": [
-      {"source": "IEA / Fortune / FX Leaders", "text": "原油：WTI 向 89 美元/桶冲击；布伦特原油约 96 美元/桶；中东局势带来极度波动，IEA 指出霍尔木兹封锁导致历史最大单月供应缺口。"},
-      {"source": "FX Leaders / Trading Economics", "text": "黄金：现货金价约 4770-4800 美元/盎司，受油价飙升推升通胀预期压制，略有回落，但仍处历史高位区间。"},
-      {"source": "多来源", "text": "能源类大宗商品整体承压：天然气、铜等跟随中东地缘局势波动，市场等待停火期限（4 月 22 日）结果落地。"}
+      {
+        "source": "Goodreturns",
+        "text": "现货黄金上涨1%至4,750美元/盎司上方，受停火延长消息提振；自美伊冲突爆发以来已累计下跌约10%。"
+      },
+      {
+        "source": "东方财富 / Trading Economics",
+        "text": "WTI原油日涨5.26%突破92美元/桶，布伦特原油日涨5.78%突破101美元/桶，中东局势主导油价走势。"
+      },
+      {
+        "source": "IEA",
+        "text": "IEA发布4月原油市场报告，警告中东地缘风险可能导致供应中断进一步加剧，需求预测维持谨慎。"
+      }
     ],
     "other": [
-      {"source": "KPMG", "text": "港股 IPO 市场 2026 年 Q1 融资 HK$1099 亿，共 40 笔上市，融资额同比增长 489%、交易数量同比增长 167%，创 2021 年以来最佳 Q1 表现。"},
-      {"source": "IMF", "text": "IMF 4 月《世界经济展望》警告：中东冲突与关税不确定性对全球增长构成下行风险，建议各国保持货币政策灵活性。"},
-      {"source": "Crunchbase", "text": "2026 年 Q1 基础 AI 公司融资额已超 2025 年全年总和，显示 AI 基础设施投资热度空前，资金集中于少数头部机构（OpenAI、Anthropic、xAI）。"}
+      {
+        "source": "Crunchbase",
+        "text": "Eclipse(Cerebras早期投资方)在SEC披露完成13亿美元募资，主攻AI基础设施、制造与国防领域。"
+      },
+      {
+        "source": "The Manila Times",
+        "text": "4月22日全球主要股票指数快报发布，亚太各市场涨跌分化，整体受中东停火消息短暂提振。"
+      }
     ]
   },
   "crypto": {
     "market": [
-      {"source": "Fortune / CoinDesk", "text": "比特币（BTC）报约 75,901 美元（北京时间 4 月 21 日上午），在 75,000 美元关键支撑位附近多空博弈；比特币现货 ETF 本月净流入超 16 亿美元，机构持续增仓。"},
-      {"source": "Fortune / Yahoo Finance", "text": "以太坊（ETH）报约 2,305-2,322 美元，较昨日微跌；Kelp DAO 黑客事件引发 DeFi 生态大规模流动性撤出，Aave TVL 单日蒸发 80 亿美元，Aave 价格暴跌 20%。"},
-      {"source": "CoinDesk", "text": "加密市场整体谨慎：美伊停火期限（4 月 22 日）是当前最大宏观催化剂，分析师预计协议达成则 BTC 冲向 80,000 美元；若局势恶化则可能回落至 65,000 美元。"},
-      {"source": "CoinDesk / 多来源", "text": "市场格局：BTC 市值约 1.33 万亿美元，ETH 约 2330 亿美元，Tether 约 1830 亿美元；比特币市场份额上升，山寨币受 DeFi 黑客事件冲击普遍承压。"}
+      {
+        "source": "Fortune / CoinDesk",
+        "text": "BTC现价约76,044美元，日涨0.98%(+737美元)；此前受美伊停火谈判不确定性拖累曾跌近75,000美元。"
+      },
+      {
+        "source": "Fortune / Zebpay",
+        "text": "ETH现价约2,305美元，关键阻力位2,400美元尚未突破，技术面仍处恢复阶段，下方支撑约2,292美元。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "比特币现货ETF 4月21日净流入2.38亿美元，连续五日正向流入，机构持续进场。"
+      },
+      {
+        "source": "CoinDesk / Bankless Times",
+        "text": "受KelpDAO黑客事件冲击，DeFi总锁定价值(TVL)从1,630亿美元暴跌至890亿美元，跌幅约45%。"
+      }
     ],
     "news": [
-      {"source": "CoinDesk / Halborn", "text": "Kelp DAO 遭遇 2026 年迄今最大 DeFi 黑客攻击：黑客利用 LayerZero 跨链桥单一验证节点漏洞，盗取 2.92 亿美元 rsETH，涉及 20 条公链，朝鲜 Lazarus Group 被指幕后参与。"},
-      {"source": "TradingView / CryptoBriefing", "text": "Arbitrum 已冻结涉案 7100 万美元 ETH；Drift 与 Kelp 两起攻击合计损失超 5 亿美元，疑似同一国家级黑客组织发动持续性攻击。"},
-      {"source": "CoinDesk", "text": "比特币现货 ETF 4 月净流入超 16 亿美元，超过上月全月流入量；机构持续买入在 Kelp 事件引发恐慌背景下显得尤为坚定。"},
-      {"source": "CoinDesk / Bankless Times", "text": "Warsh 参议院确认听证会是本周加密资产的重要宏观变量；市场将其货币政策立场（是否倾向降息）视为 BTC 短期走势的关键催化剂。"}
+      {
+        "source": "CoinDesk",
+        "text": "Strategy(前MicroStrategy)于4月20日斥资25.4亿美元购入34,164枚BTC，为2024年底以来最大单笔购买。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "白宫预计在两个月内公布美国战略比特币储备架构，拟将其纳入法律框架，正式确立国家BTC持有战略。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "SEC主席Atkins：专注融资与初创豁免的Reg Crypto新规已提交白宫OIRA，距正式发布仅剩最后一步。"
+      },
+      {
+        "source": "KuCoin / MEXC",
+        "text": "香港Web3嘉年华2026(4月20-23日)盛大举办，超200位嘉宾、150+项目参展，预计吸引5万人次参与。"
+      }
     ],
     "onchain": [
-      {"source": "Halborn / CryptoBriefing", "text": "Kelp DAO 黑客技术剖析：根本原因是 LayerZero 桥接配置采用 1-of-1 验证器模式，单一节点被攻破即可伪造大额交易，暴露跨链桥架构系统性风险。"},
-      {"source": "CoinSpot / CryptoTimes", "text": "Aave 面临成立以来最大压力测试：Kelp DAO 事件触发 DeFi 连锁去杠杆，潜在坏账最高可达 2.3 亿美元，协议紧急启动风险管理机制。"},
-      {"source": "TradingView", "text": "Arbitrum 链上紧急行动：在链上冻结涉案 7100 万美元 ETH，是去中心化网络主动配合安全响应的罕见案例，引发关于区块链\"可变性\"的讨论。"}
+      {
+        "source": "CoinDesk / Bankless Times",
+        "text": "KelpDAO跨链桥遭黑客攻击损失2.92亿美元，LayerZero模块化安全配置错误被指为根因，Aave产生约1.95亿美元坏账。"
+      },
+      {
+        "source": "Bankless Times",
+        "text": "2026年4月单月加密安全事件损失已达6.06亿美元，全年累计超17.1亿美元；DeFi社区出现'DeFi已死'声音。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "以太坊Q1 2026链上交易量突破2.004亿笔，为有史以来最繁忙季度，较2023年低点翻倍。"
+      }
     ],
     "funding": [
-      {"source": "Cryip.co", "text": "2026 年 Q1 全球 Web3 与加密行业融资 92.7 亿美元，共 255 笔交易，资金主要流向基础设施层、DeFi 协议及 AI 与区块链交叉项目。"},
-      {"source": "The Block", "text": "Based 完成 1150 万美元 A 轮融资：Pantera Capital 领投，Coinbase Ventures、Wintermute Ventures 参投；Based 是基于 Hyperliquid 构建的 Web3 交易与支付超级应用。"},
-      {"source": "CoinDesk", "text": "比特币现货 ETF 4 月持续大额净流入（>16 亿美元），显示传统金融机构在市场波动期仍维持强买入意愿，Kelp 事件后 ETF 成为相对 DeFi 的\"安全港\"。"}
+      {
+        "source": "CoinDesk",
+        "text": "Bitmine以超2.3亿美元单周购入101,627枚ETH，ETH持仓接近500万枚，创今年最大单周机构积累记录。"
+      },
+      {
+        "source": "TechCabal",
+        "text": "尼日利亚Web3初创(含加密、区块链与稳定币Fintech) 2025年融资达4,300万美元，较上年翻倍增长。"
+      },
+      {
+        "source": "CFTC",
+        "text": "CFTC于4月10日公布创新工作组成员名单，将为加密资产与区块链创新企业制定清晰监管框架。"
+      },
+      {
+        "source": "Fox Rothschild / SEC",
+        "text": "SEC与CFTC联合发布MOU监管协调备忘录，明确双机构在加密资产领域分工，被视为美国加密监管里程碑。"
+      }
     ]
   }
 };
+
 </script>
 
 <script>
