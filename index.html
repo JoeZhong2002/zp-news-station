@@ -3,395 +3,366 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZP News Station | 每日三合一日报</title>
+<title>ZP News Station — 每日三合一日报</title>
 <style>
   :root {
     --bg: #0f1117;
-    --card: #1a1d27;
-    --card2: #22263a;
-    --border: #2e3347;
-    --accent-ai: #6c63ff;
-    --accent-market: #00c896;
-    --accent-crypto: #f7931a;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --border: #2e3250;
     --text: #e2e8f0;
-    --text-muted: #8892a4;
-    --tag-bg: #2e3347;
+    --muted: #8892a4;
+    --ai: #6366f1;
+    --ai-light: #818cf8;
+    --markets: #10b981;
+    --markets-light: #34d399;
+    --crypto: #f59e0b;
+    --crypto-light: #fbbf24;
+    --tag-bg: rgba(255,255,255,0.06);
+    --radius: 12px;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, 'PingFang SC', 'Microsoft YaHei', sans-serif; min-height: 100vh; }
-  header { background: linear-gradient(135deg, #1a1d27 0%, #0f1117 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; backdrop-filter: blur(10px); }
-  .logo { font-size: 22px; font-weight: 800; background: linear-gradient(90deg, #6c63ff, #00c896, #f7931a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-  .meta { font-size: 13px; color: var(--text-muted); }
-  .meta span { color: var(--text); font-weight: 600; }
-  nav { display: flex; gap: 6px; padding: 16px 32px; background: var(--card); border-bottom: 1px solid var(--border); overflow-x: auto; }
-  nav button { background: var(--tag-bg); color: var(--text-muted); border: 1px solid var(--border); padding: 7px 18px; border-radius: 20px; cursor: pointer; font-size: 13px; white-space: nowrap; transition: all 0.2s; }
-  nav button:hover, nav button.active { background: var(--accent-ai); color: #fff; border-color: var(--accent-ai); }
-  nav button[data-tab="markets"].active { background: var(--accent-market); border-color: var(--accent-market); }
-  nav button[data-tab="crypto"].active { background: var(--accent-crypto); border-color: var(--accent-crypto); }
-  main { max-width: 1200px; margin: 0 auto; padding: 24px 24px 60px; }
-  .section { display: none; }
-  .section.active { display: block; }
-  .section-header { margin-bottom: 20px; }
-  .section-title { font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-  .section-title .icon { font-size: 28px; }
-  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 16px; }
-  .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; transition: border-color 0.2s, transform 0.15s; }
-  .card:hover { border-color: var(--accent-ai); transform: translateY(-2px); }
-  .card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
-  .cat-tag { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; text-transform: uppercase; padding: 3px 10px; border-radius: 20px; background: var(--tag-bg); color: var(--accent-ai); }
-  .markets .cat-tag { color: var(--accent-market); }
-  .crypto-section .cat-tag { color: var(--accent-crypto); }
-  .news-list { list-style: none; }
-  .news-item { padding: 11px 0; border-bottom: 1px solid var(--border); }
-  .news-item:last-child { border-bottom: none; }
-  .news-source { font-size: 11px; color: var(--accent-ai); font-weight: 600; margin-bottom: 4px; }
-  .markets .news-source { color: var(--accent-market); }
-  .crypto-section .news-source { color: var(--accent-crypto); }
-  .news-text { font-size: 14px; line-height: 1.6; color: var(--text); }
-  .ticker-bar { background: var(--card2); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px; margin-bottom: 20px; overflow: hidden; }
-  .ticker-content { display: flex; gap: 28px; flex-wrap: wrap; }
-  .ticker-item { font-size: 13px; display: flex; gap: 8px; align-items: center; }
-  .ticker-label { color: var(--text-muted); }
-  .ticker-val { font-weight: 700; }
-  .up { color: #00c896; }
-  .down { color: #ff5555; }
-  .neutral { color: #f7931a; }
-  footer { text-align: center; padding: 20px; font-size: 12px; color: var(--text-muted); border-top: 1px solid var(--border); margin-top: 40px; }
-  @media (max-width: 600px) { header { padding: 14px 16px; } main { padding: 16px; } .grid { grid-template-columns: 1fr; } }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    min-height: 100vh;
+  }
+
+  /* Header */
+  .site-header {
+    background: linear-gradient(135deg, #1a1d27 0%, #16182a 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .site-header h1 { font-size: 20px; font-weight: 700; letter-spacing: -0.5px; }
+  .site-header h1 span { color: var(--ai-light); }
+  .header-meta { color: var(--muted); font-size: 13px; text-align: right; }
+  .live-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--markets-light); animation: pulse 2s infinite; margin-right: 5px; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.3} }
+
+  /* Tab nav */
+  .tab-nav {
+    display: flex;
+    gap: 4px;
+    padding: 16px 32px 0;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+  }
+  .tab-btn {
+    padding: 10px 20px;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid transparent;
+    border-bottom: none;
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.2s;
+    position: relative;
+    bottom: -1px;
+  }
+  .tab-btn:hover { color: var(--text); background: var(--surface2); }
+  .tab-btn.active { background: var(--bg); border-color: var(--border); color: var(--text); }
+  .tab-btn.ai.active { color: var(--ai-light); }
+  .tab-btn.markets.active { color: var(--markets-light); }
+  .tab-btn.crypto.active { color: var(--crypto-light); }
+
+  /* Main layout */
+  .main { padding: 28px 32px; max-width: 1100px; margin: 0 auto; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* Section grid */
+  .section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(480px, 1fr));
+    gap: 18px;
+    margin-top: 4px;
+  }
+
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 14px 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface2);
+  }
+  .card-header .icon { font-size: 16px; }
+  .card-header h3 { font-size: 14px; font-weight: 600; flex: 1; }
+  .count-badge {
+    font-size: 11px;
+    color: var(--muted);
+    background: var(--tag-bg);
+    padding: 2px 8px;
+    border-radius: 20px;
+  }
+  .card-body { padding: 14px 18px; }
+
+  .news-item {
+    display: flex;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    align-items: flex-start;
+  }
+  .news-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .news-dot { width: 6px; height: 6px; border-radius: 50%; margin-top: 7px; flex-shrink: 0; }
+  .ai .news-dot { background: var(--ai-light); }
+  .markets .news-dot { background: var(--markets-light); }
+  .crypto .news-dot { background: var(--crypto-light); }
+  .news-content { flex: 1; }
+  .news-source {
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+  .news-text { color: var(--text); font-size: 13.5px; line-height: 1.55; }
+
+  /* Overview card full-width */
+  .full-width { grid-column: 1 / -1; }
+
+  /* Footer */
+  .site-footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--muted);
+    font-size: 12px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+  .site-footer a { color: var(--ai-light); text-decoration: none; }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">📡 ZP News Station</div>
-  <div class="meta">更新于 <span id="updated-at">—</span> · <span id="report-date">—</span></div>
+<header class="site-header">
+  <h1>📡 ZP <span>News</span> Station</h1>
+  <div class="header-meta">
+    <div><span class="live-dot"></span>每日三合一日报</div>
+    <div id="header-date"></div>
+    <div id="header-time"></div>
+  </div>
 </header>
 
-<nav>
-  <button class="active" data-tab="ai" onclick="switchTab('ai')">🤖 AI科技</button>
-  <button data-tab="markets" onclick="switchTab('markets')">📈 资本市场</button>
-  <button data-tab="crypto" onclick="switchTab('crypto')">🪙 Crypto</button>
+<nav class="tab-nav">
+  <button class="tab-btn ai active" onclick="showTab('ai')">🤖 AI 科技</button>
+  <button class="tab-btn markets" onclick="showTab('markets')">📈 资本市场</button>
+  <button class="tab-btn crypto" onclick="showTab('crypto')">🪙 Crypto</button>
 </nav>
 
-<main>
-  <!-- AI Section -->
-  <div id="tab-ai" class="section active">
-    <div class="section-header">
-      <div class="section-title"><span class="icon">🤖</span> AI 科技日报</div>
+<main class="main">
+  <!-- AI TAB -->
+  <div class="tab-panel ai active" id="tab-ai">
+    <div class="section-grid">
+      <div class="card ai" id="card-bigtech"></div>
+      <div class="card ai" id="card-trends"></div>
+      <div class="card ai" id="card-tech"></div>
+      <div class="card ai" id="card-startup"></div>
     </div>
-    <div class="grid" id="ai-grid"></div>
   </div>
 
-  <!-- Markets Section -->
-  <div id="tab-markets" class="section markets">
-    <div class="section-header">
-      <div class="section-title"><span class="icon">📈</span> 全球资本市场</div>
+  <!-- MARKETS TAB -->
+  <div class="tab-panel markets" id="tab-markets">
+    <div class="section-grid">
+      <div class="card markets full-width" id="card-overview"></div>
+      <div class="card markets" id="card-macro"></div>
+      <div class="card markets" id="card-policy"></div>
+      <div class="card markets" id="card-institution"></div>
+      <div class="card markets" id="card-stocks"></div>
+      <div class="card markets" id="card-commodity"></div>
+      <div class="card markets" id="card-other"></div>
     </div>
-    <div class="ticker-bar">
-      <div class="ticker-content" id="ticker"></div>
-    </div>
-    <div class="grid" id="markets-grid"></div>
   </div>
 
-  <!-- Crypto Section -->
-  <div id="tab-crypto" class="section crypto-section">
-    <div class="section-header">
-      <div class="section-title"><span class="icon">🪙</span> Crypto 市场</div>
+  <!-- CRYPTO TAB -->
+  <div class="tab-panel crypto" id="tab-crypto">
+    <div class="section-grid">
+      <div class="card crypto full-width" id="card-market"></div>
+      <div class="card crypto" id="card-news"></div>
+      <div class="card crypto" id="card-onchain"></div>
+      <div class="card crypto" id="card-funding"></div>
     </div>
-    <div class="ticker-bar">
-      <div class="ticker-content" id="crypto-ticker"></div>
-    </div>
-    <div class="grid" id="crypto-grid"></div>
   </div>
 </main>
 
-<footer>ZP News Station · 由 Claude AI 自动生成 · 数据来源于公开新闻 · 仅供参考，不构成投资建议</footer>
+<footer class="site-footer">
+  自动生成 · 数据来源：TechCrunch、Bloomberg、TheStreet、Yahoo Finance、CoinDesk、CNBC、Fortune 等 ·
+  <a href="https://JoeZhong2002.github.io/zp-news-station" target="_blank">公开网址</a>
+</footer>
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-05-04",
-  "updatedAt": "16:08",
+  "date": "2026-05-05",
+  "updatedAt": "16:07",
   "ai": {
     "bigtech": [
-      {
-        "source": "CNN/Breaking Defense",
-        "text": "五角大楼与OpenAI、Google、Microsoft、Amazon、NVIDIA、SpaceX、Oracle、Reflection AI签署AI保密协议，部署于IL6/IL7军事分类网络。Anthropic因拒绝允许自主武器用途被列为供应链风险而遭排除，目前正在起诉该认定。"
-      },
-      {
-        "source": "CNBC",
-        "text": "Anthropic正与投资者洽谈以9000亿美元估值融资，超越OpenAI。此前Google宣布最高投资Anthropic达400亿美元（现金及算力）。"
-      },
-      {
-        "source": "TechCrunch/CNBC",
-        "text": "Google宣布对Anthropic进行最高400亿美元的现金及算力投资，并在Anthropic Series G中领投，进一步巩固其在AI赛道的多元布局。"
-      },
-      {
-        "source": "Crunchbase",
-        "text": "OpenAI在1100亿美元超级融资轮基础上再追加100亿，总融资额至2026年3月底已达1220亿美元。"
-      }
+      {"source": "TechCrunch", "text": "Anthropic 与 OpenAI 同日宣布企业级 AI 合资公司。Anthropic 联合 Blackstone、Hellman & Friedman、Goldman Sachs 成立合资企业，估值 15 亿美元；OpenAI 成立"The Development Company"，获 19 家投资方共 40 亿美元注资，整体估值 100 亿美元。"},
+      {"source": "Anthropic", "text": "推出 Claude Design，支持用户与 Claude 协作完成设计、原型、幻灯片等视觉创作任务，这是 Anthropic Labs 旗下全新产品。"},
+      {"source": "The Hill", "text": "Microsoft、Google、xAI 三家 AI 公司宣布在模型部署前向美国联邦政府开放模型测试权限，建立政府早期审查机制。"},
+      {"source": "TechCrunch", "text": "Google 宣布对 Anthropic 追加投资，累计承诺金额最高达 400 亿美元（现金与算力结合），进一步巩固战略合作关系。"}
     ],
     "trends": [
-      {
-        "source": "Deloitte/Gartner",
-        "text": "AI商业化加速：2025年员工AI访问率上升50%，Gartner预测2026年40%企业应用将使用任务型AI代理（较2025年5%大幅增长），GenAI年均消费者价值达1720亿美元。"
-      },
-      {
-        "source": "Wilson Sonsini/Baker Donelson",
-        "text": "美国AI监管博弈加剧：科罗拉多州AI法案6月30日生效，要求部署者防范算法歧视并进行影响评估；欧盟AI法案高风险系统条款8月起执行。"
-      },
-      {
-        "source": "Stanford HAI",
-        "text": "斯坦福2026年AI指数报告显示：AI技能缺口是企业整合AI最大障碍，教育培训为第一应对策略，AI治理从试验走向生产落地。"
-      }
+      {"source": "Wilson Sonsini / Kanerika", "text": "AI 监管从"原则"走向"可执法规则"：科罗拉多 AI 法案将于 2026 年 6 月 30 日生效；加州《前沿 AI 透明法》（SB 53）已于 2026 年初生效，要求开发商公开安全框架并上报安全事件。"},
+      {"source": "Corporate Compliance Insights", "text": "美国白宫设立"AI 诉讼工作组"，主动起诉加州、科罗拉多等州 AI 安全立法，以"妨碍州际商业"为由推动联邦统一监管框架。"},
+      {"source": "Baker Donelson", "text": "企业级 Agentic AI 采用率加速，预测 2026 年智能体 AI 占 IT 支出比例将达 10–15%，从实验阶段进入实际落地。"},
+      {"source": "Credo AI", "text": "网络保险公司开始将 AI 治理能力（对抗性红队测试、模型风险评估）作为承保条件，AI 合规正成为企业必须立即落地的现实需求。"}
     ],
     "tech": [
-      {
-        "source": "Anthropic/CNBC",
-        "text": "Anthropic发布Claude Opus 4.7（4月16日），在高级软件工程、多学科推理、大规模工具调用和计算机操控等基准全面超越4.6，首次支持高分辨率图像（最高2576px/3.75MP），定价不变$5/$25每百万token。"
-      },
-      {
-        "source": "Anthropic/CNBC",
-        "text": "Anthropic推出Claude Mythos Preview，具备高级网络安全能力，目前仅向少数选定企业开放，被称为当前最强大的Claude模型，比Opus 4.7更广泛具备能力。"
-      },
-      {
-        "source": "llm-stats.com",
-        "text": "2026年5月LLM竞争格局持续升温，多家厂商密集发布新模型，专用化LLM产品在医疗和法律领域显示出更强的市场吸引力。"
-      }
+      {"source": "llm-stats.com", "text": "OpenAI GPT-5.5 于 4 月 23 日正式发布，在 Agentic 编程、计算机操作及企业知识工作方面实现重大突破，是目前 OpenAI 构建的 Agentic 能力最强模型。"},
+      {"source": "llm-stats.com", "text": "Google Gemini 3.1 Ultra 发布，支持 200 万 token 上下文，原生多模态（视频、音频、文本同时）推理能力业界领先，挑战 OpenAI 与 Anthropic。"},
+      {"source": "Google DeepMind", "text": "发布 AlphaEvolve：将 Gemini LLM 与进化算法结合，系统可自动发现解决未解数学问题的新算法，不断迭代优化。"},
+      {"source": "MarkTechPost", "text": "Sakana AI 发布 KAME，这是一种实时注入 LLM 知识的串联语音转语音架构，在语音 AI 领域取得技术突破。"},
+      {"source": "InfoQ", "text": "Cloudflare 推出高性能 LLM 推理基础设施，大幅降低企业规模化部署大模型的门槛与成本。"}
     ],
     "startup": [
-      {
-        "source": "Crunchbase",
-        "text": "2026年Q1基础AI初创融资额是2025年全年两倍，资金高度集中于OpenAI、Anthropic、xAI等头部企业，AI融资马太效应显著加剧。"
-      },
-      {
-        "source": "AI Funding Tracker",
-        "text": "前Meta AI负责人Yann LeCun联合创立AMI Labs，成立仅4个月完成10.3亿美元种子轮融资（估值35亿美元），专注用JEPA架构构建世界模型。"
-      },
-      {
-        "source": "CNBC",
-        "text": "Meta、Google、OpenAI等大厂高级员工大批离职创业，获顶级VC青睐，2026年至今已有188亿美元投入2025年后成立的AI初创公司。"
-      }
+      {"source": "CNBC", "text": "Bret Taylor 旗下 AI 客服公司 Sierra 完成近 10 亿美元新一轮融资，估值达 158 亿美元，由 Tiger Global 和 GV（谷歌风投）领投，是近期最大 AI 初创融资之一。"},
+      {"source": "blog.mean.ceo", "text": "Parallel 完成 2.3 亿美元融资，估值 20 亿美元，专注为 AI 智能体构建网页搜索基础设施，AI Agent 基础设施赛道持续升温。"},
+      {"source": "VentureBeat", "text": "机器人与物理 AI 领域 2025 年融资额创纪录达 276 亿美元（同比翻倍），Skild AI 于 2026 年 1 月获近 14 亿美元融资，估值超 140 亿美元，为机器人基础模型方向。"}
     ]
   },
   "markets": {
     "overview": [
-      {
-        "source": "TheStreet/Yahoo Finance",
-        "text": "5月4日美股小幅下跌：道指跌0.4%，标普500跌0.18%，纳斯达克基本持平。此前5月1日（上周五）标普500和纳指双双创历史新高，本周因伊朗袭击美巡逻艇消息而承压。"
-      },
-      {
-        "source": "aastocks/东方财富",
-        "text": "港股5月4日逆势走强：恒生指数涨1.7%报26,216点，恒生科技指数涨2.9%报5,010点，国企指数涨1.6%报8,824点。A股因五一假期休市至5月6日恢复。"
-      }
+      {"source": "TheStreet", "text": "5 月 5 日（周二）美股主要指数小幅上涨：标普 500 +0.55%，道指 +0.55%，纳斯达克 +0.70%，罗素 2000 -0.60%。市场受中东局势缓和（美伊紧张态势降温）提振，风险偏好回升。"},
+      {"source": "Yahoo Finance", "text": "纳斯达克与标普 500 曾于 5 月 1 日创收盘历史新高，科技股 AI 行情持续推动指数走强。苹果（AAPL）单日大涨。"},
+      {"source": "Investtech", "text": "亚太市场方面，因中东局势紧张于 5 月 4 日拖累亚太股市，今日随美股反弹情绪有所改善，具体数据持续更新中。"}
     ],
     "macro": [
-      {
-        "source": "iShares/ING Think",
-        "text": "美联储利率维持3.50%-3.75%，鲍威尔任期5月15日届满，新主席接任后预计年内降息1-2次，目标区间约3%-3.25%。"
-      },
-      {
-        "source": "ECB/ING Think",
-        "text": "欧洲央行存款利率维持2.15%，市场已充分消化年内三次加息预期，首次加息或在6月，与美联储形成方向分化。"
-      },
-      {
-        "source": "Goldman Sachs",
-        "text": "高盛预测全球GDP增速2.8%（高于共识2.5%），美国增速2.6%强于全球均值，受益于关税拖累减弱、减税政策及宽松金融条件。"
-      }
+      {"source": "Fortune / Bloomberg", "text": "原油价格高位震荡：WTI 原油 104.10 美元/桶（日跌 -2.22%），布伦特原油 112.90 美元/桶（-1.38%）。此前 5 月 4 日因美伊冲突大幅拉升，布伦特一度冲至 114 美元——2022 年中以来新高，今日随局势缓和有所回落。"},
+      {"source": "Investing.com", "text": "黄金期货报 4527.16 美元/盎司，跌幅 -2.53%。避险需求随地缘政治边际缓和而回落，黄金承压。"},
+      {"source": "Vanguard", "text": "能源价格冲击令全球央行货币政策前景复杂化：通胀预期重新升温，美联储和欧央行降息路径面临再评估压力。"}
     ],
     "policy": [
-      {
-        "source": "Wikipedia/CNBC/Fortune",
-        "text": "美伊战争与霍尔木兹海峡危机：IEA称其为历史上最大石油供应中断，伊朗拒绝重开海峡直至美海军撤离，特朗普自由项目护航计划遭遇对峙，局势持续僵持。"
-      },
-      {
-        "source": "Goldman Sachs/Morgan Stanley",
-        "text": "一个宏伟法案带来1290亿美元企业减税（2026-2027年），成为支撑美股盈利增长的核心政策利好；中美贸易关税拖累因素正在减弱。"
-      }
+      {"source": "TheStreet / CNN", "text": "美军与伊朗在霍尔木兹海峡发生直接军事冲突：伊朗向美军舰艇开火，美军随后摧毁六艘伊朗快艇。国防部长 Hegseth 强调美国将确保霍尔木兹海峡国际航运安全。"},
+      {"source": "CNN Business", "text": "五角大楼宣布与 8 家科技巨头签署 AI 合作协议，Anthropic 不在名单内——此前已有独立合作渠道——引发行业对政府 AI 采购策略的广泛讨论。"},
+      {"source": "TheStreet（5 月 4 日）", "text": "地缘政治风险于 5 月 4 日导致道指和罗素 2000 下跌，油价飙升，阿联酋成功拦截伊朗来袭导弹使局势短暂升级后有所缓和。"}
     ],
     "institution": [
-      {
-        "source": "Goldman Sachs",
-        "text": "高盛维持超配美股建议，看好AI投资驱动盈利增长；警示市场估值偏高可能带来波动；预测美股将在AI投资周期中创历史新高，预测2026年全年美股涨幅6%。"
-      },
-      {
-        "source": "Morgan Stanley",
-        "text": "摩根士丹利建议超配美股对比欧洲和新兴市场，看好减税+美联储降息+AI效率收益三重驱动力，认为欧股和新兴市场面临结构性挑战。"
-      },
-      {
-        "source": "PYMNTS/The Block",
-        "text": "高盛向SEC申请新比特币ETF；SEC将加密ETF审批周期从240天压缩至75天，Bitwise预测年内逾100只新加密ETF将推出。"
-      }
+      {"source": "ARK Invest / CoinDesk", "text": "ARK Invest 发布报告，预测比特币市值将在 2030 年达到 16 万亿美元，机构持续配置需求是核心驱动力。"},
+      {"source": "Vanguard", "text": "当前油价冲击正改变全球央行对通胀路径的判断，ECB 和美联储的降息时间表均面临不确定性，机构需重新评估固收配置策略。"}
     ],
     "stocks": [
-      {
-        "source": "Yahoo Finance",
-        "text": "苹果（AAPL）上涨助推上周五纳指和标普500双双创历史新高；本周因地缘政治扰动有所回落，整体科技股表现依然强势。"
-      },
-      {
-        "source": "Yahoo Finance",
-        "text": "半导体板块延续强势，NVIDIA等AI芯片龙头持续获机构增持，受益于Pentagon AI合约签署及企业AI需求爆发。"
-      }
+      {"source": "TheStreet", "text": "Intel（INTC）大涨约 10%：彭博社报道苹果与英特尔、三星就在美国本土制造主处理器进行早期谈判，或为苹果在美制造战略的重要一步。"},
+      {"source": "TheStreet", "text": "PayPal（PYPL）跌逾 10%：Q1 业绩好于预期，但公司对当季展望保守令市场失望，股价大幅回调。"}
     ],
     "commodity": [
-      {
-        "source": "CNBC",
-        "text": "黄金：现货黄金跌0.2%至4,606美元/盎司，期货跌0.6%至4,617美元；白银涨0.5%至75.69美元，铂金涨0.8%至2,003.90美元，美伊局势和通胀预期共同影响贵金属走向。"
-      },
-      {
-        "source": "CNBC/Fortune",
-        "text": "原油：价格维持100美元/桶以上，霍尔木兹海峡封锁已使油价较战前上涨约60%，布伦特曾突破120美元/桶，伊朗石油出口大幅下滑、存储接近上限。"
-      }
+      {"source": "Fortune / OilPrice", "text": "WTI 原油 104.10 美元/桶（-2.22%），布伦特原油 112.90 美元/桶（-1.38%）；此前 5 月 4 日因美伊冲突油价大幅拉升，今日随局势缓和回落但仍维持高位。"},
+      {"source": "Investing.com", "text": "黄金期货 4527.16 美元/盎司（-2.53%），避险资产在地缘风险边际降低时承压，短期或延续波动。"},
+      {"source": "Yahoo Finance", "text": "比特币（BTC）今日 +2.3%，报 80,740 美元，与大宗商品市场走势出现分化，反映加密市场正主导独立的风险偏好行情。"}
     ],
     "other": [
-      {
-        "source": "The Block/Datos Insights",
-        "text": "BlackRock iShares Bitcoin Trust ETF资产管理规模突破500亿美元，成全球最大现货BTC ETF，机构入场加速，监管清晰度是最大催化剂（Goldman Sachs调查显示32%机构视之为主要催化剂）。"
-      },
-      {
-        "source": "Hipther/April 30",
-        "text": "区块链与金融动态：Dunamu、Hana Financial、Ripple、Galaxy Digital、Modern Treasury、KuCoin Web3、Ondo等机构4月底密集发布合作和产品更新。"
-      }
+      {"source": "Bullish / Reuters", "text": "加密平台 Bullish 宣布以 42 亿美元收购英国金融科技公司 Equiniti，进一步扩大代币化证券基础设施布局，传统金融与加密世界加速融合。"},
+      {"source": "DTCC", "text": "华尔街清算机构 DTCC 宣布推出代币化证券平台，预计 7 月进行试点、10 月正式发布，标志着主流金融基础设施向链上迁移进程加速。"}
     ]
   },
   "crypto": {
     "market": [
-      {
-        "source": "Yahoo Finance/Fortune",
-        "text": "BTC：5月4日开盘78,543美元，日内一度突破80,000美元后回落，现报78,951-79,932美元；ETF资金流入持续，但CryptoQuant数据显示链上现货需求偏弱。"
-      },
-      {
-        "source": "Yahoo Finance/CryptoTicker",
-        "text": "ETH：开盘2,322美元，较昨日小幅上涨0.3%，现价约2,322-2,340美元。Polymarket显示本月BTC触及90,000美元概率仅23%，市场整体震荡筑底。"
-      }
+      {"source": "Fortune / CoinStats", "text": "比特币（BTC）5 月 5 日报 81,286 美元，自 1 月 31 日以来首次站上 8 万美元，重新收复\"牛市支撑带\"——这是过去六个月来的技术面重要突破。"},
+      {"source": "Yahoo Finance / Finance Magnates", "text": "BTC 突破 8 万美元契机：美伊局势缓和（Trump \"Project Freedom\" 公告）引发全球风险资产普涨，ETH 及其他主流山寨币同步跟涨，市场情绪明显回暖。"},
+      {"source": "24/7 Wall St.", "text": "比特币正式重新站上牛市支撑带（Bull Market Support Band），这是过去六个月来的首次，技术面信号积极，关注后续能否守住关键位。"}
     ],
     "news": [
-      {
-        "source": "SEC.gov/The Block",
-        "text": "SEC与CFTC于3月17日联合发布加密资产适用联邦证券法指引，16种加密货币（SOL、XRP、ADA、LINK、AVAX、DOT等）被明确归类为商品，扫清现货ETF申请主要障碍。"
-      },
-      {
-        "source": "PYMNTS/Datos Insights",
-        "text": "高盛向SEC申请新比特币ETF，BlackRock iShares BTC ETF规模达500亿美元成最大现货BTC ETF。SEC审批加速，Bitwise预计年内逾100只加密ETF推出。"
-      },
-      {
-        "source": "The Block",
-        "text": "日本加密监管框架修订完成，成全球DeFi参与法律环境最清晰市场之一，SBI Holdings、MUFG等主要金融机构开始大规模入场DeFi。"
-      }
+      {"source": "CoinDesk / Forvis Mazars", "text": "美国 SEC 和 CFTC 于 2026 年 3 月 17 日联合发布历史性加密资产监管框架，建立首个联邦级数字资产分类体系，明确大多数加密资产不属于证券，为行业提供重大监管确定性。"},
+      {"source": "Skadden / Cleary Gottlieb", "text": "GENIUS 法案正式通过，成为美国首个全面联邦稳定币监管框架，涵盖储备要求、赎回机制和信息披露标准，稳定币有望进入主流金融体系。"},
+      {"source": "spotedcrypto / CoinStats", "text": "美国现货比特币 ETF 周五单日净流入超 6 亿美元，连续五周正向净流入，2026 年 4 月是年内最强月份，累计净流入达 24.4 亿美元，机构资金持续涌入。"}
     ],
     "onchain": [
-      {
-        "source": "CryptoChainBlog",
-        "text": "账户抽象技术普及，消除助记词需求，加密钱包操作如同使用电子邮件一样便捷；Gas代付让dApp开发者可补贴用户交易费用，大幅降低Web3上手门槛。"
-      },
-      {
-        "source": "Hipther/Revli",
-        "text": "KuCoin Web3与Ondo合作将代币化股票做成钱包原生产品；RWA代币化成为2026年最受VC关注的链上赛道，预测市场规模有望达2400亿美元。"
-      }
+      {"source": "DL News", "text": "DeFi 借贷协议 Aave 向法院申请阻止美国政府没收 7100 万美元加密资产（涉及朝鲜相关指控），开创 DeFi 协议主动通过法律途径维权的先例。"},
+      {"source": "blocsys / Ethereum", "text": "以太坊 zkEVM 和 zkSync 扩容方案持续推进，支持每秒数千笔交易，Gas 费降至分钱级别，为 DeFi 和链游大规模普及铺路。"},
+      {"source": "DTCC / TheBlock", "text": "华尔街 DTCC 将于 7 月启动代币化证券试点，Bullish 以 42 亿美元收购 Equiniti，传统金融机构加速接入链上基础设施。"}
     ],
     "funding": [
-      {
-        "source": "Qubit Capital/OpenVC",
-        "text": "2026年Web3 VC明显转向真实用例：DeFi、现实资产代币化（RWA）、区块链基础设施和合规稳定币成融资重点；2025年Q1 DeFi融资7.63亿美元，创2022年底以来最强季度。"
-      },
-      {
-        "source": "CoinDesk/CryptoCoinShow",
-        "text": "Consensus 2026迈阿密大会即将召开，预计汇聚2万+加密/金融/科技/政策高管，聚焦下一代全球经济议题，或成重要融资与政策对话场景。"
-      }
+      {"source": "The Block", "text": "Solana 质押 ETF 上市首月 AUM 突破 10 亿美元，显示机构对 SOL 生态的配置需求旺盛，Solana 生态作为 ETH 最强竞争者地位进一步巩固。"},
+      {"source": "Cleary Gottlieb", "text": "数字资产财库公司（Digital Asset Treasury Companies）2025 年共融资 290 亿美元，超 100 家上市公司持有加密资产，企业资产负债表配置比特币已成趋势。"},
+      {"source": "CoinDesk", "text": "比特币+以太坊现货 ETF 累计净流入 310 亿美元，交易量约 8800 亿美元，成为合规机构配置加密资产的核心工具。ARK Invest 预测 BTC 市值将在 2030 年达 16 万亿美元。"}
     ]
   }
 };
-
 </script>
 
 <script>
-function switchTab(tab) {
-  document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-  document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + tab).classList.add('active');
-  document.querySelector(`[data-tab="${tab}"]`).classList.add('active');
+// Tab switching
+function showTab(name) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  document.querySelector('.tab-btn.' + name).classList.add('active');
 }
 
-const AI_CATS = {
-  bigtech:  { label: '大厂动态', icon: '🏢' },
-  trends:   { label: '行业趋势', icon: '📊' },
-  tech:     { label: '前沿技术', icon: '🔬' },
-  startup:  { label: '初创公司', icon: '🚀' }
+// Render functions
+const SECTION_META = {
+  // AI
+  bigtech:  { icon: '🏢', label: '大厂动态', tab: 'ai' },
+  trends:   { icon: '📊', label: '行业趋势', tab: 'ai' },
+  tech:     { icon: '🔬', label: '前沿技术', tab: 'ai' },
+  startup:  { icon: '🚀', label: '初创公司', tab: 'ai' },
+  // Markets
+  overview:    { icon: '🌐', label: '全球市场概览', tab: 'markets' },
+  macro:       { icon: '📉', label: '宏观经济', tab: 'markets' },
+  policy:      { icon: '🏛️', label: '政策·政治', tab: 'markets' },
+  institution: { icon: '🏦', label: '机构动态', tab: 'markets' },
+  stocks:      { icon: '📋', label: '个股异动', tab: 'markets' },
+  commodity:   { icon: '⛽', label: '大宗商品', tab: 'markets' },
+  other:       { icon: '📌', label: '其他财经', tab: 'markets' },
+  // Crypto
+  market:  { icon: '💹', label: '市场行情', tab: 'crypto' },
+  news:    { icon: '📰', label: '重大新闻', tab: 'crypto' },
+  onchain: { icon: '⛓️', label: '链上·技术', tab: 'crypto' },
+  funding: { icon: '💰', label: '融资·市场', tab: 'crypto' },
 };
-const MKT_CATS = {
-  overview:    { label: '全球概览', icon: '🌍' },
-  macro:       { label: '宏观经济', icon: '🏦' },
-  policy:      { label: '政策地缘', icon: '🗺️' },
-  institution: { label: '机构动态', icon: '🏛️' },
-  stocks:      { label: '个股异动', icon: '📉' },
-  commodity:   { label: '大宗商品', icon: '⛽' },
-  other:       { label: '其他财经', icon: '📋' }
-};
-const CRP_CATS = {
-  market:  { label: '市场行情', icon: '💹' },
-  news:    { label: '重大新闻', icon: '📰' },
-  onchain: { label: '链上动态', icon: '⛓️' },
-  funding: { label: '融资动态', icon: '💰' }
-};
 
-function buildCards(data, cats, gridId) {
-  const grid = document.getElementById(gridId);
-  grid.innerHTML = '';
-  for (const [key, meta] of Object.entries(cats)) {
-    const items = data[key] || [];
-    if (!items.length) continue;
-    const card = document.createElement('div');
-    card.className = 'card';
-    card.innerHTML = `
-      <div class="card-header">
-        <span style="font-size:20px">${meta.icon}</span>
-        <span class="cat-tag">${meta.label}</span>
-      </div>
-      <ul class="news-list">
-        ${items.map(i => `<li class="news-item"><div class="news-source">${i.source}</div><div class="news-text">${i.text}</div></li>`).join('')}
-      </ul>
-    `;
-    grid.appendChild(card);
-  }
+function renderCard(key, items, tabClass) {
+  const el = document.getElementById('card-' + key);
+  if (!el) return;
+  const meta = SECTION_META[key];
+  const dotsClass = tabClass;
+  el.innerHTML = `
+    <div class="card-header">
+      <span class="icon">${meta.icon}</span>
+      <h3>${meta.label}</h3>
+      <span class="count-badge">${items.length} 条</span>
+    </div>
+    <div class="card-body">
+      ${items.map(item => `
+        <div class="news-item">
+          <div class="news-dot" style="background: var(--${dotsClass}-light)"></div>
+          <div class="news-content">
+            <div class="news-source">${item.source}</div>
+            <div class="news-text">${item.text}</div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  `;
 }
 
-function buildTicker() {
-  const tickers = [
-    { label: 'S&P 500', val: '7,230.12', cls: 'up', ch: '+0.29%' },
-    { label: 'NASDAQ', val: '25,114.44', cls: 'up', ch: '+0.89%' },
-    { label: 'DOW', val: '49,499.27', cls: 'down', ch: '-0.31%' },
-    { label: '日经225', val: '59,513.12', cls: 'up', ch: '+0.38%' },
-    { label: '恒生指数', val: '25,777', cls: 'down', ch: '-1.30%' },
-    { label: '黄金', val: '$4,600+', cls: 'up', ch: '↑' },
-    { label: 'WTI原油', val: '$101.05', cls: 'down', ch: '-3.82%' }
-  ];
-  document.getElementById('ticker').innerHTML = tickers.map(t =>
-    `<div class="ticker-item"><span class="ticker-label">${t.label}</span><span class="ticker-val ${t.cls}">${t.val} <span style="font-size:11px">${t.ch}</span></span></div>`
-  ).join('');
-}
+// Update header
+document.getElementById('header-date').textContent = '📅 ' + REPORT_DATA.date;
+document.getElementById('header-time').textContent = '🕐 更新于 ' + REPORT_DATA.updatedAt;
 
-function buildCryptoTicker() {
-  const tickers = [
-    { label: 'BTC', val: '$78,324', cls: 'up', ch: '↑突破通道' },
-    { label: 'ETH', val: '$2,300', cls: 'neutral', ch: '→震荡' },
-    { label: '总市值', val: '↑回升', cls: 'up', ch: '' },
-    { label: '恐贪指数', val: '中性偏贪婪', cls: 'neutral', ch: '' }
-  ];
-  document.getElementById('crypto-ticker').innerHTML = tickers.map(t =>
-    `<div class="ticker-item"><span class="ticker-label">${t.label}</span><span class="ticker-val ${t.cls}">${t.val} <span style="font-size:11px">${t.ch}</span></span></div>`
-  ).join('');
-}
-
-function init() {
-  document.getElementById('report-date').textContent = REPORT_DATA.date;
-  document.getElementById('updated-at').textContent = REPORT_DATA.updatedAt;
-  buildCards(REPORT_DATA.ai, AI_CATS, 'ai-grid');
-  buildCards(REPORT_DATA.markets, MKT_CATS, 'markets-grid');
-  buildCards(REPORT_DATA.crypto, CRP_CATS, 'crypto-grid');
-  buildTicker();
-  buildCryptoTicker();
-}
-
-init();
+// Render all sections
+Object.entries(REPORT_DATA.ai).forEach(([k, v]) => renderCard(k, v, 'ai'));
+Object.entries(REPORT_DATA.markets).forEach(([k, v]) => renderCard(k, v, 'markets'));
+Object.entries(REPORT_DATA.crypto).forEach(([k, v]) => renderCard(k, v, 'crypto'));
 </script>
 </body>
 </html>
