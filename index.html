@@ -212,91 +212,230 @@
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-05-05",
-  "updatedAt": "16:07",
+  "date": "2026-05-06",
+  "updatedAt": "16:04",
   "ai": {
     "bigtech": [
-      {"source": "TechCrunch", "text": "Anthropic 与 OpenAI 同日宣布企业级 AI 合资公司。Anthropic 联合 Blackstone、Hellman & Friedman、Goldman Sachs 成立合资企业，估值 15 亿美元；OpenAI 成立"The Development Company"，获 19 家投资方共 40 亿美元注资，整体估值 100 亿美元。"},
-      {"source": "Anthropic", "text": "推出 Claude Design，支持用户与 Claude 协作完成设计、原型、幻灯片等视觉创作任务，这是 Anthropic Labs 旗下全新产品。"},
-      {"source": "The Hill", "text": "Microsoft、Google、xAI 三家 AI 公司宣布在模型部署前向美国联邦政府开放模型测试权限，建立政府早期审查机制。"},
-      {"source": "TechCrunch", "text": "Google 宣布对 Anthropic 追加投资，累计承诺金额最高达 400 亿美元（现金与算力结合），进一步巩固战略合作关系。"}
+      {
+        "source": "Yahoo Finance",
+        "text": "Anthropic承诺五年内在Google Cloud消耗2000亿美元算力，涵盖多吉瓦特TPU容量，首批2027年投产。此举将Anthropic与Google深度绑定，标志着AI基础设施投资进入超大规模时代。"
+      },
+      {
+        "source": "CNBC",
+        "text": "美国CAISI与Google DeepMind、微软、xAI签署协议，允许联邦政府在AI模型公开发布前进行安全测试，延续此前OpenAI和Anthropic合规框架并根据商务部AI行动计划更新。"
+      },
+      {
+        "source": "Fortune",
+        "text": "Anthropic深化金融服务布局，为全球顶级银行推出预构建AI代理套件，发布金融专用Claude Opus 4.7，并与穆迪达成数据合作协议。"
+      },
+      {
+        "source": "Axios",
+        "text": "英国AI安全研究院测试显示，OpenAI GPT-5.5（代号Spud）在32步模拟企业网络攻击中完成率2/10，接近Anthropic Mythos Preview的3/10，AI网安能力竞赛加剧。"
+      }
     ],
     "trends": [
-      {"source": "Wilson Sonsini / Kanerika", "text": "AI 监管从"原则"走向"可执法规则"：科罗拉多 AI 法案将于 2026 年 6 月 30 日生效；加州《前沿 AI 透明法》（SB 53）已于 2026 年初生效，要求开发商公开安全框架并上报安全事件。"},
-      {"source": "Corporate Compliance Insights", "text": "美国白宫设立"AI 诉讼工作组"，主动起诉加州、科罗拉多等州 AI 安全立法，以"妨碍州际商业"为由推动联邦统一监管框架。"},
-      {"source": "Baker Donelson", "text": "企业级 Agentic AI 采用率加速，预测 2026 年智能体 AI 占 IT 支出比例将达 10–15%，从实验阶段进入实际落地。"},
-      {"source": "Credo AI", "text": "网络保险公司开始将 AI 治理能力（对抗性红队测试、模型风险评估）作为承保条件，AI 合规正成为企业必须立即落地的现实需求。"}
+      {
+        "source": "Clifford Chance",
+        "text": "AI监管进入执行关键期：科罗拉多州AI法案预计2026年6月30日生效，要求开发者避免算法歧视并实施风险管理；欧盟AI Act高风险系统要求将于8月强制执行。"
+      },
+      {
+        "source": "Deloitte / Gartner",
+        "text": "AI企业化部署加速：Gartner预测2026年40%企业应用将集成专项AI代理（较2025年不足5%大幅提升），员工AI使用率2025年同比增长50%。"
+      },
+      {
+        "source": "Clifford Chance",
+        "text": "数字主权成为各国政策核心，各国政府加大AI本土化布局力度，在地缘政治紧张背景下积极争夺AI价值链主导权，AI基础设施投资成国家战略。"
+      }
     ],
     "tech": [
-      {"source": "llm-stats.com", "text": "OpenAI GPT-5.5 于 4 月 23 日正式发布，在 Agentic 编程、计算机操作及企业知识工作方面实现重大突破，是目前 OpenAI 构建的 Agentic 能力最强模型。"},
-      {"source": "llm-stats.com", "text": "Google Gemini 3.1 Ultra 发布，支持 200 万 token 上下文，原生多模态（视频、音频、文本同时）推理能力业界领先，挑战 OpenAI 与 Anthropic。"},
-      {"source": "Google DeepMind", "text": "发布 AlphaEvolve：将 Gemini LLM 与进化算法结合，系统可自动发现解决未解数学问题的新算法，不断迭代优化。"},
-      {"source": "MarkTechPost", "text": "Sakana AI 发布 KAME，这是一种实时注入 LLM 知识的串联语音转语音架构，在语音 AI 领域取得技术突破。"},
-      {"source": "InfoQ", "text": "Cloudflare 推出高性能 LLM 推理基础设施，大幅降低企业规模化部署大模型的门槛与成本。"}
+      {
+        "source": "Bloomberg",
+        "text": "DeepSeek发布V4 Flash与V4 Pro预览版，声称是当前最强开源AI平台，在编程基准测试和推理/代理任务上取得重大突破，挑战OpenAI与Anthropic的领先地位。"
+      },
+      {
+        "source": "llm-stats.com",
+        "text": "OpenAI GPT-5.5于4月23日发布，代理编程与计算机使用能力大幅提升；Google同步发布Gemini 3.1 Ultra（最大上下文窗口）及Gemma 4开源推理模型。"
+      },
+      {
+        "source": "NVIDIA Newsroom",
+        "text": "NVIDIA发布Nemotron 3 Nano，通过混合MoE架构实现4倍吞吐量提升，专为多代理系统大规模部署优化，进一步巩固AI推理基础设施领导地位。"
+      },
+      {
+        "source": "Google / ICLR 2026",
+        "text": "Google在ICLR 2026发布TurboQuant算法，结合PolarQuant向量旋转与量化JL压缩，大幅降低LLM推理KV缓存内存开销，为边缘部署和低成本推理铺路。"
+      }
     ],
     "startup": [
-      {"source": "CNBC", "text": "Bret Taylor 旗下 AI 客服公司 Sierra 完成近 10 亿美元新一轮融资，估值达 158 亿美元，由 Tiger Global 和 GV（谷歌风投）领投，是近期最大 AI 初创融资之一。"},
-      {"source": "blog.mean.ceo", "text": "Parallel 完成 2.3 亿美元融资，估值 20 亿美元，专注为 AI 智能体构建网页搜索基础设施，AI Agent 基础设施赛道持续升温。"},
-      {"source": "VentureBeat", "text": "机器人与物理 AI 领域 2025 年融资额创纪录达 276 亿美元（同比翻倍），Skild AI 于 2026 年 1 月获近 14 亿美元融资，估值超 140 亿美元，为机器人基础模型方向。"}
+      {
+        "source": "Fortune",
+        "text": "Elon Musk与OpenAI法庭之争持续升温，核心争议为AI控制权与公益组织结构转型，分析人士认为实质争点模糊，但已对AI行业治理讨论产生广泛影响。"
+      },
+      {
+        "source": "CNN Business",
+        "text": "五角大楼与8家大型科技公司签署AI合作协议，Anthropic此前被排除在外，引发外界对AI军事应用合规框架和政府采购策略的广泛关注。"
+      },
+      {
+        "source": "VentureBeat",
+        "text": "金融AI、医疗AI代理、企业自动化赛道持续获机构青睐，Anthropic通过Claude金融代理产品率先切入企业服务市场，初创生态围绕垂直AI代理加速布局。"
+      }
     ]
   },
   "markets": {
     "overview": [
-      {"source": "TheStreet", "text": "5 月 5 日（周二）美股主要指数小幅上涨：标普 500 +0.55%，道指 +0.55%，纳斯达克 +0.70%，罗素 2000 -0.60%。市场受中东局势缓和（美伊紧张态势降温）提振，风险偏好回升。"},
-      {"source": "Yahoo Finance", "text": "纳斯达克与标普 500 曾于 5 月 1 日创收盘历史新高，科技股 AI 行情持续推动指数走强。苹果（AAPL）单日大涨。"},
-      {"source": "Investtech", "text": "亚太市场方面，因中东局势紧张于 5 月 4 日拖累亚太股市，今日随美股反弹情绪有所改善，具体数据持续更新中。"}
+      {
+        "source": "Yahoo Finance / Bloomberg",
+        "text": "美股三大指数创历史新高：纳斯达克涨1.36%至25,670点，道琼斯涨1.14%至49,854点，标普500涨1.10%至7,338点。港股恒生指数涨1.2%至26,096点，亚太市场整体跟随美股回暖。"
+      },
+      {
+        "source": "TheStreet",
+        "text": "驱动因素：美伊可能达成停战协议引发油价暴跌（布伦特日跌超6%），叠加良好科技财报季和降息预期，推动风险资产全面走强，纳指与标普同创历史新高。"
+      }
     ],
     "macro": [
-      {"source": "Fortune / Bloomberg", "text": "原油价格高位震荡：WTI 原油 104.10 美元/桶（日跌 -2.22%），布伦特原油 112.90 美元/桶（-1.38%）。此前 5 月 4 日因美伊冲突大幅拉升，布伦特一度冲至 114 美元——2022 年中以来新高，今日随局势缓和有所回落。"},
-      {"source": "Investing.com", "text": "黄金期货报 4527.16 美元/盎司，跌幅 -2.53%。避险需求随地缘政治边际缓和而回落，黄金承压。"},
-      {"source": "Vanguard", "text": "能源价格冲击令全球央行货币政策前景复杂化：通胀预期重新升温，美联储和欧央行降息路径面临再评估压力。"}
+      {
+        "source": "ECB / Central Banking",
+        "text": "欧洲央行维持基准利率2.15%不变（存款利率2%），预测2026年通胀2.6%、2027年降至2%。拉加德表示中东冲突推升能源成本，政策路径保持数据依赖。"
+      },
+      {
+        "source": "TradingKey / Goldman Sachs",
+        "text": "美联储2026年预期降息两次，政策利率降至3.00%-3.25%区间，高盛、摩根士丹利、美银、野村等主要机构预测一致，为风险资产提供底部支撑。"
+      },
+      {
+        "source": "Fortune / Trading Economics",
+        "text": "布伦特原油日跌约7%至$102/桶，WTI跌逾9%至$93以下；美元指数走弱，人民币和欧元相对走强，通胀预期显著回落。"
+      }
     ],
     "policy": [
-      {"source": "TheStreet / CNN", "text": "美军与伊朗在霍尔木兹海峡发生直接军事冲突：伊朗向美军舰艇开火，美军随后摧毁六艘伊朗快艇。国防部长 Hegseth 强调美国将确保霍尔木兹海峡国际航运安全。"},
-      {"source": "CNN Business", "text": "五角大楼宣布与 8 家科技巨头签署 AI 合作协议，Anthropic 不在名单内——此前已有独立合作渠道——引发行业对政府 AI 采购策略的广泛讨论。"},
-      {"source": "TheStreet（5 月 4 日）", "text": "地缘政治风险于 5 月 4 日导致道指和罗素 2000 下跌，油价飙升，阿联酋成功拦截伊朗来袭导弹使局势短暂升级后有所缓和。"}
+      {
+        "source": "TheStreet / Yahoo Finance",
+        "text": "美伊外交进展成最大市场催化剂：美国推动伊朗停战，德黑兰正在审查相关提案，霍尔木兹海峡通航预期改善，油价暴跌推动股市创新高。"
+      },
+      {
+        "source": "Liberty Street Economics / McKinsey",
+        "text": "中美贸易关税格局延续：美最高法院2月裁定部分关税违法，但对华核心关税维持，供应链绕道东盟趋势持续，AI相关贸易2025年增速达40%远超全球均值。"
+      },
+      {
+        "source": "Rabobank",
+        "text": "全球贸易规则重构加速：美国维持主导地位，中国寻求技术自主，关税谈判、美联储降息路径和地缘政治风险共同构成2026年市场主要变量。"
+      }
     ],
     "institution": [
-      {"source": "ARK Invest / CoinDesk", "text": "ARK Invest 发布报告，预测比特币市值将在 2030 年达到 16 万亿美元，机构持续配置需求是核心驱动力。"},
-      {"source": "Vanguard", "text": "当前油价冲击正改变全球央行对通胀路径的判断，ECB 和美联储的降息时间表均面临不确定性，机构需重新评估固收配置策略。"}
+      {
+        "source": "SCMP",
+        "text": "摩根士丹利上调香港房价展望，带动港股地产板块领涨，AIA集团涨2.4%，房地产与保险板块受益明显。"
+      },
+      {
+        "source": "Goldman Sachs / Morgan Stanley",
+        "text": "高盛、摩根士丹利等机构集体预判美联储2026年降息2次，建议增配美国科技股和新兴市场，维持对AI基础设施长期看多立场。"
+      },
+      {
+        "source": "BlackRock / Blackstone",
+        "text": "黑石等另类资产管理机构持续加大数据中心和AI算力基础设施配置，2026年全球算力硬件采购规模预计达5500亿美元。"
+      }
     ],
     "stocks": [
-      {"source": "TheStreet", "text": "Intel（INTC）大涨约 10%：彭博社报道苹果与英特尔、三星就在美国本土制造主处理器进行早期谈判，或为苹果在美制造战略的重要一步。"},
-      {"source": "TheStreet", "text": "PayPal（PYPL）跌逾 10%：Q1 业绩好于预期，但公司对当季展望保守令市场失望，股价大幅回调。"}
+      {
+        "source": "SCMP",
+        "text": "小米（港股）单日涨6.8%，受益于AI手机硬件需求预期上调和市场整体情绪改善，成为当日港股最亮眼个股之一。"
+      },
+      {
+        "source": "SCMP",
+        "text": "上海芯智（半导体）涨15.2%，中国半导体板块受AI需求叙事驱动，在市场整体回暖背景下大幅跑赢大盘。"
+      },
+      {
+        "source": "Yahoo Finance / CNBC",
+        "text": "纳斯达克科技权重股全线走强，受良好财报季和降息预期双重驱动，Nvidia、Microsoft、Meta等AI相关龙头均表现强劲。"
+      }
     ],
     "commodity": [
-      {"source": "Fortune / OilPrice", "text": "WTI 原油 104.10 美元/桶（-2.22%），布伦特原油 112.90 美元/桶（-1.38%）；此前 5 月 4 日因美伊冲突油价大幅拉升，今日随局势缓和回落但仍维持高位。"},
-      {"source": "Investing.com", "text": "黄金期货 4527.16 美元/盎司（-2.53%），避险资产在地缘风险边际降低时承压，短期或延续波动。"},
-      {"source": "Yahoo Finance", "text": "比特币（BTC）今日 +2.3%，报 80,740 美元，与大宗商品市场走势出现分化，反映加密市场正主导独立的风险偏好行情。"}
+      {
+        "source": "Fortune / Trading Economics",
+        "text": "布伦特原油日跌约7%至$102/桶，WTI跌逾9%至$93以下，为近期最大单日跌幅，美伊和谈进展是直接触发因素。虽大幅下跌，布伦特仍较一年前高出67%。"
+      },
+      {
+        "source": "Bloomberg",
+        "text": "黄金：受油价骤降带动通胀预期回落，金价承压回调，但美元走弱提供一定支撑。铜价因中国需求预期改善保持相对稳定，工业金属表现分化。"
+      },
+      {
+        "source": "EIA",
+        "text": "天然气：随中东局势出现缓和迹象，欧洲天然气期货价格跟随原油走低，LNG市场供给担忧情绪有所缓解。"
+      }
     ],
     "other": [
-      {"source": "Bullish / Reuters", "text": "加密平台 Bullish 宣布以 42 亿美元收购英国金融科技公司 Equiniti，进一步扩大代币化证券基础设施布局，传统金融与加密世界加速融合。"},
-      {"source": "DTCC", "text": "华尔街清算机构 DTCC 宣布推出代币化证券平台，预计 7 月进行试点、10 月正式发布，标志着主流金融基础设施向链上迁移进程加速。"}
+      {
+        "source": "Crunchbase",
+        "text": "Web3/Crypto VC Q1融资达48亿美元，创2024年以来新高，代币化现实资产（RWA）、DeFi基础设施和稳定币为核心融资赛道。"
+      },
+      {
+        "source": "The Block",
+        "text": "稳定币在机构级支付与跨境结算场景中渗透率持续提升，主要中心化交易所在全球监管合规压力下加速推进合规化改造。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "Consensus Miami 2026大会传统金融与Web3融合信号明显，Robinhood、Ondo等平台表示大型银行正积极整合加密基础设施，合规仍是主要瓶颈。"
+      }
     ]
   },
   "crypto": {
     "market": [
-      {"source": "Fortune / CoinStats", "text": "比特币（BTC）5 月 5 日报 81,286 美元，自 1 月 31 日以来首次站上 8 万美元，重新收复\"牛市支撑带\"——这是过去六个月来的技术面重要突破。"},
-      {"source": "Yahoo Finance / Finance Magnates", "text": "BTC 突破 8 万美元契机：美伊局势缓和（Trump \"Project Freedom\" 公告）引发全球风险资产普涨，ETH 及其他主流山寨币同步跟涨，市场情绪明显回暖。"},
-      {"source": "24/7 Wall St.", "text": "比特币正式重新站上牛市支撑带（Bull Market Support Band），这是过去六个月来的首次，技术面信号积极，关注后续能否守住关键位。"}
+      {
+        "source": "Yahoo Finance / MEXC",
+        "text": "BTC突破82,000美元，为1月以来最高位，美元走弱和风险偏好回升共同推动。ETH报$2,352（日跌0.9%，周涨3.6%），关键阻力位$2,375。加密市场总市值随之回升。"
+      },
+      {
+        "source": "Yahoo Finance",
+        "text": "隐私币与AI关联代币领涨山寨币市场，SOL、BNB、XRP跟随BTC上涨，整体市场呈现风险偏好回暖态势，与美股科技股走势高度同步。"
+      },
+      {
+        "source": "Babypips / CoinDesk",
+        "text": "市场情绪指数维持中性区间，恐贪指数温和回升，分析师关注BTC能否持续站稳82,000美元作为新阶段支撑，若突破将打开更大上涨空间。"
+      }
     ],
     "news": [
-      {"source": "CoinDesk / Forvis Mazars", "text": "美国 SEC 和 CFTC 于 2026 年 3 月 17 日联合发布历史性加密资产监管框架，建立首个联邦级数字资产分类体系，明确大多数加密资产不属于证券，为行业提供重大监管确定性。"},
-      {"source": "Skadden / Cleary Gottlieb", "text": "GENIUS 法案正式通过，成为美国首个全面联邦稳定币监管框架，涵盖储备要求、赎回机制和信息披露标准，稳定币有望进入主流金融体系。"},
-      {"source": "spotedcrypto / CoinStats", "text": "美国现货比特币 ETF 周五单日净流入超 6 亿美元，连续五周正向净流入，2026 年 4 月是年内最强月份，累计净流入达 24.4 亿美元，机构资金持续涌入。"}
+      {
+        "source": "CoinDesk / Consensus Miami 2026",
+        "text": "Consensus Miami 2026大会：Ondo、Robinhood、Babylon Labs等平台高管表示，全球大型银行正快速整合加密支付和区块链结算基础设施，但机构采用规模仍受监管合规约束。"
+      },
+      {
+        "source": "Ark Invest",
+        "text": "Ark Invest最新预测：以太坊为首的智能合约平台生态2030年将超6万亿美元市值，年化行业收入达1920亿美元，长期看多智能合约基础设施。"
+      },
+      {
+        "source": "The Block",
+        "text": "监管动态：欧盟MiCA框架全面执行推进，美国SEC与CFTC围绕数字资产司法管辖权争议延续，稳定币立法讨论升温，全球合规框架加速形成。"
+      }
     ],
     "onchain": [
-      {"source": "DL News", "text": "DeFi 借贷协议 Aave 向法院申请阻止美国政府没收 7100 万美元加密资产（涉及朝鲜相关指控），开创 DeFi 协议主动通过法律途径维权的先例。"},
-      {"source": "blocsys / Ethereum", "text": "以太坊 zkEVM 和 zkSync 扩容方案持续推进，支持每秒数千笔交易，Gas 费降至分钱级别，为 DeFi 和链游大规模普及铺路。"},
-      {"source": "DTCC / TheBlock", "text": "华尔街 DTCC 将于 7 月启动代币化证券试点，Bullish 以 42 亿美元收购 Equiniti，传统金融机构加速接入链上基础设施。"}
+      {
+        "source": "CryptoSlate",
+        "text": "以太坊L2网络Linea在2026年Q1单季完成逾5000万笔链上交易，显示Layer 2生态持续爆发，交易成本大幅降低推动用户采用加速。"
+      },
+      {
+        "source": "CoinDesk",
+        "text": "以太坊质押规模稳定，当前总质押量约3860万枚ETH，占总供应量31.7%；质押候场队列约360万ETH，等待期约62天，网络需求旺盛。"
+      },
+      {
+        "source": "CryptoSlate",
+        "text": "AI代币链上活跃度提升，多个AI×区块链融合项目在Consensus Miami期间公布新进展，链上AI推理和去中心化数据标注成为新兴热点赛道。"
+      }
     ],
     "funding": [
-      {"source": "The Block", "text": "Solana 质押 ETF 上市首月 AUM 突破 10 亿美元，显示机构对 SOL 生态的配置需求旺盛，Solana 生态作为 ETH 最强竞争者地位进一步巩固。"},
-      {"source": "Cleary Gottlieb", "text": "数字资产财库公司（Digital Asset Treasury Companies）2025 年共融资 290 亿美元，超 100 家上市公司持有加密资产，企业资产负债表配置比特币已成趋势。"},
-      {"source": "CoinDesk", "text": "比特币+以太坊现货 ETF 累计净流入 310 亿美元，交易量约 8800 亿美元，成为合规机构配置加密资产的核心工具。ARK Invest 预测 BTC 市值将在 2030 年达 16 万亿美元。"}
+      {
+        "source": "Crunchbase / QuickNode",
+        "text": "2026年Q1 Web3与区块链项目VC融资达48亿美元，创2024年以来新高，代币化现实资产（RWA）规模已达250亿美元，Pantera、a16z、Coinbase Ventures为主要活跃机构。"
+      },
+      {
+        "source": "InnMind",
+        "text": "Web3项目生态融资多元化：2026年活跃Web3 Grant项目达40个以上，覆盖区块链基础设施、DeFi协议、开发者工具等多个方向，生态建设资助力度持续加强。"
+      },
+      {
+        "source": "The Block",
+        "text": "稳定币市场：USDT、USDC持续扩大份额，机构级稳定币在跨境支付、供应链金融领域渗透加速；各主要交易所稳定币交易对流动性维持历史高位。"
+      }
     ]
   }
 };
+
 </script>
 
 <script>
