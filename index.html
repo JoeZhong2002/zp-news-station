@@ -50,91 +50,266 @@
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-05-09",
-  "updatedAt": "16:07",
+  "date": "2026-05-11",
+  "updatedAt": "17:09",
   "ai": {
     "bigtech": [
-      {"source": "Crunchbase/Yahoo Finance", "text": "Anthropic Q1营收同比增长80倍，ARR已超过440亿美元，为所有前沿AI公司中单季营收增幅最大；同时承诺未来五年在Google Cloud上投入2000亿美元。"},
-      {"source": "MIT Tech Review/CNBC", "text": "Google DeepMind推出AlphaEvolve，将Gemini LLM与进化算法结合，可自动发现新算法，已用于优化数据中心能耗与TPU芯片效率。"},
-      {"source": "The Verge/VentureBeat", "text": "Google发布Gemini 3.1 Flash-Lite，响应速度提升2.5倍，输出生成速度提升45%，每百万输入token定价0.25美元。"},
-      {"source": "CNBC/Fortune", "text": "OpenAI年化营收已超250亿美元，正在为IPO做早期准备；GPT-5.5于4月23日发布，已在GitHub Copilot中上线。"},
-      {"source": "CNBC/CNN", "text": "谷歌、微软、xAI与美国商务部AI标准与创新中心达成协议，允许政府在模型发布前进行测试评估；OpenAI和Anthropic亦已重新签约。"}
+      {
+        "source": "CNBC",
+        "text": "Snap宣布裁员约1000名员工并关闭300多个岗位，AI目前已生成公司超65%的新代码，标志着生成式AI在大型科技公司深度渗透。"
+      },
+      {
+        "source": "CNN",
+        "text": "谷歌、微软和xAI与美国政府签署协议，允许政府在AI模型公开发布前测试，延续OpenAI和Anthropic先例，强化AI安全监管机制。"
+      },
+      {
+        "source": "CNN/Anthropic",
+        "text": "Anthropic推出网络安全模型Mythos，声称在网安领域大幅领先其他模型，因漏洞识别能力强大引发广泛担忧，访问受限并启动Project Glasswing网安计划。"
+      },
+      {
+        "source": "VentureBeat/Meta",
+        "text": "Meta旗舰模型代号Avocado因编程和推理基准测试落后于谷歌、OpenAI和Anthropic，发布时间从3月推迟至5月。"
+      },
+      {
+        "source": "CNBC/JPMorgan",
+        "text": "摩根大通将AI投资从实验性R&D正式重新分类为核心基础设施，2026年技术预算约198亿美元，2000名专职AI员工，预计每年创造25亿美元效益。"
+      }
     ],
     "trends": [
-      {"source": "Deloitte/TechRepublic", "text": "97%的高管表示公司过去一年已部署AI代理，52%员工在使用；但79%的组织在AI采用方面面临挑战，较2025年显著上升。"},
-      {"source": "Deloitte/Info-Tech", "text": "Agentic AI采用速度将超过生成式AI，电信行业采用率最高（48%），零售及消费品（47%）紧随其后。"},
-      {"source": "Stanford HAI/Stellium", "text": "全球各主要市场正从AI政策模糊走向可执行规则，企业AI治理能力成为规模化落地的核心差异因素。"},
-      {"source": "NVIDIA/Writer.com", "text": "前沿质量AI输出成本大幅下降，开源模型在多数任务上达到闭源平价；推理模型成为2026年主流默认架构。"}
+      {
+        "source": "Microsoft Blog",
+        "text": "2026年Q1全球AI使用率从16.3%升至17.8%，美国约50%在职成年人每年至少在工作中使用AI几次，AI普及进入新阶段。"
+      },
+      {
+        "source": "IBM报告",
+        "text": "大多数公司正在设立首席AI官职位，但93.2%受访者指出文化挑战而非技术限制是AI采用的主要障碍。"
+      },
+      {
+        "source": "OpenAI/Anthropic",
+        "text": "OpenAI和Anthropic正探索收购工程服务与咨询公司：OpenAI计划筹资约40亿美元，Anthropic相关举措已获约15亿美元支持，企业部署战略全面提速。"
+      },
+      {
+        "source": "CNN Business",
+        "text": "AI并非在夺走工作，而是在重塑工作形式——企业将AI定位为增效工具，劳动力结构深度调整正在发生。"
+      }
     ],
     "tech": [
-      {"source": "OpenAI/GitHub", "text": "GPT-5.5于4月23日发布并在GitHub Copilot上线，具备迄今最强agentic能力，目标是企业知识工作与编程场景。"},
-      {"source": "Google DeepMind", "text": "Gemini 3.1 Ultra支持跨视频、音频、文本的原生多模态推理，上下文窗口达200万token，面向最复杂任务场景。"},
-      {"source": "InfoQ/Cloudflare", "text": "Cloudflare发布全球规模的LLM运行基础设施，采用输入/输出分离架构与自定义推理引擎，显著提升GPU利用效率。"},
-      {"source": "MarkTechPost/Sakana AI", "text": "Sakana AI推出KAME串联语音到语音架构，可实时注入LLM知识，提升实时AI对话的知识准确性与流畅度。"}
+      {
+        "source": "llm-stats.com",
+        "text": "OpenAI GPT-5.5于4月23日正式发布，具备业界最强Agent代理能力，深度聚焦企业知识工作与编程场景。"
+      },
+      {
+        "source": "llm-stats.com",
+        "text": "Google Gemini 3.1 Ultra发布，支持200万token超长上下文，具备视频/音频/文本原生多模态推理能力。"
+      },
+      {
+        "source": "TheCodersBlog/xAI",
+        "text": "Grok 4.3于4月17日进入测试版，5月1日开放API访问；Grok Imagine在图像到视频基准测试中登顶第一，支持30秒多图视频生成。"
+      },
+      {
+        "source": "开源社区",
+        "text": "智谱AI、Mistral、DeepSeek开源模型质量已接近前沿水平，成本仅为专有模型一小部分，开源生态持续挑战闭源巨头。"
+      }
     ],
     "startup": [
-      {"source": "CNBC", "text": "Sierra（Bret Taylor创立）获得近10亿美元融资（9.5亿美元），估值158亿美元，由Tiger Global和Google GV领投。"},
-      {"source": "Crunchbase", "text": "Jeff Bezos的Project Prometheus（聚焦AI制造）获100亿美元融资，与Anthropic共同占4月全球VC总量的45%。"},
-      {"source": "Crunchbase", "text": "2026年Q1全球VC达3000亿美元历史记录，AI创业公司占80%；4月单月AI融资370亿美元，占全球VC的66%。"},
-      {"source": "Anthropic", "text": "Project Glasswing向AWS、Apple、Cisco、Google、JPMorgan等机构开放Claude Mythos Preview，专注发现和修复关键软件漏洞。"}
+      {
+        "source": "SiliconANGLE/CNBC",
+        "text": "AI代理初创Sierra完成9.5亿美元融资，估值达150亿美元，由Alphabet GV和Tiger Global领投，是AI Agent赛道年内最大融资之一。"
+      },
+      {
+        "source": "ElevenLabs",
+        "text": "AI语音初创ElevenLabs完成5亿美元D轮融资，估值升至110亿美元，AI音频与语音合成赛道持续受资本热捧。"
+      },
+      {
+        "source": "TheAIInsider",
+        "text": "中国具身AI机器人初创Vbot完成7300万美元Pre-A融资，由东方财富资本、华泰紫金、复星瑞璞联合领投，拟扩产并研发全尺寸人形机器人。"
+      },
+      {
+        "source": "Dealroom/Crunchbase",
+        "text": "2026年至今风险投资已向成立于2025年后的AI初创注入188亿美元，但资金日益向少数头部公司集中，尾部项目融资难度加大。"
+      }
     ]
   },
   "markets": {
     "overview": [
-      {"source": "CNBC/TheStreet", "text": "美股：标普500 +0.81%至7,396点，纳斯达克 +1.53%至26,199点，道指 -0.05%至49,571点。美股连续6周上涨，创2024年以来最长连涨。"},
-      {"source": "BBN Times/Yahoo Finance", "text": "港股：恒生指数5月7日升至26,626点，为2026年2月以来新高，单日涨1.6%；腾讯+3.4%、快手+7.3%、泡泡玛特+4.0%领涨。"}
+      {
+        "source": "TheStreet/MSN",
+        "text": "5月11日美股周一平稳：标普500约7,399点，纳斯达克约26,247点(+1.7%)，道指约49,609点(+0.02%)；美伊局势恶化拖累开盘，AI科技股构成主要支撑。"
+      },
+      {
+        "source": "STL News/Yahoo",
+        "text": "亚太市场谨慎开盘，韩国KOSPI大涨4.70%创历史新高；港股恒生指数因避险情绪下跌约233点(-0.9%)至26,394点；日经225谨慎交投。"
+      },
+      {
+        "source": "新浪财经/东方财富",
+        "text": "A股受外围风险偏好回升带动高开走强，港股恒生科技涨3.45%，科创再贷款扩容至1.2万亿定向AI/半导体，政策支持下科技板块情绪持续外溢。"
+      }
     ],
     "macro": [
-      {"source": "TheStreet/CNBC", "text": "美国4月非农就业新增11.5万，大幅高于预期6.5万；失业率维持4.3%，就业市场韧性支撑股市情绪。"},
-      {"source": "Federal Reserve/Penn Wharton", "text": "已实施关税使核心商品PCE价格整体上涨3.1%（截至2026年2月），对核心PCE整体贡献0.8个百分点，通胀压力持续。"},
-      {"source": "TaxFoundation/MSAdvisory", "text": "美国对华综合关税约33%（贸易加权），部分行业叠加税率超145%；90天关税休战延期至2026年8月。"}
+      {
+        "source": "centralbank.watch/iShares",
+        "text": "美联储当前利率区间3.50%-3.75%，市场预期2026年内降至约3%；美联储主席鲍威尔任期5月15日到期，新主席人选成市场焦点。"
+      },
+      {
+        "source": "ECB/ING",
+        "text": "欧央行存款利率维持2.15%不变，但欧元区通胀3月升至2.6%(近两年新高)，市场已完全定价2026年三次加息预期，首次可能在6月。"
+      },
+      {
+        "source": "Bloomberg/CNBC",
+        "text": "美伊和谈进展不顺，原油持续高位推升通胀预期，美债收益率上行，美元走强，全球宏观面临能源冲击与货币政策收紧双重压力。"
+      }
     ],
     "policy": [
-      {"source": "USTR/TradeComplianceHub", "text": "USTR于3月11日启动多项新301条款调查，涉及中国、欧盟、越南、印度等国"制造业结构性产能过剩"问题。"},
-      {"source": "CNBC/CNN", "text": "美伊军事冲突持续，外交谈判信号令市场波动；美股在就业数据强劲下整体走高，但中东地缘风险仍是压制因素。"},
-      {"source": "CNBC/Sidley", "text": "美国政府推进AI监管框架：与谷歌、微软、xAI签订模型预发布测试协议，AI监管从自愿走向机构化管理。"}
+      {
+        "source": "CNBC/Trump",
+        "text": "特朗普宣布美伊停火协议处于岌岌可危状态，拒绝伊朗最新和谈方案；霍尔木兹海峡继续关闭，IEA将此定性为有史以来最大供应冲击。"
+      },
+      {
+        "source": "Wikipedia/CNBC",
+        "text": "美伊冲突导致霍尔木兹海峡关闭，布伦特原油自冲突爆发以来累计上涨超50%，全球通胀及衰退风险显著上升，200艘船只滞留该海域。"
+      },
+      {
+        "source": "新浪财经/发改委",
+        "text": "中国发改委915亿元设备更新资金正式到位，定向覆盖工业母机、机器人、半导体等领域，叠加科创再贷款扩容，国内科技产业刺激力度持续加码。"
+      }
     ],
     "institution": [
-      {"source": "Goldman Sachs Research", "text": "高盛维持标普500目标价7,600点，认为美股主升浪完好；预测2026年全球增长2.8%，美国增长2.6%，均高于市场共识。"},
-      {"source": "Morgan Stanley", "text": "摩根士丹利维持标普500目标价7,800点，预测股市全年上涨14%；Q1混合盈利增长27.1%，为2021年Q4以来最强财报季。"}
+      {
+        "source": "Goldman Sachs",
+        "text": "高盛维持标普500年末目标价7600点，预期全球经济增速2.8%超市场预期2.5%，看好全球权益市场，但警示高估值叠加地缘风险带来的波动风险。"
+      },
+      {
+        "source": "JPMorgan/TheStreet",
+        "text": "摩根大通下调标普500年末目标至7200点，反映美伊冲突油价冲击风险；认为美联储降息幅度将低于市场预期，建议降低久期风险敞口。"
+      },
+      {
+        "source": "Morgan Stanley",
+        "text": "摩根士丹利警告美伊石油冲击将对股票估值和企业利润率构成持续压力，建议投资者关注能源板块对冲及防御性资产配置。"
+      }
     ],
     "stocks": [
-      {"source": "BBN Times/Yahoo Finance", "text": "港股科技股领涨：快手 +7.3%，泡泡玛特 +4.0%，腾讯 +3.4%，中芯国际 +2.5%，小米 +1.0%，受恒生反弹整体提振。"},
-      {"source": "TheStreet/CNBC", "text": "美股纳斯达克本周累涨4.5%，标普500涨2.3%，科技股财报强劲为主要驱动；道指因传统行业拖累，涨幅明显落后。"}
+      {
+        "source": "WSJ/Motley Fool",
+        "text": "英特尔大涨5.7%：《华尔街日报》报道英特尔与苹果达成初步协议，将为苹果设备代工部分芯片，市场解读为英特尔代工业务重大转机。"
+      },
+      {
+        "source": "Motley Fool",
+        "text": "现代医药Moderna涨7.5%：公司宣布已提前研发汉坦病毒疫苗，邮轮Hondius疫情事件为mRNA技术再度提供催化剂。"
+      },
+      {
+        "source": "CNBC/TheStreet",
+        "text": "英伟达、AMD、博通等芯片股涨最多2%；Meta、特斯拉、微软等AI算力股承压回落，科技板块内部分化明显。"
+      },
+      {
+        "source": "Motley Fool",
+        "text": "Meta因涉嫌广告欺诈被起诉，加之AI算力股整体承压，股价跌逾1%。"
+      }
     ],
     "commodity": [
-      {"source": "Trading Economics/Fortune", "text": "黄金期货升至4,730.70美元/盎司，周涨超2%，为4月22日以来新高；避险需求旺盛，受中东局势与美元走弱支撑。"},
-      {"source": "Investing.com/Fortune", "text": "原油：WTI期货升至95美元/桶以上；布伦特原油5月8日报104.07美元/桶；和谈预期令油价承压，但军事冲突重燃支撑。"}
+      {
+        "source": "Fortune/CNBC",
+        "text": "布伦特原油5月11日报107.67美元/桶(+0.48美元)，WTI约97美元/桶；霍尔木兹海峡关闭持续推高油价，较一年前上涨约43美元。"
+      },
+      {
+        "source": "CNBC/Yahoo Finance",
+        "text": "黄金5月11日亚市报4,742.40美元/盎司(+11.70美元/+0.25%)；但油价上涨推升通胀预期、美元走强，黄金多头承压，StoneX COT报告显示多头有所减仓。"
+      },
+      {
+        "source": "IEA/行业",
+        "text": "霍尔木兹海峡关闭冲击全球能源供应链，天然气、铜、精炼油等多类大宗商品价格连锁承压，全球供应链重组加速。"
+      }
     ],
     "other": [
-      {"source": "Crunchbase/CNBC", "text": "AI VC市场持续繁荣：2026年Q1全球VC达3000亿美元历史记录，AI主导资本配置，资金高度集中于头部AI公司和美国市场。"},
-      {"source": "TheStreet", "text": "美股科技股连涨六周与AI企业盈利爆发高度相关，AI算力基础设施（数据中心、GPU）相关板块持续受益于企业AI投入增加。"}
+      {
+        "source": "CNBC/Alphabet",
+        "text": "Alphabet过去一年股价大涨160%，因拥有AI全链条(基础设施到模型到应用)被资本市场高度认可，成为AI全栈价值最佳例证。"
+      },
+      {
+        "source": "新浪财经",
+        "text": "四大证券报头版聚焦A股市场重要快讯，显示政策支持持续，市场在震荡中寻求方向，科技与消费板块获机构关注。"
+      },
+      {
+        "source": "Cleary Gottlieb/Skadden",
+        "text": "2026年数字资产监管迎重大里程碑：GENIUS稳定币法案有望年内通过，美国数字资产合规框架逐步明朗，机构入场路径更加清晰。"
+      }
     ]
   },
   "crypto": {
     "market": [
-      {"source": "CoinGecko/Fortune", "text": "Bitcoin现价约99,887美元，24小时涨幅 +4.18%，市值1.979万亿美元，逼近10万美元关键心理关口。"},
-      {"source": "Fortune/MEXC", "text": "Ethereum现价约2,275-2,280美元，短期仍在下跌趋势中，未能突破关键阻力位；过去一年约涨516美元。"},
-      {"source": "CoinDCX/247WallSt", "text": "市场情绪：恐贪指数38（恐惧区间），多空比看涨仅41%；整体情绪偏谨慎，但BTC单日涨势强劲形成分化。"}
+      {
+        "source": "Fortune/Yahoo Finance",
+        "text": "比特币(BTC)5月11日报81,224美元(+263美元/+0.33%)，早盘一度触及80,971美元；较去年同期(约104,124美元)下约22,900美元，市场仍处于整固阶段。"
+      },
+      {
+        "source": "Fortune/MetaMask",
+        "text": "以太坊(ETH)报约2,350美元，市值约2,838亿美元；ETH过去一个月上涨10.44%，CoinCodex预测6月初有望达2,788美元(+18%)。"
+      },
+      {
+        "source": "新浪财经",
+        "text": "比特币升破82,000美元，日内涨幅约1.69%，美伊局势短暂释放缓和信号，加密市场情绪有所提振。"
+      },
+      {
+        "source": "MEXC/CoinCodex",
+        "text": "SOL、BNB、XRP等主流币随大盘小幅震荡，总市值在美伊地缘风险压制下维持区间震荡，恐贪指数处于中性区域。"
+      }
     ],
     "news": [
-      {"source": "SEC/CFTC/Latham", "text": "SEC与CFTC于3月17日联合发布关于加密资产适用联邦证券法的综合解释；双方签署MOU建立跨机构协调框架。"},
-      {"source": "CoinDesk/DL News", "text": "Consensus Miami 2026：MoonPay、Ripple、Paxos等高管确认监管加速推动稳定币普及，但基础设施、隐私和分发仍是主要挑战。"},
-      {"source": "DL News", "text": "贝莱德、Coinbase等11家业界巨头发布2026年预测，普遍看好机构采用加速，VC资金将向成熟机构级加密产品倾斜。"}
+      {
+        "source": "SEC.gov",
+        "text": "美国SEC发布Reg Crypto提案：为Web3初创提供7500万美元融资安全港和4年注册豁免，建立首个专项联邦数字资产证券框架，监管从执法导向转向规则明确化。"
+      },
+      {
+        "source": "The Block/Cleary Gottlieb",
+        "text": "SEC与CFTC监管边界日益清晰，2026年加密监管整体友好；GENIUS稳定币法案有望年内通过，允许持牌银行发行合规稳定币。"
+      },
+      {
+        "source": "Skadden/cwallet",
+        "text": "2026年数字资产法规迎重大突破：SEC创新豁免政策出台，合规项目无需传统注册即可运营，机构入场合规路径大幅打通。"
+      },
+      {
+        "source": "日本FSA",
+        "text": "日本FSA批准持牌银行发行稳定币并启动链上收益产品，日本成为2026年全球增长最快的DeFi市场之一，亚太合规加密生态持续扩张。"
+      }
     ],
     "onchain": [
-      {"source": "MEXC/CoinMarketCap", "text": "以太坊鲸鱼在5月1-3日96小时内买入超14万ETH（约3.22亿美元），总持仓从1,378万升至1,398万ETH，信号看多。"},
-      {"source": "Spoted Crypto/CoinMarketCap", "text": "以太坊DeFi TVL回升至457.4亿美元，ETH占全球DeFi TVL约68%；链上tokenized国债规模达80亿美元，创历史记录。"},
-      {"source": "Ethereum Foundation", "text": "Ethereum将于2026年6月推出Glamsterdam升级，通过并行执行有望将L1吞吐量提升3倍；长期路线图目标达10,000 TPS。"},
-      {"source": "CoinDesk", "text": "三大专业技术信号（链上数据、鲸鱼行为、技术面）均指向BTC可能突破并测试85,000美元关口。"}
+      {
+        "source": "MEXC/CoinDesk",
+        "text": "大型鲸鱼和ETF发行商5月8日将超11.3万枚ETH转入交易所，同期机构鲸鱼96小时内净买入约14万ETH(约3.22亿美元)，链上多空博弈激烈。"
+      },
+      {
+        "source": "MEXC",
+        "text": "以太坊非空地址数达1.895亿，较比特币多出320%；链上代币化国债规模创历史新高达80亿美元，RWA赛道持续扩张。"
+      },
+      {
+        "source": "Polkadot/Web3",
+        "text": "Polkadot实施供应上限改革并减少代币发行，优化长期代币经济模型；JAM升级计划将其转型为去中心化计算平台，技术路线图大幅扩展。"
+      },
+      {
+        "source": "Chainlink/Ronin",
+        "text": "Chainlink CCIP周处理量突破13亿美元，多链生态互联互通深化；Ronin宣布从独立侧链转型为以太坊L2，提升安全性与可扩展性。"
+      }
     ],
     "funding": [
-      {"source": "Y Combinator/Sahm Capital", "text": "Web3/加密VC在2026年将更多流向成熟机构级加密产品，YC等加速器持续支持Web3初创；机构投资者加速入场。"},
-      {"source": "CoinDesk/Fireblocks", "text": "RWA（现实资产）代币化是监管和机构关注的最大趋势，以太坊链上tokenized国债规模已达80亿美元，增长迅猛。"},
-      {"source": "DL News/Blockchain Council", "text": "稳定币监管框架加速落地（EU MiCA、美国GENIUS法案等），稳定币在支付、市场基础设施和全球商务领域获得更广泛机构采用。"}
+      {
+        "source": "TheAIInsider",
+        "text": "中国具身AI机器人初创Vbot完成7300万美元Pre-A融资，由东方财富资本、华泰紫金、复星瑞璞联合领投，AI+机器人融合赛道获跨界资本关注。"
+      },
+      {
+        "source": "zypto/blocsys",
+        "text": "2026年初Web3市场规模突破680亿美元，分析师预测本十年末有望超4000亿美元；账户抽象普及消除了用户最后一道入链摩擦。"
+      },
+      {
+        "source": "Helium/Web3",
+        "text": "Helium移动网络用户突破16万，产生真实收入，成为2026年Web3赛道中为数不多实现实际商业化落地的项目之一。"
+      },
+      {
+        "source": "ElevenLabs",
+        "text": "ElevenLabs完成5亿美元D轮融资，估值110亿美元；AI+音频与Crypto/Web3生态协同趋势加强，多模态AI内容生成与链上版权确权结合成新方向。"
+      }
     ]
   }
 };
+
 </script>
 
 <script>
@@ -199,3 +374,4 @@ init();
 </script>
 </body>
 </html>
+
