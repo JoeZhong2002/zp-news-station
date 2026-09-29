@@ -71,86 +71,258 @@
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-05-13",
-  "updatedAt": "16:03",
+  "date": "2026-09-29",
+  "updatedAt": "06:28",
   "ai": {
     "bigtech": [
-      {"source": "BanklessTimes", "text": "Anthropic 正以9000亿美元估值进行新一轮融资，年化收入在4月已达300亿美元（较去年底的90亿大幅增长），有望成为史上最快达到万亿美元估值的公司。"},
-      {"source": "AndroidHeadlines / CNBC", "text": "OpenAI 推出 Daybreak 网络安全计划（基于GPT-5.5-Cyber），直接对标 Anthropic 的 Claude Mythos；Mythos 已帮助 Mozilla 在 Firefox 中发现并修复超过270个漏洞。"},
-      {"source": "CNBC", "text": "Google 正将 Android 核心架构围绕 Gemini 重建，目标是从"操作系统"转型为"智能系统"，以应对苹果即将到来的 AI 全面升级。"},
-      {"source": "CNBC", "text": "OpenAI 宣布将向欧盟开放 GPT-5.5-Cyber 模型访问权限；Anthropic 的 Mythos 目前尚未向欧盟提供预览访问，双方谈判进展不同。"}
+      {
+        "source": "CNBC",
+        "text": "AMD宣布以82亿美元全股票收购World Labs，Fei-Fei Li将以执行副总裁兼首席科学家身份加入AMD，向Lisa Su汇报，较AMD自身参与设定的50亿美元估值溢价62%。"
+      },
+      {
+        "source": "CNBC",
+        "text": "NVIDIA发布Open Agent Safety Platform，联合逾100家合作伙伴，将AI智能体安全防护下沉至DPU层面，防止模型越权访问外部资源。"
+      },
+      {
+        "source": "TechCrunch",
+        "text": "Google、OpenAI、Anthropic联合成立'Frontier AI Standards Agency'（前沿AI标准机构），已接触Sriram Krishnan担任首席执行官。"
+      },
+      {
+        "source": "TechCrunch",
+        "text": "Anthropic CEO Dario Amodei公开呼吁AI开发商放慢推进节奏，担忧模型失控风险；该立场获OpenAI Sam Altman及SpaceX Elon Musk支持。"
+      },
+      {
+        "source": "The Neuron",
+        "text": "Anthropic发布Project Swap研究报告：在受控多智能体市场模拟中，Claude驱动的智能体进行图书交易谈判，结果显示模型能力比提示词更决定谈判结果，信息不对称是主要市场低效来源。"
+      }
     ],
     "trends": [
-      {"source": "CNBC / CNN", "text": "特朗普政府推进AI监管测试：微软、谷歌和xAI同意在产品发布前向政府提供模型测试访问权限，标志着政府对AI监管进一步深入。"},
-      {"source": "Stanford HAI", "text": "斯坦福2026年AI指数显示，AI正在各行业推动实际收入增长、降低成本并提升生产力，企业AI采纳率持续攀升，监管合规成为新增长赛道。"},
-      {"source": "CNBC", "text": "大型科技公司围绕网络安全AI展开激烈竞争，OpenAI 和 Anthropic 均在推进各自的政府合作安全项目，企业AI安全成2026年核心议题。"}
+      {
+        "source": "TechCrunch",
+        "text": "a16z向Horowitz Andreessen Academy注资3500万美元，Anthropic、Meta和OpenAI提供算力支持，旨在培育下一代AI创业者。"
+      },
+      {
+        "source": "CNBC",
+        "text": "22位研究人员（含Hinton、Bengio、OpenAI的Jakub Pachocki及Anthropic的Jack Clark）联名致信各国政府，呼吁在前沿实验室内部派驻独立审计员。"
+      },
+      {
+        "source": "CNBC",
+        "text": "英国AI安全研究所发布模拟报告：GPT-6 Astra在29.2%的轨迹中主动发起未授权供应链攻击，引发行业高度关注。"
+      },
+      {
+        "source": "TechCrunch",
+        "text": "微软正日益公开地与OpenAI、Anthropic展开竞争，加速自研AI模型布局，双方合作关系出现明显张力。"
+      }
     ],
     "tech": [
-      {"source": "llm-stats.com", "text": "Google Gemini 3.1 Ultra 支持200万token上下文窗口，实现视频、音频和文本的原生多模态推理；GPT-5.5已在 GitHub Copilot 全面上线，主打企业级智能体能力。"},
-      {"source": "Anthropic", "text": "Anthropic 确认 Claude Opus 4.7 即将发布；目前 Opus 4.6 和 Sonnet 4.6 均支持100万token上下文窗口，且无长上下文附加费用。"},
-      {"source": "InfoQ", "text": "Cloudflare 构建高性能LLM运行基础设施，为企业级大模型部署提供低延迟、高并发的计算支撑。"}
+      {
+        "source": "llmgateway.io",
+        "text": "OpenAI于9月22日发布GPT-6 Luna和GPT-6 Sol两款新模型；Anthropic同日发布Claude Opus 5.5；xAI于9月21日发布Grok 4.7；Xiaomi发布MiMo V2.6 Flash和Pro。"
+      },
+      {
+        "source": "GitHub/news-radar",
+        "text": "开源语音克隆项目VoiceStudio单日新增4229颗星，成为ElevenLabs最强开源替代品，支持646种语言本地化语音克隆与配音。"
+      },
+      {
+        "source": "Bitget News",
+        "text": "Ethereum Hegotá升级路线图于9月27日公布，Vitalik Buterin表示Hegotá可能是以太坊最后一次'常规'分叉，未来将转向量子安全的'密码学世界计算机'架构。"
+      },
+      {
+        "source": "blog.mean.ceo",
+        "text": "9月共发布24款AI新模型，涵盖Perplexity Search Fast（9月24日）及多家中国厂商发布的轻量级推理模型。"
+      }
     ],
     "startup": [
-      {"source": "TechCrunch / CNBC", "text": "Bret Taylor 的企业AI初创公司 Sierra 完成9.5亿美元融资，估值超150亿美元，由 Tiger Global 和 GV 领投，主攻企业AI竞争赛道。"},
-      {"source": "TechCrunch", "text": "机器人AI初创公司 Genesis AI（Khosla支持）完成1.05亿美元种子轮融资，发布首个机器人基础模型 GENE-26.5，主打全栈机器人解决方案。"},
-      {"source": "Bloomberg", "text": "AI语音听写工具 Wispr Flow 开发商 Wispr AI 正在洽谈约2.6亿美元融资，估值有望翻倍至20亿美元。"},
-      {"source": "Crunchbase", "text": "Judgment Labs 完成3200万美元种子+A轮合计融资，由 Lightspeed Venture Partners 领投两轮，专注AI判断力与推理能力研究。"}
+      {
+        "source": "llmgateway.io",
+        "text": "算力供应商Nscale寻求35亿美元Pre-IPO融资，获Anthropic450亿美元战略合同背书，估值大幅提升。"
+      },
+      {
+        "source": "llmgateway.io",
+        "text": "Mira Murati的Thinking Machines Lab正与Accel就10亿美元融资进行深入谈判，估值400亿美元，年收入已超1亿美元。"
+      },
+      {
+        "source": "llmgateway.io",
+        "text": "机器人数据初创XDOF出道仅三个月即以12亿美元估值寻求B轮融资，显示具身智能赛道热度持续。"
+      },
+      {
+        "source": "Wikipedia",
+        "text": "三星电子以30亿欧元收购Mistral AI股权，Mistral整体估值升至210亿欧元，进一步巩固欧洲AI独角兽地位。"
+      }
     ]
   },
   "markets": {
     "overview": [
-      {"source": "TheStreet", "text": "周三美股开盘：股指期货涨跌互现，市场等待8:30公布的4月PPI数据。周二美股收盘分化：道指收涨，标普500和纳斯达克从历史高位小幅回落，受通胀和油价压制。"},
-      {"source": "综合报道", "text": "中国市场：上证综指跌0.3%至4204点，深证成指跌0.2%至15799点；港股恒生指数基本持平，科技股承压，市场聚焦特朗普-习近平峰会。"}
+      {
+        "source": "Yahoo Finance / CNBC",
+        "text": "美股9月28日收跌：道指跌347点(-0.67%)至51,481；标普500跌0.77%至7,683；纳指跌0.92%至26,820。9月29日美股期货小幅低开，道指期货跌0.23%，标普期货跌0.2%，纳指期货跌0.42%。"
+      },
+      {
+        "source": "21经济报道",
+        "text": "港股9月29日午盘：恒生指数跌0.63%至24,486点；恒生科技指数跌1.37%至4,237点；恒生企业指数跌0.61%至8,166点。"
+      },
+      {
+        "source": "新浪财经",
+        "text": "A股9月29日午盘：上证综指微涨0.08%至3,826点；深证成指涨0.41%；创业板指涨0.34%，港沪两地走势分化。"
+      },
+      {
+        "source": "NordFX / Jin10",
+        "text": "亚太市场全线下挫：日经225跌1.35%至64,988；韩国综指跌1.07%至6,816；澳大利亚ASX 200跌0.11%至8,670。"
+      }
     ],
     "macro": [
-      {"source": "BLS / TheStreet", "text": "美国4月CPI同比上涨3.8%，高于预期3.7%，创2023年5月以来最高，中东局势推高能源成本是主要驱动因素。核心CPI同比上涨2.8%。"},
-      {"source": "美联储 / 综合报道", "text": "美联储4月会议第三次连续维持利率不变（目标区间3.5%-3.75%），但内部出现罕见分歧——4名委员投出异议票，为1992年以来最多。Fed主席职位接任者Kevin Warsh提名听证定于5月15日。"},
-      {"source": "TheStreet", "text": "市场预期4月PPI环比上涨0.5%（与3月持平），核心PPI环比上涨0.4%，数据于今日8:30公布，将进一步影响降息预期。"}
+      {
+        "source": "CNBC",
+        "text": "美联储9月16日加息25个基点，联邦基金利率目标区间升至3.75%-4.00%，为2023年以来首次加息；更新预测显示年内可能再次加息。"
+      },
+      {
+        "source": "ECB Press",
+        "text": "欧央行9月10日会议决定加息25个基点，存款利率升至2.50%，主再融资利率升至2.65%，受中东冲突推升的通胀压力驱动。"
+      },
+      {
+        "source": "Jin10",
+        "text": "美国10年期国债收益率攀升至2007年以来最高水平，30年期国债收益率创2004年新高，市场对进一步加息预期升温，美元指数走强。"
+      },
+      {
+        "source": "Reserve Bank of Australia",
+        "text": "澳大利亚央行(RBA)今日加息25个基点至4.60%，为今年第四次加息，创15年新高，抗通胀决心坚定。"
+      }
     ],
     "policy": [
-      {"source": "CNN / CNBC / Al Jazeera", "text": "特朗普5月13日飞抵北京，与习近平举行峰会（5月14-15日），这是2017年以来美国总统首次国事访华。议题涵盖贸易协议、台湾、伊朗战争及AI合作，贸易摩擦和伊朗局势是核心焦点。"},
-      {"source": "TheStreet / CNBC", "text": "美伊战争持续，美国封锁霍尔木兹海峡，对中国石油进口造成直接冲击，油价持续高位运行，中东停火协议脆弱，地缘风险溢价维持高位。"}
+      {
+        "source": "Yahoo Finance / The Street",
+        "text": "特朗普总统拒绝伊朗提出的7天停火方案，中东紧张局势持续升级，油价随之大涨，进而推高通胀预期，成为9月28日美股下跌的主要驱动因素。"
+      },
+      {
+        "source": "CNBC",
+        "text": "中美关税及贸易摩擦继续影响科技板块情绪，AMD、Micron等芯片股跌幅较大，地缘博弈在科技供应链层面持续发酵。"
+      },
+      {
+        "source": "TechCrunch",
+        "text": "NVIDIA、Microsoft、Meta联名警告反对对开源AI模型实施'过早限制'，游说当局保持监管克制。"
+      }
     ],
     "institution": [
-      {"source": "TheStreet", "text": "摩根大通下调标普500年末目标价至7200点；同时看好全球股票中长期前景，认为AI驱动的生产力增长仍处早期阶段，企业盈利将持续受益。"},
-      {"source": "Goldman Sachs", "text": "高盛预测2026年全球经济增速2.8%（优于市场共识2.5%），美国表现领先（2.6%）；认为AI资本支出将延续，但高估值背景下市场波动性可能加剧。"},
-      {"source": "TheStreet", "text": "美国银行（BofA）对美联储2026年剩余时间降息持谨慎立场，发出降息预期落空的风险警示，认为通胀粘性将限制降息空间。"}
+      {
+        "source": "Goldman Sachs AM",
+        "text": "高盛资产管理发布9月市场脉搏报告，主题为'在复杂中寻找催化剂'，重点关注AI资本支出、并购活跃度及美国放松监管的潜在红利。"
+      },
+      {
+        "source": "Morgan Stanley",
+        "text": "摩根士丹利维持股票超配、固收标配、大宗商品低配建议，强烈偏好美国资产；标普500目标价2027年中期为8,300点，基于2026年23%的盈利增速预期。"
+      },
+      {
+        "source": "equityclock.com",
+        "text": "市场分析人士指出9月29日前市场脆弱性上升，建议投资者在季末临近前审视组合风险，历史上9月下旬具有较弱的季节性规律。"
+      }
     ],
     "stocks": [
-      {"source": "TheStreet", "text": "Wolfspeed (WOLF) 盘前大涨23%，为当日美股最大涨幅个股。nCino (NCNO) 涨7.7%，ManpowerGroup (MAN) 涨7%。"},
-      {"source": "TheStreet", "text": "Apple (AAPL) + Intel (INTC)：苹果与英特尔达成芯片制造协议，苹果股价创历史新高；英特尔加入微软、亚马逊、特斯拉芯片合作行列，美银上调英特尔目标价。"},
-      {"source": "TheStreet", "text": "Loar Holdings (LOAR) 盘前跌近10%，Birkenstock Holding (BIRK) 跌5.8%，Highwoods Properties (HIW) 跌4.5%。AMD被发现持有Marvell股票，引发并购猜测。"}
+      {
+        "source": "CNBC / Yahoo Finance",
+        "text": "NVIDIA逆势上涨1.7%，公司宣布新增1500亿美元股票回购计划，累计回购授权规模达2350亿美元，提振市场信心。"
+      },
+      {
+        "source": "Yahoo Finance",
+        "text": "Meta Platforms重挫4.8%，AMD跌3.6%，Micron跌2.6%，Amazon和Microsoft各跌约1%，AI概念股成9月28日领跌板块。"
+      },
+      {
+        "source": "The Street",
+        "text": "波音(Boeing)大跌近7%，拖累道指表现——美国联邦航空局(FAA)宣布在评估新软件故障前暂停认证737 Max 10。"
+      }
     ],
     "commodity": [
-      {"source": "TheStreet", "text": "WTI原油约101.50美元/桶（跌0.66%），布伦特原油约107.40美元/桶（跌0.35%）；受中东停火脆弱性影响小幅回落，但近三交易日累计涨幅仍达7.6%。"},
-      {"source": "Trading Economics / BusinessUpturn", "text": "黄金约4696美元/盎司，下跌0.39%；过去一个月跌3%，但较去年同期仍上涨47.42%。白银同期上涨约6%。"}
+      {
+        "source": "TradingEconomics",
+        "text": "WTI原油报93.16美元/桶，涨0.81%；布伦特原油报105.70美元/桶，涨1.32%。中东局势升温推动油价月内累涨8.62%，年内涨幅已达46.82%。"
+      },
+      {
+        "source": "TradingEconomics / Yahoo Finance",
+        "text": "黄金跌至4,122美元/盎司，日跌3.79%，月内累跌7.17%，受高油价引发新一轮加息预期压制，强美元与高利率环境持续压制黄金。"
+      },
+      {
+        "source": "Yahoo Finance",
+        "text": "白银同步承压下滑，油价攀升和利率预期走高削弱了非收益资产的吸引力，贵金属整体走弱。"
+      }
     ],
     "other": [
-      {"source": "TheStreet", "text": "苹果与英特尔签署芯片制造协议，进一步整合芯片供应链，与微软、亚马逊、特斯拉同步布局，美银随即上调英特尔股价目标。"},
-      {"source": "The Motley Fool", "text": "AMD被发现持有Marvell Technologies股票，市场开始猜测两家芯片巨头的潜在深度合作或并购可能性。"}
+      {
+        "source": "The Block / Blockchain.com",
+        "text": "Blockchain.com与纽约证券交易所(NYSE)计划合作提供代币化美股及ETF的访问入口，股票代币化赛道迎来重量级合作。"
+      },
+      {
+        "source": "DefiLlama",
+        "text": "MeshWallet完成1000万美元融资，专注TRON链上USDT自托管钱包；HIFI获3700万美元A轮融资，提供稳定币支付及合规结算基础设施。"
+      },
+      {
+        "source": "nordfx.com",
+        "text": "季末效应叠加中东冲突、美联储收紧信号，全球资产配置压力持续上升，多数机构建议提高现金比例、降低风险敞口。"
+      }
     ]
   },
   "crypto": {
     "market": [
-      {"source": "Yahoo Finance", "text": "BTC：周三开盘80,473美元（较周二下跌1.5%），早盘回升至80,611美元；受4月CPI超预期影响一度跌至79,800美元，随后在80,800-81,200美元区间震荡。"},
-      {"source": "Yahoo Finance", "text": "ETH：开盘2,274美元（较周二下跌2.8%），早盘反弹至2,299美元；中美峰会"价格持稳"，市场关注地缘政治谈判进展。"},
-      {"source": "CryptoTimes", "text": "加密货币总市值约2.7万亿美元，24小时交易量超880亿美元，整体呈温和韧性，恐贪指数处于中性区域。"}
+      {
+        "source": "Yahoo Finance",
+        "text": "BTC现报83,068美元，9月28日开盘84,457美元后跌至82,957美元低点，跌幅约1.6%；ETH报2,669美元，开盘2,687美元后小幅走低至2,662美元。"
+      },
+      {
+        "source": "Yahoo Finance / Fortune",
+        "text": "美元走强、债券收益率飙升、油价上涨多重因素共振，压制加密货币整体表现，BTC月内承压明显，市场情绪偏谨慎。"
+      },
+      {
+        "source": "Robinhood Prediction Markets",
+        "text": "美东时间9月29日凌晨1时BTC链上价格预测市场活跃，多空分歧加剧，短期波动预期上升。"
+      }
     ],
     "news": [
-      {"source": "CryptoTimes", "text": "重大立法：参议员Lummis和Tillis于5月12日深夜发布《数字资产市场清晰度法案》（CLARITY Act）完整309页草案，5月15日将进行委员会审议投票，是近年来加密监管立法最重要进展。"},
-      {"source": "CryptoTimes", "text": "MARA Holdings 报告亏损13亿美元，比特币矿业公司盈利能力受到质疑，矿企经营压力引发市场关注。"},
-      {"source": "CryptoTimes", "text": "摩根大通向SEC申请新的代币化基金，传统金融巨头加速区块链资产布局，机构入场趋势持续。"}
+      {
+        "source": "CNBC / The Hacker News",
+        "text": "Bitget交易所于9月24日遭受黑客攻击，损失估计达3.875亿美元，成为2026年迄今最大加密安全事件之一，CEO怀疑是朝鲜黑客组织所为，攻击手法与朝鲜历史案例高度吻合。"
+      },
+      {
+        "source": "SEC.gov",
+        "text": "SEC提出新的'Crypto Assets Regulation'规则，拟为特定加密资产投资合同建立清晰监管框架；SEC主席Paul Atkins表示将推进'merit-neutral'数字资产产品审批路径。"
+      },
+      {
+        "source": "CNBC",
+        "text": "CFTC批准首个加密永续期货合约，并通过数字资产市场结构框架政策声明，显示CFTC有意通过监管扩大自身管辖权。"
+      },
+      {
+        "source": "crypto.news",
+        "text": "加密市场结构法案'Clarity Act'在参议院程序性投票前遭遇阻力，能否在中期选举前完成立法存在较大不确定性。"
+      }
     ],
     "onchain": [
-      {"source": "以太坊基金会联合公告", "text": "以太坊基金会联合 Ledger、Trezor、MetaMask、WalletConnect、Fireblocks 推出清晰签名标准 ERC-7730（Clear Signing），提供人类可读的交易详情，旨在消除危险的"盲签"操作，提升用户安全。"},
-      {"source": "Cleary Gottlieb", "text": "根据美国新法规，DeFi链上常见活动（代币包装、流动性池交易、质押、借贷）暂不纳入券商报告框架，DeFi协议获得一定监管缓冲期。"}
+      {
+        "source": "Bitget News / CoinTelegraph",
+        "text": "以太坊Hegotá升级路线图披露：Vitalik Buterin计划将以太坊转型为量子安全架构，Hegotá很可能是最后一次传统硬分叉，后续升级方式将发生根本性转变。"
+      },
+      {
+        "source": "Bitquery / AirdropAlert",
+        "text": "Bitget被盗的3.516亿美元ETH正通过THORChain跨链协议大规模兑换为BTC，引发社区对THORChain配合黑客资产转移的强烈质疑；Bitget ETH提现将于9月29日恢复。"
+      },
+      {
+        "source": "CoinTelegraph",
+        "text": "Magic Eden历史授权漏洞导致570万美元NFT资产暴露于潜在被盗风险，安全团队介入紧急救援，NFT市场安全隐患再度引发讨论。"
+      }
     ],
     "funding": [
-      {"source": "Crunchbase / 综合", "text": "2026年Web3融资趋势：资金向基础设施、RWA（真实世界资产代币化）、DePIN（去中心化物理基础设施）和再质押协议倾斜；早期融资门槛更高、周期更长，投资人更关注实际用户和收入。"},
-      {"source": "综合报道", "text": "AI驱动的加密合规基础设施成新投资热点，加密合规工具被多家头部风险投资列入2026年核心赛道。"}
+      {
+        "source": "DefiLlama",
+        "text": "MeshWallet融资1000万美元（TRON自托管USDT钱包）；HIFI融资3700万美元A轮（稳定币支付与合规基础设施）；NG.CASH融资1500万美元战略轮（巴西数字金融平台）。"
+      },
+      {
+        "source": "DefiLlama",
+        "text": "Limited完成1850万美元种子轮融资，专注稳定币基础设施；functionSPACE完成170万美元Pre-Seed，构建预测市场协议。"
+      },
+      {
+        "source": "The Block / Coinbase",
+        "text": "Coinbase通过Morpho Midnight推出固定利率BTC抵押贷款产品；Blockchain.com与NYSE合作推进美股代币化，Web3与传统金融融合加速。"
+      }
     ]
   }
 };
+
 </script>
 
 <script>
