@@ -2,207 +2,315 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZP News Station — 每日三合一日报</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ZP News Station</title>
 <style>
   :root {
     --bg: #0f1117;
-    --card: #1a1d27;
-    --border: #2a2d3d;
-    --accent-ai: #6c63ff;
-    --accent-mkt: #00d4aa;
-    --accent-crypto: #f7931a;
+    --card: #1a1d2e;
+    --card2: #232640;
+    --border: #2e3158;
     --text: #e2e8f0;
-    --text-dim: #8892a4;
-    --tag-bg: #252840;
+    --muted: #8892a4;
+    --accent-ai: #6366f1;
+    --accent-market: #10b981;
+    --accent-crypto: #f59e0b;
+    --tag-bg: rgba(99,102,241,0.15);
+    --tag-market: rgba(16,185,129,0.15);
+    --tag-crypto: rgba(245,158,11,0.15);
+    color-scheme: dark;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--text); font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; min-height: 100vh; }
-  header { background: linear-gradient(135deg, #1a1d27 0%, #252840 100%); border-bottom: 1px solid var(--border); padding: 20px 32px; display: flex; align-items: center; justify-content: space-between; }
-  header h1 { font-size: 22px; font-weight: 700; letter-spacing: 0.5px; }
-  header h1 span { color: var(--accent-crypto); }
-  .meta { font-size: 13px; color: var(--text-dim); }
-  .tabs { display: flex; gap: 8px; padding: 20px 32px 0; border-bottom: 1px solid var(--border); }
-  .tab { padding: 10px 22px; border-radius: 8px 8px 0 0; cursor: pointer; font-size: 14px; font-weight: 600; border: 1px solid transparent; border-bottom: none; transition: all 0.2s; color: var(--text-dim); }
-  .tab:hover { background: var(--card); color: var(--text); }
-  .tab.active { background: var(--card); color: var(--text); border-color: var(--border); }
-  .tab.ai.active { border-top: 3px solid var(--accent-ai); }
-  .tab.mkt.active { border-top: 3px solid var(--accent-mkt); }
-  .tab.crypto.active { border-top: 3px solid var(--accent-crypto); }
-  .panel { display: none; padding: 28px 32px; }
-  .panel.active { display: block; }
-  .section { margin-bottom: 28px; }
-  .section-title { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
-  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
-  .news-list { display: flex; flex-direction: column; gap: 10px; }
-  .news-item { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; transition: border-color 0.2s; }
-  .news-item:hover { border-color: #444; }
-  .source-tag { background: var(--tag-bg); color: var(--text-dim); font-size: 11px; padding: 3px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
-  .news-text { font-size: 14px; line-height: 1.65; color: var(--text); }
-  .empty { color: var(--text-dim); font-size: 13px; font-style: italic; }
-  @media (max-width: 640px) {
-    header { flex-direction: column; align-items: flex-start; gap: 6px; padding: 16px; }
-    .tabs { padding: 16px 16px 0; }
-    .panel { padding: 20px 16px; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    padding: env(safe-area-inset-top, 0px) 0 env(safe-area-inset-bottom, 0px);
+  }
+  header {
+    background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #1e3a5f 100%);
+    padding: 24px 16px 20px;
+    text-align: center;
+    border-bottom: 1px solid var(--border);
+  }
+  header h1 { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.5px; }
+  header h1 span { color: #818cf8; }
+  .meta { margin-top: 6px; color: #a5b4fc; font-size: 0.8rem; }
+  .tabs {
+    display: flex;
+    gap: 0;
+    background: var(--card);
+    border-bottom: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: none;
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 100;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex: 1;
+    min-width: 80px;
+    padding: 12px 8px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--muted);
+    border-bottom: 3px solid transparent;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .tab.active-ai { color: var(--accent-ai); border-color: var(--accent-ai); background: rgba(99,102,241,0.08); }
+  .tab.active-market { color: var(--accent-market); border-color: var(--accent-market); background: rgba(16,185,129,0.08); }
+  .tab.active-crypto { color: var(--accent-crypto); border-color: var(--accent-crypto); background: rgba(245,158,11,0.08); }
+  .content { display: none; padding: 16px; max-width: 800px; margin: 0 auto; }
+  .content.active { display: block; }
+  .section { margin-bottom: 20px; }
+  .section-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .news-item {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 8px;
+    transition: border-color 0.2s;
+  }
+  .news-item:hover { border-color: #4a5175; }
+  .news-source {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+  .ai-source { color: var(--accent-ai); }
+  .market-source { color: var(--accent-market); }
+  .crypto-source { color: var(--accent-crypto); }
+  .news-text { font-size: 0.88rem; color: var(--text); }
+  .empty { color: var(--muted); font-size: 0.85rem; font-style: italic; padding: 8px 0; }
+  .date-badge {
+    display: inline-block;
+    background: var(--card2);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 3px 12px;
+    font-size: 0.75rem;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .holiday-notice {
+    background: rgba(245,158,11,0.1);
+    border: 1px solid rgba(245,158,11,0.3);
+    border-radius: 10px;
+    padding: 10px 14px;
+    margin-bottom: 16px;
+    font-size: 0.85rem;
+    color: #fcd34d;
   }
 </style>
 </head>
 <body>
 <header>
-  <h1>📰 ZP News Station <span>· 每日三合一日报</span></h1>
-  <div class="meta" id="meta-info">加载中...</div>
+  <h1>ZP <span>News</span> Station</h1>
+  <div class="meta" id="meta-date">Loading...</div>
 </header>
 <div class="tabs">
-  <div class="tab ai active" onclick="switchTab('ai')">🤖 AI 科技</div>
-  <div class="tab mkt" onclick="switchTab('mkt')">📈 资本市场</div>
-  <div class="tab crypto" onclick="switchTab('crypto')">🪙 Crypto</div>
+  <div class="tab" id="tab-ai" onclick="switchTab('ai')">🤖 AI 科技</div>
+  <div class="tab" id="tab-market" onclick="switchTab('market')">📈 资本市场</div>
+  <div class="tab" id="tab-crypto" onclick="switchTab('crypto')">🪙 Crypto</div>
 </div>
 
-<div id="panel-ai" class="panel active"></div>
-<div id="panel-mkt" class="panel"></div>
-<div id="panel-crypto" class="panel"></div>
+<div class="content" id="pane-ai">
+  <div class="date-badge" id="ai-date"></div>
+  <div class="section"><div class="section-title">🏢 BigTech 大厂动态</div><div id="ai-bigtech"></div></div>
+  <div class="section"><div class="section-title">📊 行业趋势</div><div id="ai-trends"></div></div>
+  <div class="section"><div class="section-title">🔬 前沿技术</div><div id="ai-tech"></div></div>
+  <div class="section"><div class="section-title">🚀 初创公司</div><div id="ai-startup"></div></div>
+</div>
+
+<div class="content" id="pane-market">
+  <div class="date-badge" id="market-date"></div>
+  <div id="market-holiday-notice" class="holiday-notice" hidden>⚠️ 今日A股/港股休市（国庆假期 10月1日-7日），10月8日恢复交易</div>
+  <div class="section"><div class="section-title">🌍 全球概览</div><div id="market-overview"></div></div>
+  <div class="section"><div class="section-title">📐 宏观经济</div><div id="market-macro"></div></div>
+  <div class="section"><div class="section-title">🏛️ 政策动态</div><div id="market-policy"></div></div>
+  <div class="section"><div class="section-title">🏦 机构动向</div><div id="market-institution"></div></div>
+  <div class="section"><div class="section-title">📉 个股异动</div><div id="market-stocks"></div></div>
+  <div class="section"><div class="section-title">🛢️ 大宗商品</div><div id="market-commodity"></div></div>
+  <div class="section"><div class="section-title">📰 其他财经</div><div id="market-other"></div></div>
+</div>
+
+<div class="content" id="pane-crypto">
+  <div class="date-badge" id="crypto-date"></div>
+  <div class="section"><div class="section-title">💹 市场行情</div><div id="crypto-market"></div></div>
+  <div class="section"><div class="section-title">📰 重大新闻</div><div id="crypto-news"></div></div>
+  <div class="section"><div class="section-title">⛓️ 链上动态</div><div id="crypto-onchain"></div></div>
+  <div class="section"><div class="section-title">💰 融资动态</div><div id="crypto-funding"></div></div>
+</div>
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-09-30",
-  "updatedAt": "12:13",
+  "date": "2026-10-01",
+  "updatedAt": "12:04",
   "ai": {
     "bigtech": [
-      {"source": "aiweekly.co", "text": "Anthropic 机密版 IPO 招股书曝光，计划未来十年与 Google、Amazon、Microsoft、Broadcom 等六家合作伙伴共投入至少 5180 亿美元用于 AI 基础设施，约 80% 金额不可撤销或不可取消。"},
-      {"source": "aiweekly.co", "text": "Anthropic 正式推出公开版 Claude Marketplace，已汇聚超 2000 个来自 Atlassian、Google、Microsoft、Notion、Salesforce 等合作伙伴的连接器与插件。"},
-      {"source": "CNBC", "text": "OpenAI 年化营收运行率在 Q3 初以来增长逾 70%，接近 700 亿美元。公司决定暂不发布 GPT-6.1 Astra 模型，原因为 AI 安全顾虑持续升级。"},
-      {"source": "aibriefing.dev", "text": "Google DeepMind SVP Koray Kavukcuoglu 确认 Gemini 4 已进入后训练精炼阶段，Google 目标在 2026 年底前推出早期版本。"}
+      {"source": "CNBC / TechCrunch", "text": "OpenAI DevDay 2026：推出 Dots AI 代理（由 GPT-6 Astra 驱动，连接超4000个应用）、Pages 文档工具（对标 Google Docs/Word）、Space 共享工作空间，进一步向微软 Office 生态宣战。"},
+      {"source": "llm-stats.com", "text": "Anthropic 发布 Claude Sonnet 5.5（GPT-6.1 Sol 发布一周后），作为 Opus 5.5 更快更便宜的版本；Opus 5.5 以低40%成本实现 Fable 5.1 级别性能，编程基准持续领先。"},
+      {"source": "Fortune", "text": "AI 先驱 Yann LeCun 炮轰 Anthropic CEO Dario Amodei"妄想"，称 AI 灭绝人类担忧出于"偏执"，批评有效加速主义(EA)在 AI 实验室具有"超级毒性"。"},
+      {"source": "TechCrunch", "text": "OpenAI 同步推出 GPT-6.1 Sol，在 DeepSWE 编程基准达到75.22%，成本降至前代五分之一，提供接近 Astra 级别的编程和计算机操控能力。"}
     ],
     "trends": [
-      {"source": "CNBC", "text": "OpenAI、Anthropic、Microsoft、Meta 研究负责人联合 Geoffrey Hinton 和 Yoshua Bengio 发出警告：AI 研究自动化可能迅速超出人类控制范围。Anthropic 的 Claude 已主导该公司 26% 的 R&D 工作，OpenAI 目标 2028 年实现研究全自动化。"},
-      {"source": "wsgr.com", "text": "欧盟 AI 法案核心条款已于 2026 年 8 月 2 日正式生效，企业须满足高风险 AI 系统的透明度披露要求。"},
-      {"source": "justsecurity.org", "text": "美国加州《AI 透明度法》正式生效，建立全美最全面的生成式 AI 内容披露框架，对 AI 生成内容实施强制标注。"},
-      {"source": "gokhshtein.com", "text": "AI 产业在全球政策真空下持续推动自我监管，各国政府监管进度普遍滞后于技术发展速度。"}
+      {"source": "Reuters / SeekingAlpha", "text": "Anthropic 宣布2026年将在印度开设首个办公室，AI 大厂加速布局亚太市场，全球 AI 版图竞争持续升温。"},
+      {"source": "Crunchbase", "text": "2026年 H1 全球创业投资突破 $510B 历史新高，AI 相关公司占 Q2 全球融资超70%，公开资本市场重开，AI 基础设施、国防科技、机器人、医疗健康成核心赛道。"},
+      {"source": "CNBC", "text": "Anthropic 已于6月1日秘密递交 IPO 文件，正与投资者会面，目标10月在美上市，为 AI 领域最受期待的 IPO 之一。"},
+      {"source": "FTC", "text": "美国联邦贸易委员会(FTC)对主要 AI 实验室展开大规模调查，重点关注竞争行为与市场集中度问题，监管压力升级。"}
     ],
     "tech": [
-      {"source": "llmgateway.io", "text": "Anthropic 于 2026 年 9 月 28 日正式发布 Claude Sonnet 5.5，为本月最新旗舰模型，性能及安全性均有显著提升。"},
-      {"source": "llm-stats.com", "text": "2026 年 9 月共有 25 个 AI 模型发布，涵盖多家初创公司及大型机构的 LLM 更新迭代，模型发布节奏明显加快。"},
-      {"source": "en.wikipedia.org", "text": "印度 AI 公司 Sarvam AI 开源两款大型语言模型：Sarvam 30B（300 亿参数）和 Sarvam 105B（1050 亿参数），填补印度本土大模型空白。"}
+      {"source": "llm-stats.com", "text": "GPT-6.1 Sol 发布：DeepSWE 达75.22%，全面支持编程代理与计算机使用(computer use)，成本效率领先行业。"},
+      {"source": "DeepMind", "text": "DeepMind 为 AI 设计的蛋白质结构引入水印技术，可追踪和验证 AI 生成科学内容的来源，推进 AI 科研可信度建设。"},
+      {"source": "llm-stats.com", "text": "Claude Opus 5.5 在专业工作基准测试中有显著提升，以约 Opus 5 成本的60%实现 Fable 5.1 级性能，推动大模型性价比持续提升。"}
     ],
     "startup": [
-      {"source": "secondtalent.com", "text": "Nvidia 以 129 亿美元收购 Hugging Face，于 9 月初宣布，创下 AI 开源社区领域最大收购纪录。"},
-      {"source": "secondtalent.com", "text": "Mistral AI 完成 30 亿欧元融资轮，持续强化欧洲本土大模型生态。"},
-      {"source": "secondtalent.com", "text": "Cognition 以 480 亿美元估值完成 20 亿美元融资，AI 编程智能体赛道持续升温。"},
-      {"source": "digitalapplied.com", "text": "AI 基础设施公司 Accelevation 与 Olympus 在美国 IPO 募资 5.4 亿美元，发行价 18 美元，低于 20-24 美元预期区间，市场对 AI 基础设施 IPO 保持审慎态度。"},
-      {"source": "secondtalent.com", "text": "2026 年上半年 AI 初创公司融资总额达 5100 亿美元，OpenAI 和 Anthropic 合计占比 43%；Anthropic 当前估值达 9650 亿美元。"}
+      {"source": "llm-stats.com", "text": "ElevenLabs（AI 语音合成领域领导者）估值达到 $220亿，成为继 OpenAI、Anthropic、xAI 后又一 AI 超级独角兽。"},
+      {"source": "Crunchbase", "text": "Sail Research 完成 $8000万融资（估值$4.5亿），专注于为运行数小时乃至数天的 AI 代理构建推理基础设施。"},
+      {"source": "Crunchbase", "text": "LeapXpert 完成 $1.8亿增长轮融资，面向金融服务与政府机构推出 AI 驱动的合规通信平台，客户快速增长。"},
+      {"source": "Crunchbase", "text": "Abu Dhabi 主权投资机构 MGX Fund I 超额完成募集，规模 $490亿（超过$450亿目标），已投入14家半导体、AI 基础设施和 AI 平台公司。"}
     ]
   },
   "markets": {
     "overview": [
-      {"source": "Yahoo Finance", "text": "美股：纳斯达克综合指数领涨，上涨 1%；标普 500 上涨 0.6%，消除 9 月全月跌幅，科技股领涨；道指小幅回落。"},
-      {"source": "247wallst.com", "text": "A 股：上证综合指数报 3842 点，上涨 0.31%；港股恒生指数上涨 0.66%，受科技股回暖带动。"}
+      {"source": "Yahoo Finance / TheStreet", "text": "美股周三收盘走势分化：道琼斯 -0.9%（-443.87点）收50,906；S&P 500 -0.3% 收7,651.54；纳斯达克 +0.2% 收26,861，科技股逆势走强。"},
+      {"source": "搜索结果综合", "text": "A股/港股今日因国庆假期（10月1日-7日）休市，10月8日起恢复交易。港股通及沪深港通同步关闭，10月8日重开。"},
+      {"source": "iTiger", "text": "分析师对中国股市2026年年底展望：恒生指数目标30,000点（较当前+11%），上证指数目标5,000点（较当前+21%），机构整体维持看多。"}
     ],
     "macro": [
-      {"source": "Yahoo Finance / TheStreet", "text": "美国 PCE 通胀：个人消费支出价格指数月环比升 0.3%，同比升 3.4%，低于道琼斯预期的 3.7%，通胀缓和支撑市场情绪。"},
-      {"source": "Yahoo Finance", "text": "ADP 就业数据：9 月私人企业就业人数增加 9 万，高于 8 月修正后的 3.6 万及预期的 6.8 万，就业市场韧性显现。"},
-      {"source": "Yahoo Finance", "text": "中国 PMI：官方制造业 PMI 回升至 50.1，非制造业 PMI 为 50.2，双双重返扩张区间，经济边际改善。"},
-      {"source": "Yahoo Finance", "text": "澳大利亚 CPI 同比 4.0%，澳联储已将基准利率上调至 4.60%，紧缩周期持续。"}
+      {"source": "Forbes / USBank", "text": "美联储于9月16日宣布加息25bp，将联邦基金利率目标区间上调至3.75%-4.00%，为2023年以来首次加息，主席 Kevin Warsh 称通胀仍然偏高。"},
+      {"source": "Forbes", "text": "固定收益市场已完全定价10月28日和12月2次加息，下次行动预计将利率区间推至4.00%-4.25%，市场警惕更激进紧缩路径。"},
+      {"source": "SCMP", "text": "香港金融管理局跟随美联储将基准利率上调至4.25%，港元与美元挂钩机制下，加息效应自动向香港传导，影响本港按揭及融资成本。"}
     ],
     "policy": [
-      {"source": "SCMP", "text": "美联储 9 月会议按主席 Kevin Warsh 承诺加息 25 个基点，基准利率区间升至 3.75%-4.00%；当前货币市场定价 10 月再加息概率低于 40%。"},
-      {"source": "americanactionforum.org", "text": "特朗普政府推进 Project Stargate——5000 亿美元 AI 基础设施计划，由 OpenAI、Oracle、日本 SoftBank 及 MGX 参与，地缘政治博弈下 AI 战略竞争加剧。"},
-      {"source": "SCMP", "text": "分析师警告：中港股市 Q4 面临北京刺激不及预期、美国金融条件收紧及 AI 主题叙事转变三重压力，风险偏向下行。"}
+      {"source": "Bloomberg / Reuters", "text": "油价突破 $100/桶，地缘政治紧张与 OPEC+ 供给收缩共同支撑，引发美债收益率新一轮上行，股债双杀压力显现。"},
+      {"source": "Yahoo Finance", "text": "美国制造业 PMI 扩张放缓，但原材料价格指数跳升至5月以来高位，通胀"黏性"持续令市场对美联储政策路径保持警惕。"},
+      {"source": "综合", "text": "10月28日美联储会议成为全球市场最大宏观变量，加息预期与油价高企可能进一步推高长端利率，压制风险资产估值。"}
     ],
     "institution": [
-      {"source": "SCMP", "text": "CCB International 预测恒生指数未来三个月交易区间为 22,500-26,000 点，风险偏向下行。"},
-      {"source": "Yahoo Finance", "text": "利率交易员当前定价美联储 10 月加息概率约 47%，美债长端收益率维持多年高位。"}
+      {"source": "CoinGape / Citigroup", "text": "花旗集团上调比特币12个月目标价至 $113,000，以太坊年底目标价从 $2,240 大幅上调至 $3,028，理由是 ETF 需求回暖与金融条件改善。"},
+      {"source": "Goldman Sachs / Investing.com", "text": "高盛将黄金年底目标价上调至 $4,900/盎司（较现价+14%），看好铜的长期需求，对油价前景相对保守，预计2026年油价承压回落。"},
+      {"source": "Forbes / Market consensus", "text": "主要华尔街机构普遍预期美联储2026年还有2次加息，固定收益投资者建议缩短久期，关注通胀保值债券(TIPS)机会。"}
     ],
     "stocks": [
-      {"source": "Yahoo Finance", "text": "美股科技板块领涨，PCE 数据低于预期刺激风险资产情绪回暖，标普 500 消除 9 月累计跌幅。"},
-      {"source": "Business Recorder", "text": "港股科技股表现强势，成为支撑恒指上涨 0.66% 的主要动力。"}
+      {"source": "Yahoo Finance / TheStreet", "text": "Synopsys（SNPS）涨4.8%，领涨纳斯达克，受 EDA 软件在 AI 芯片设计中需求持续强劲驱动，成为今日市场最大亮点。"},
+      {"source": "Yahoo Finance", "text": "道指权重金融与工业股因利率上升预期承压，能源板块受益油价上涨逆势走强，市场呈现明显板块轮动特征。"}
     ],
     "commodity": [
-      {"source": "tradingeconomics.com", "text": "黄金：报 4166.60 美元/盎司，跌 0.37%；月内下跌 6.18%，但同比仍上涨 7.80%，金价在强势美元压制下承压。"},
-      {"source": "business-standard.com", "text": "布伦特原油：报 97.09 美元/桶，涨 0.97%；月内累计上涨 7.30%，同比大涨 48.57%，供给紧张格局持续。"},
-      {"source": "tradingeconomics.com", "text": "WTI 原油：报 90.60 美元/桶，当日开盘 89.04，盘中高点 90.90。"}
+      {"source": "Reuters / Bloomberg", "text": "原油（WTI/布伦特）突破 $100/桶，OPEC+ 维持减产纪律+地缘政治溢价（中东局势）双重推升，成为当前通胀压力的核心来源之一。"},
+      {"source": "Goldman Sachs / Investing.com", "text": "黄金持续高位运行，Goldman Sachs 将年底目标上调至 $4,900/盎司，避险需求与去美元化趋势共同支撑，年内累计涨幅显著。"},
+      {"source": "OCBC Commodities", "text": "整体大宗商品涨跌分化：贵金属（黄金、白银）表现最强；铜受益 AI 基础设施建设需求长期看涨；天然气因北半球入冬临近受到关注。"}
     ],
     "other": [
-      {"source": "investrade.com", "text": "季末最后一个交易日，美股在 PCE 通胀数据好于预期后快速反弹，标普 500 结束连续三个月调整，季末资金再平衡效应显著。"}
+      {"source": "Crunchbase", "text": "Anthropic 路演即将展开，AI 独角兽 IPO 潮预计2026-2027年持续，继 OpenAI 拟2027年上市后，Anthropic 或率先成为 AI 赛道首家 A 级上市公司。"},
+      {"source": "Crunchbase", "text": "全球 H1 2026 创业融资 $510B 历史新高，大型后期轮融资（$10亿+）扩展至 AI 基础设施、国防科技、机器人及医疗健康，IPO 市场重开活跃。"}
     ]
   },
   "crypto": {
     "market": [
-      {"source": "Yahoo Finance", "text": "BTC：比特币开盘报 83,624.79 美元，盘中升至 83,767 美元，在 83,500 美元上方震荡，9 月累计涨幅有望维持正值。"},
-      {"source": "Yahoo Finance", "text": "ETH：以太坊开盘报 2,676.74 美元，略跌 0.4%，随后反弹至 2,686.56 美元。BTC 和 ETH 均维持月度涨幅。"},
-      {"source": "cryptointegrat.com", "text": "美国比特币现货 ETF：截至 9 月 25 日当周净流入约 23.9 亿美元，创 2025 年 10 月以来最大单周流入，2026 年年初至今净流入转正。"}
+      {"source": "Yahoo Finance / Robinhood", "text": "Bitcoin（BTC）报 $83,959.91，24小时成交量 $148.6亿；过去3个月累计涨近44%，仍低于历史高点34%，年内仍告下跌。BTC ETF 日净流入从峰值近 $10亿骤降至 $1.34亿，短期动能减弱。"},
+      {"source": "thecryptobasic.com", "text": "Ethereum（ETH）报约 $2,700，24小时涨0.86%，成交量 $139.2亿；技术分析显示 ETH 仍处于关键阻力位下方，突破方向有待确认。"},
+      {"source": "thecryptobasic.com", "text": "加密市场整体行情：BTC 需突破 $87,397（约+5.2%）延续涨势，目标看 $90,000；NEAR 今日反弹表现亮眼；技术指标27个看多信号，情绪中性偏多。"}
     ],
     "news": [
-      {"source": "kucoin.com", "text": "SEC 就以太坊质押发布监管澄清，大幅降低监管不确定性，ETH 质押赛道获政策松绑。"},
-      {"source": "cryptotimes.io", "text": "2026 年 9 月加密市场因 Bitget、Liquid 等平台黑客攻击和钓鱼诈骗损失约 7.664 亿美元，创年内单月最高损失纪录。"},
-      {"source": "kucoin.com", "text": "ARK Invest 将持有 OpenAI 和 Anthropic 股份的 AI 基金迁移至以太坊链上，AI 与加密深度融合趋势加速。"}
+      {"source": "CoinGape / Citigroup", "text": "花旗集团发布报告，将 BTC 12个月目标价上调至 $113,000，ETH 年底目标上调至 $3,028（原 $2,240），看好 ETF 需求回暖趋势。"},
+      {"source": "Yahoo Finance / Forbes", "text": "10月28日美联储加息预期成为加密市场最大宏观变量，历史规律显示加息周期中加密资产承压，市场正密切关注流动性变化。"},
+      {"source": "Robinhood Prediction Markets", "text": "BTC 期权和预测市场数据显示，市场参与者对10月 BTC 突破 $90,000 有显著押注，但宏观逆风下乐观情绪趋于谨慎。"}
     ],
     "onchain": [
-      {"source": "kucoin.com", "text": "Bitmine 公司大幅增持，累计收购约占全部 ETH 流通量 5% 的以太坊，机构囤积 ETH 趋势显著。"},
-      {"source": "afoxsdefidaily.substack.com", "text": "Earn Kit 正式在 Arc 主网上线，为开发者提供 Morpho USDC/EURC 借贷集成，降低 DeFi 基础设施搭建门槛。"},
-      {"source": "afoxsdefidaily.substack.com", "text": "摩根士丹利推出数字资产实验室，测试稳定币、代币化存款、DeFi 金库和代币化货币市场基金，传统金融机构加速 DeFi 布局。"}
+      {"source": "Solana Compass", "text": "Drift Foundation（Solana DeFi 借贷协议）于10月1日正式开放 DFX 恢复代币(recovery token)索赔，此前4月遭黑客攻击，早期赎回约每损失1美元兑换约1美分。"},
+      {"source": "crypto.news", "text": "Joseph Lubin 关联钱包转移133,298 ETH（约$3.56亿）至新地址，无迹象流入交易所，市场关注其战略意图，或涉及 DeFi 部署或长期持有调整。"},
+      {"source": "Ethereum Foundation / Wikipedia", "text": "以太坊基金会向 Morpho DeFi Vaults 分配2,400 ETH，为 Morpho 借贷协议提供流动性支持，持续加强 DeFi 生态基础设施建设。"}
     ],
     "funding": [
-      {"source": "defillama.com", "text": "HIFI 完成 3700 万美元 A 轮融资，专注稳定币基础设施和支付赛道。"},
-      {"source": "theblock.co", "text": "Jeeves 完成 1.1 亿美元融资，将稳定币原生银行平台扩展至 35 个国家，年化稳定币交易额超 15 亿美元，稳定币支付商业化加速。"},
-      {"source": "captainaltcoin.com", "text": "TOKEN2049 新加坡 2026 年会如期举行，Web3Payments 等项目参展，行业交流与生态建设持续活跃。"}
+      {"source": "Qubit Capital / Crunchbase", "text": "Web3 融资延续强劲势头，2025年全年超 $200亿为2022年以来新高，机构资金加速向稳定币支付、代币化资产、托管合规、数据和基础设施等赛道集中。"},
+      {"source": "waveup.com", "text": "2026年 Web3 投资重心从投机项目转向具有真实收入、监管合规、机构背书的基础设施，DeFi 协议需展示可持续的费用收入以吸引专业资本。"},
+      {"source": "Sherlock / Crunchbase", "text": "Q1 2026 Web3 融资指数显示，机构 LP 对加密基金重拾兴趣，家族办公室和大学基金开始重新配置数字资产，行业步入机构化新阶段。"}
     ]
   }
 };
 </script>
 
 <script>
-const SECTIONS = {
-  ai: [
-    { key: 'bigtech',  label: '大厂动态 BigTech' },
-    { key: 'trends',   label: '行业趋势 Trends' },
-    { key: 'tech',     label: '前沿技术 Tech' },
-    { key: 'startup',  label: '初创公司 Startup' }
-  ],
-  mkt: [
-    { key: 'overview',    label: '全球概览 Overview' },
-    { key: 'macro',       label: '宏观经济 Macro' },
-    { key: 'policy',      label: '政策政治 Policy' },
-    { key: 'institution', label: '投资机构 Institution' },
-    { key: 'stocks',      label: '个股异动 Stocks' },
-    { key: 'commodity',   label: '大宗商品 Commodity' },
-    { key: 'other',       label: '其他财经 Other' }
-  ],
-  crypto: [
-    { key: 'market',   label: '市场行情 Market' },
-    { key: 'news',     label: '重大新闻 News' },
-    { key: 'onchain',  label: '链上动态 Onchain' },
-    { key: 'funding',  label: '融资动态 Funding' }
-  ]
-};
+function renderItems(containerId, items, type) {
+  const el = document.getElementById(containerId);
+  if (!el) return;
+  if (!items || items.length === 0) {
+    el.innerHTML = '<div class="empty">暂无相关资讯</div>';
+    return;
+  }
+  el.innerHTML = items.map(item => `
+    <div class="news-item">
+      <div class="news-source ${type}-source">${item.source}</div>
+      <div class="news-text">${item.text}</div>
+    </div>
+  `).join('');
+}
 
-const DATA_KEYS = { ai: 'ai', mkt: 'markets', crypto: 'crypto' };
+function initPage() {
+  const d = REPORT_DATA;
+  document.getElementById('meta-date').textContent = `${d.date} ${d.updatedAt} 更新`;
+  ['ai','market','crypto'].forEach(t => {
+    const el = document.getElementById(t + '-date');
+    if (el) el.textContent = `📅 ${d.date}`;
+  });
 
-function renderPanel(tab) {
-  const panel = document.getElementById('panel-' + tab);
-  const dataKey = DATA_KEYS[tab];
-  const sections = SECTIONS[tab];
-  const data = REPORT_DATA[dataKey];
-  panel.innerHTML = sections.map(s => {
-    const items = (data[s.key] || []);
-    return `<div class="section">
-      <div class="section-title">${s.label}</div>
-      <div class="news-list">${items.length
-        ? items.map(it => `<div class="news-item"><span class="source-tag">${it.source}</span><span class="news-text">${it.text}</span></div>`).join('')
-        : '<div class="empty">暂无数据</div>'
-      }</div></div>`;
-  }).join('');
+  // AI
+  renderItems('ai-bigtech', d.ai.bigtech, 'ai');
+  renderItems('ai-trends', d.ai.trends, 'ai');
+  renderItems('ai-tech', d.ai.tech, 'ai');
+  renderItems('ai-startup', d.ai.startup, 'ai');
+
+  // Markets
+  if (d.date === '2026-10-01') {
+    document.getElementById('market-holiday-notice').hidden = false;
+  }
+  renderItems('market-overview', d.markets.overview, 'market');
+  renderItems('market-macro', d.markets.macro, 'market');
+  renderItems('market-policy', d.markets.policy, 'market');
+  renderItems('market-institution', d.markets.institution, 'market');
+  renderItems('market-stocks', d.markets.stocks, 'market');
+  renderItems('market-commodity', d.markets.commodity, 'market');
+  renderItems('market-other', d.markets.other, 'market');
+
+  // Crypto
+  renderItems('crypto-market', d.crypto.market, 'crypto');
+  renderItems('crypto-news', d.crypto.news, 'crypto');
+  renderItems('crypto-onchain', d.crypto.onchain, 'crypto');
+  renderItems('crypto-funding', d.crypto.funding, 'crypto');
+
+  switchTab('ai');
 }
 
 function switchTab(tab) {
-  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
-  document.querySelector('.tab.' + tab).classList.add('active');
-  document.getElementById('panel-' + tab).classList.add('active');
+  ['ai','market','crypto'].forEach(t => {
+    document.getElementById('pane-' + t).classList.remove('active');
+    const tabEl = document.getElementById('tab-' + t);
+    tabEl.classList.remove('active-ai','active-market','active-crypto');
+  });
+  document.getElementById('pane-' + tab).classList.add('active');
+  document.getElementById('tab-' + tab).classList.add('active-' + tab);
 }
 
-// Init
-document.getElementById('meta-info').textContent = `📅 ${REPORT_DATA.date}  ·  ⏱ 更新于 ${REPORT_DATA.updatedAt}`;
-['ai', 'mkt', 'crypto'].forEach(renderPanel);
+initPage();
 </script>
 </body>
 </html>
