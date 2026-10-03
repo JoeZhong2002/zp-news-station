@@ -162,91 +162,250 @@
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-10-01",
-  "updatedAt": "12:04",
+  "date": "2026-10-03",
+  "updatedAt": "16:11",
   "ai": {
     "bigtech": [
-      {"source": "CNBC / TechCrunch", "text": "OpenAI DevDay 2026：推出 Dots AI 代理（由 GPT-6 Astra 驱动，连接超4000个应用）、Pages 文档工具（对标 Google Docs/Word）、Space 共享工作空间，进一步向微软 Office 生态宣战。"},
-      {"source": "llm-stats.com", "text": "Anthropic 发布 Claude Sonnet 5.5（GPT-6.1 Sol 发布一周后），作为 Opus 5.5 更快更便宜的版本；Opus 5.5 以低40%成本实现 Fable 5.1 级别性能，编程基准持续领先。"},
-      {"source": "Fortune", "text": "AI 先驱 Yann LeCun 炮轰 Anthropic CEO Dario Amodei"妄想"，称 AI 灭绝人类担忧出于"偏执"，批评有效加速主义(EA)在 AI 实验室具有"超级毒性"。"},
-      {"source": "TechCrunch", "text": "OpenAI 同步推出 GPT-6.1 Sol，在 DeepSWE 编程基准达到75.22%，成本降至前代五分之一，提供接近 Astra 级别的编程和计算机操控能力。"}
+      {
+        "source": "Bloomberg / The Neuron",
+        "text": "Anthropic 正式冲刺 IPO，目标估值可能超 $2万亿，Bloomberg 报道其 11 月上市计划正加速推进，10月14日将向机构投资者举行路演会议，Broadcom 已签署最高 $420亿可转换融资协议。"
+      },
+      {
+        "source": "The Neuron / WSJ",
+        "text": "OpenAI 三名安全研究员因涉嫌不当分享敏感「基础设施架构」材料遭解雇，加州总检察长已对 OpenAI 发出网络安全事件调查传票，内部安全文化再受质疑。"
+      },
+      {
+        "source": "Google DeepMind",
+        "text": "Google DeepMind 发布 Gemini 4 Argon，主打前沿编程与复杂推理能力；同时通过 「Fairwind Program」向政府、医疗、电信等关键基础设施防御者提供 Gemini 3.8 Flash Cyber 网络安全模型早期访问。"
+      },
+      {
+        "source": "The Hacker News",
+        "text": "Google、Anthropic、OpenAI 三家联合发布网络安全 AI 能力：OpenAI Astra 模型达「关键」网络安全阈值，可自主发现零日漏洞；Anthropic 发布企业前沿防护(EFS)，Claude Fable 5.1 可用于软件漏洞识别；三家均强调对齐性与控制力加固。"
+      }
     ],
     "trends": [
-      {"source": "Reuters / SeekingAlpha", "text": "Anthropic 宣布2026年将在印度开设首个办公室，AI 大厂加速布局亚太市场，全球 AI 版图竞争持续升温。"},
-      {"source": "Crunchbase", "text": "2026年 H1 全球创业投资突破 $510B 历史新高，AI 相关公司占 Q2 全球融资超70%，公开资本市场重开，AI 基础设施、国防科技、机器人、医疗健康成核心赛道。"},
-      {"source": "CNBC", "text": "Anthropic 已于6月1日秘密递交 IPO 文件，正与投资者会面，目标10月在美上市，为 AI 领域最受期待的 IPO 之一。"},
-      {"source": "FTC", "text": "美国联邦贸易委员会(FTC)对主要 AI 实验室展开大规模调查，重点关注竞争行为与市场集中度问题，监管压力升级。"}
+      {
+        "source": "CNBC",
+        "text": "FTC 对 OpenAI、Anthropic 及其他主要 AI 公司展开调查，聚焦产品安全风险与竞争行为，AI 监管压力全面升级。"
+      },
+      {
+        "source": "The Neuron",
+        "text": "研究显示 2026 年 8 月经过过滤的网页 token 中，31.1% 为 AI 生成内容（2024年6月仅10%），AI 文本扩散速度远超预期，引发模型训练数据质量担忧。"
+      },
+      {
+        "source": "arXiv / The Neuron",
+        "text": "arXiv 因月提交量从2016年9月的9,869篇暴增至2026年9月的40,363篇，正式实施提交限速：每月最多2篇、同时最多3篇活跃投稿，学术发表 AI 爆炸时代的基础设施压力凸显。"
+      },
+      {
+        "source": "Fortune",
+        "text": "调查显示10%的美国人使用 ChatGPT 寻求情感支持或陪伴，49%的对话涉及信息/建议咨询，AI 正成为现代「神谕」——Anthropic 报告 Claude 4 在机器对话中意外出现形而上学/精神主题，未经刻意训练。"
+      }
     ],
     "tech": [
-      {"source": "llm-stats.com", "text": "GPT-6.1 Sol 发布：DeepSWE 达75.22%，全面支持编程代理与计算机使用(computer use)，成本效率领先行业。"},
-      {"source": "DeepMind", "text": "DeepMind 为 AI 设计的蛋白质结构引入水印技术，可追踪和验证 AI 生成科学内容的来源，推进 AI 科研可信度建设。"},
-      {"source": "llm-stats.com", "text": "Claude Opus 5.5 在专业工作基准测试中有显著提升，以约 Opus 5 成本的60%实现 Fable 5.1 级性能，推动大模型性价比持续提升。"}
+      {
+        "source": "TechCrunch / llm-stats.com",
+        "text": "Claude Opus 5.5（Anthropic）正式发布，实现「Fable 级别工作，成本更低」；配套推出 Claude Sonnet 5.5，作为更快的日常编程替代版本；Anthropic 同步将 Cowork 与 Chat 合并为统一体验。"
+      },
+      {
+        "source": "The Neuron / llm-stats.com",
+        "text": "GPT-6.1 Sol（OpenAI）同步推出，在 LiveCodeBench v6 领先，全面支持编程代理与 computer use，成本较前代大幅下降；Grok 4.7（xAI）同期发布，Xiaomi MiMo-V2.6 多变体亮相。"
+      },
+      {
+        "source": "Google / The Neuron",
+        "text": "Google Project Suncatcher：向卫星轨道发射四枚 Trillium TPU，测试太空机器学习基础设施——包括发射应力与辐射效应对芯片的影响，探索空间计算新形态。"
+      },
+      {
+        "source": "Inception / The Neuron",
+        "text": "Mercury Voice（Inception 公司）发布：首个用于语音代理的扩散语言模型，实现全双工视频对话；FLUX 3 图像模型支持区域编辑与布局画布；Tavus Griffin 发布带音频响应的全双工视频模型。"
+      }
     ],
     "startup": [
-      {"source": "llm-stats.com", "text": "ElevenLabs（AI 语音合成领域领导者）估值达到 $220亿，成为继 OpenAI、Anthropic、xAI 后又一 AI 超级独角兽。"},
-      {"source": "Crunchbase", "text": "Sail Research 完成 $8000万融资（估值$4.5亿），专注于为运行数小时乃至数天的 AI 代理构建推理基础设施。"},
-      {"source": "Crunchbase", "text": "LeapXpert 完成 $1.8亿增长轮融资，面向金融服务与政府机构推出 AI 驱动的合规通信平台，客户快速增长。"},
-      {"source": "Crunchbase", "text": "Abu Dhabi 主权投资机构 MGX Fund I 超额完成募集，规模 $490亿（超过$450亿目标），已投入14家半导体、AI 基础设施和 AI 平台公司。"}
+      {
+        "source": "The Neuron / Crunchbase",
+        "text": "Armadin 完成 $2.555亿 B 轮融资，专注于自主安全代理（autonomous security agents），是本周 AI 安全赛道最大融资事件。"
+      },
+      {
+        "source": "The Neuron",
+        "text": "Halluminate 完成 $3000万 A 轮融资，聚焦金融领域强化学习应用，AI+金融赛道持续吸引专业资本。"
+      },
+      {
+        "source": "The Neuron",
+        "text": "SoftBank 向 OpenAI 完成 $300亿承诺中最终 $100亿注资，Anthropic 获 Broadcom 最高 $420亿可转换融资，两大 AI 巨头弹药库持续充裕。"
+      },
+      {
+        "source": "KuCoin / The Neuron",
+        "text": "Keling AI Kling 4.0 即将正式上线；ChatGPT 将下线 GPT-5.5 模型；NVIDIA 举办中国 Developer Day；Microsoft 发布新版 Windows 和 Surface 产品线。"
+      }
     ]
   },
   "markets": {
     "overview": [
-      {"source": "Yahoo Finance / TheStreet", "text": "美股周三收盘走势分化：道琼斯 -0.9%（-443.87点）收50,906；S&P 500 -0.3% 收7,651.54；纳斯达克 +0.2% 收26,861，科技股逆势走强。"},
-      {"source": "搜索结果综合", "text": "A股/港股今日因国庆假期（10月1日-7日）休市，10月8日起恢复交易。港股通及沪深港通同步关闭，10月8日重开。"},
-      {"source": "iTiger", "text": "分析师对中国股市2026年年底展望：恒生指数目标30,000点（较当前+11%），上证指数目标5,000点（较当前+21%），机构整体维持看多。"}
+      {
+        "source": "Yahoo Finance / TheStreet",
+        "text": "美股 10 月 2 日（周五）全线收涨：S&P 500 +0.73% 收 7,722.72；纳斯达克 +1.19% 收 27,190.86；道琼斯 +0.49% 收 51,176.96。9 月就业数据大幅弱于预期，美联储 10 月加息概率骤降，科技股领涨。"
+      },
+      {
+        "source": "HKEX / 综合",
+        "text": "A股与港股因国庆黄金周（10月1日-7日）休市，10月8日（周四）恢复交易。港股通及沪深港通同步关闭，10月8日重开。"
+      },
+      {
+        "source": "新浪财经 / 综合",
+        "text": "上市公司三季报业绩预告陆续披露，近 40 家公司中预喜率超 68%，半导体、新能源材料等高景气赛道多家企业实现大幅扭亏，三季报行情值得期待。"
+      }
     ],
     "macro": [
-      {"source": "Forbes / USBank", "text": "美联储于9月16日宣布加息25bp，将联邦基金利率目标区间上调至3.75%-4.00%，为2023年以来首次加息，主席 Kevin Warsh 称通胀仍然偏高。"},
-      {"source": "Forbes", "text": "固定收益市场已完全定价10月28日和12月2次加息，下次行动预计将利率区间推至4.00%-4.25%，市场警惕更激进紧缩路径。"},
-      {"source": "SCMP", "text": "香港金融管理局跟随美联储将基准利率上调至4.25%，港元与美元挂钩机制下，加息效应自动向香港传导，影响本港按揭及融资成本。"}
+      {
+        "source": "Yahoo Finance / Bitcoin News Digest",
+        "text": "美国 9 月非农就业数据大幅不及预期：实际新增 29,000 人（预期 85,000-90,000），失业率升至 4.2%（前值 4.1%），为近期最弱就业报告，市场大幅调低美联储加息预期。"
+      },
+      {
+        "source": "Forbes / CME FedWatch",
+        "text": "美联储 10 月 28 日会议加息概率从一周前 64% 骤降至 16%，12 月加息概率仍超 75%。当前联邦基金利率目标区间 3.75%-4.00%，Fed Governor Barr 坚称通胀仍高于 2% 目标。"
+      },
+      {
+        "source": "Bitcoin News Digest / Forbes",
+        "text": "10 年期美债收益率在就业数据后先降后升，最终稳定在 5.28% 附近；30 年期约 5.63%，长端利率高企持续对股债形成压力。AI 基础设施建设成本、油价高企和中东供应链中断被 Fed 列为新兴通胀风险因素。"
+      }
     ],
     "policy": [
-      {"source": "Bloomberg / Reuters", "text": "油价突破 $100/桶，地缘政治紧张与 OPEC+ 供给收缩共同支撑，引发美债收益率新一轮上行，股债双杀压力显现。"},
-      {"source": "Yahoo Finance", "text": "美国制造业 PMI 扩张放缓，但原材料价格指数跳升至5月以来高位，通胀"黏性"持续令市场对美联储政策路径保持警惕。"},
-      {"source": "综合", "text": "10月28日美联储会议成为全球市场最大宏观变量，加息预期与油价高企可能进一步推高长端利率，压制风险资产估值。"}
+      {
+        "source": "Forbes / G7",
+        "text": "G7 宣布释放 1 亿桶战略石油储备，美国同步放弃柴油出口禁令，旨在缓解全球能源通胀压力，此举短期内令原油价格小幅承压。"
+      },
+      {
+        "source": "KuCoin / 综合",
+        "text": "本周重要宏观事件：美联储政策、美国经济数据发布、加密监管落地（英国 FCA 强制许可、台湾虚拟资产转账规则执行、南韩加密民事查封规则生效）。"
+      },
+      {
+        "source": "Forbes / Market Consensus",
+        "text": "美联储关键数据窗口：通胀数据预计10月14日、11月10日、12月10日发布，将直接影响 Fed 路径；市场预计 2026 年底还有 1-2 次加息，建议缩短久期关注 TIPS 机会。"
+      }
     ],
     "institution": [
-      {"source": "CoinGape / Citigroup", "text": "花旗集团上调比特币12个月目标价至 $113,000，以太坊年底目标价从 $2,240 大幅上调至 $3,028，理由是 ETF 需求回暖与金融条件改善。"},
-      {"source": "Goldman Sachs / Investing.com", "text": "高盛将黄金年底目标价上调至 $4,900/盎司（较现价+14%），看好铜的长期需求，对油价前景相对保守，预计2026年油价承压回落。"},
-      {"source": "Forbes / Market consensus", "text": "主要华尔街机构普遍预期美联储2026年还有2次加息，固定收益投资者建议缩短久期，关注通胀保值债券(TIPS)机会。"}
+      {
+        "source": "Bitcoin News Digest / Citigroup",
+        "text": "花旗集团将 Strategy Inc.（重仓比特币的公司）目标价上调至 $240，并预测比特币 12 个月价格达 $113,000；此前花旗将 ETH 年底目标从 $2,240 上调至 $3,028。"
+      },
+      {
+        "source": "Goldman Sachs / Investing.com",
+        "text": "高盛将黄金年底目标价上调至 $4,900/盎司（较现价约 +18%），看好铜长期需求（AI/能源转型带动），对油价前景相对保守。"
+      },
+      {
+        "source": "新浪财经 / 券商综合",
+        "text": "9 月机构调研聚焦 AI 硬件清单，电子行业占调研比例近 20%；赛力斯港股上市募资 140 亿港元后，华创、开源等多家券商给出「强推」/「买入」评级。"
+      }
     ],
     "stocks": [
-      {"source": "Yahoo Finance / TheStreet", "text": "Synopsys（SNPS）涨4.8%，领涨纳斯达克，受 EDA 软件在 AI 芯片设计中需求持续强劲驱动，成为今日市场最大亮点。"},
-      {"source": "Yahoo Finance", "text": "道指权重金融与工业股因利率上升预期承压，能源板块受益油价上涨逆势走强，市场呈现明显板块轮动特征。"}
+      {
+        "source": "Yahoo Finance / TheStreet",
+        "text": "英伟达（NVDA）股价续创历史新高，AI 算力需求景气获韩国 9 月芯片出口数据支撑——同比增长 263% 创历史新高，美光（MU）Q4 营收同比增长 379%，HBM 供需紧张预计延续至 2027-2028 年。"
+      },
+      {
+        "source": "新浪财经 / 港股综合",
+        "text": "大宗商品集体高位波动：黄金、白银、原油冲高后同步回调，能源股、资源股短期承压，但中长期逻辑未改变。"
+      },
+      {
+        "source": "Yahoo Finance",
+        "text": "美股板块表现：科技股（纳斯达克+1.19%）领涨，受就业数据弱于预期后加息预期降温提振；道指权重金融与工业股因10年期利率仍高承压。"
+      }
     ],
     "commodity": [
-      {"source": "Reuters / Bloomberg", "text": "原油（WTI/布伦特）突破 $100/桶，OPEC+ 维持减产纪律+地缘政治溢价（中东局势）双重推升，成为当前通胀压力的核心来源之一。"},
-      {"source": "Goldman Sachs / Investing.com", "text": "黄金持续高位运行，Goldman Sachs 将年底目标上调至 $4,900/盎司，避险需求与去美元化趋势共同支撑，年内累计涨幅显著。"},
-      {"source": "OCBC Commodities", "text": "整体大宗商品涨跌分化：贵金属（黄金、白银）表现最强；铜受益 AI 基础设施建设需求长期看涨；天然气因北半球入冬临近受到关注。"}
+      {
+        "source": "Trading Economics",
+        "text": "黄金现货 $4,140.19/盎司（-0.90%），白银 $60.37/盎司（-0.22%）——贵金属受美联储加息预期阶段性降温，短期获利了结压力显现，但年内累计涨幅仍显著。"
+      },
+      {
+        "source": "Trading Economics / Reuters",
+        "text": "WTI 原油 $91.26/桶（-1.73%），布伦特 $102.70/桶（+0.38%），天然气 $3.04/MMBtu（+2.43%）。G7 释放战略储备暂时压制油价，但中东地缘政治风险与 OPEC+ 减产纪律支撑中线。"
+      },
+      {
+        "source": "Trading Economics / Goldman Sachs",
+        "text": "工业金属：铜 $6.53/磅（+0.75%），受益 AI 基础设施与能源转型长期需求；铝 $3,097.50/吨（-0.73%），锌 $3,698.35/吨（-0.76%），短期承压于需求预期分化。"
+      }
     ],
     "other": [
-      {"source": "Crunchbase", "text": "Anthropic 路演即将展开，AI 独角兽 IPO 潮预计2026-2027年持续，继 OpenAI 拟2027年上市后，Anthropic 或率先成为 AI 赛道首家 A 级上市公司。"},
-      {"source": "Crunchbase", "text": "全球 H1 2026 创业融资 $510B 历史新高，大型后期轮融资（$10亿+）扩展至 AI 基础设施、国防科技、机器人及医疗健康，IPO 市场重开活跃。"}
+      {
+        "source": "新浪财经 / 东方财富",
+        "text": "A股三季报业绩预告：近 40 家公司中预喜率超 68%，半导体（韩国数据验证景气）、新能源材料赛道表现最强，市场期待 10 月 8 日开市后业绩行情催化。"
+      },
+      {
+        "source": "KuCoin / 综合",
+        "text": "重要代币解锁预警：SUI、EIGEN、ENA 三大代币近期面临解锁，可能引发市场波动，需关注对相关生态代币的短期冲击。"
+      },
+      {
+        "source": "Crunchbase",
+        "text": "TOKEN2049 Singapore、以太坊生态峰会和 Paradigm Frontiers 将相继举行；Solana Accelerate 活动在上海、杭州、深圳、北京四城展开，Web3 全球社区活跃度持续回升。"
+      }
     ]
   },
   "crypto": {
     "market": [
-      {"source": "Yahoo Finance / Robinhood", "text": "Bitcoin（BTC）报 $83,959.91，24小时成交量 $148.6亿；过去3个月累计涨近44%，仍低于历史高点34%，年内仍告下跌。BTC ETF 日净流入从峰值近 $10亿骤降至 $1.34亿，短期动能减弱。"},
-      {"source": "thecryptobasic.com", "text": "Ethereum（ETH）报约 $2,700，24小时涨0.86%，成交量 $139.2亿；技术分析显示 ETH 仍处于关键阻力位下方，突破方向有待确认。"},
-      {"source": "thecryptobasic.com", "text": "加密市场整体行情：BTC 需突破 $87,397（约+5.2%）延续涨势，目标看 $90,000；NEAR 今日反弹表现亮眼；技术指标27个看多信号，情绪中性偏多。"}
+      {
+        "source": "Bitcoin News Digest / CoinGlass",
+        "text": "BTC 当日最高触及 $87,187 后急速回落至 $84,633，24 小时跌约 2%，触发 CoinGlass 记录的 $4.335亿加密市场清算，其中多头占约四分之三，$87,000 关口多头未能守住。"
+      },
+      {
+        "source": "Crypto Integrated / CoinEdition",
+        "text": "ETH 现价约 $2,680，技术分析师目标看 $3,000 关口——10月多空对决；ETH ETF 持续出现净流出，但现货需求结构性改善；SOL、BNB 等主流山寨震荡整理。"
+      },
+      {
+        "source": "Bitcoin News Digest",
+        "text": "BTC 现货 ETF 过去 5 个交易日净流入约 $8,290万（远低于前一周的 $23.9亿），机构资金入场节奏明显放缓；恐贪指数回落至中性区间，市场短期情绪偏谨慎。"
+      }
     ],
     "news": [
-      {"source": "CoinGape / Citigroup", "text": "花旗集团发布报告，将 BTC 12个月目标价上调至 $113,000，ETH 年底目标上调至 $3,028（原 $2,240），看好 ETF 需求回暖趋势。"},
-      {"source": "Yahoo Finance / Forbes", "text": "10月28日美联储加息预期成为加密市场最大宏观变量，历史规律显示加息周期中加密资产承压，市场正密切关注流动性变化。"},
-      {"source": "Robinhood Prediction Markets", "text": "BTC 期权和预测市场数据显示，市场参与者对10月 BTC 突破 $90,000 有显著押注，但宏观逆风下乐观情绪趋于谨慎。"}
+      {
+        "source": "Bitcoin News Digest",
+        "text": "SEC 委员 Hester Peirce（「加密妈妈」）正式离职，SEC 目前仅剩2名投票委员，操作面临挑战；加密监管顶层政策真空期或延续至新委员就位。"
+      },
+      {
+        "source": "Crypto News October 3 / KuCoin",
+        "text": "纽约州与怀俄明州金融监管机构达成协议，将联合监管两州运营的加密公司，共享检查数据并对成熟企业快速颁发牌照，监管协同机制建立。"
+      },
+      {
+        "source": "Crypto Integrated / IMF",
+        "text": "IMF 批准向萨尔瓦多拨款 $1.38亿，同时豁免此前禁止萨尔瓦多增持比特币的限制条款，萨尔瓦多比特币战略储备路线获国际货币机构实质性背书。"
+      },
+      {
+        "source": "KuCoin / South Korea",
+        "text": "韩国监管机构宣布：2027年2月起允许代币化股票、债券和基金在链上交易，基础设施采用 Avalanche；日本 SMBC Nikko 证券构建合规 Uniswap 交易所，2027年中上线——亚洲传统金融全面拥抱链上资产。"
+      }
     ],
     "onchain": [
-      {"source": "Solana Compass", "text": "Drift Foundation（Solana DeFi 借贷协议）于10月1日正式开放 DFX 恢复代币(recovery token)索赔，此前4月遭黑客攻击，早期赎回约每损失1美元兑换约1美分。"},
-      {"source": "crypto.news", "text": "Joseph Lubin 关联钱包转移133,298 ETH（约$3.56亿）至新地址，无迹象流入交易所，市场关注其战略意图，或涉及 DeFi 部署或长期持有调整。"},
-      {"source": "Ethereum Foundation / Wikipedia", "text": "以太坊基金会向 Morpho DeFi Vaults 分配2,400 ETH，为 Morpho 借贷协议提供流动性支持，持续加强 DeFi 生态基础设施建设。"}
+      {
+        "source": "Crypto Integrated / Bitget",
+        "text": "Bitget 疑似遭与朝鲜相关黑客攻击，被盗资金达 $3.87亿，黑客随后将资金分散至多条区块链，成为今年最大 CEX 安全事件之一，事件仍在调查中。"
+      },
+      {
+        "source": "Crypto Integrated / Aave",
+        "text": "Aave Loop Safe Module 访问控制漏洞被利用，损失 114.09 ETH；NEAR 协议此前 $380万被盗事件在 24 小时内全额追回——安全攻防形势持续严峻。"
+      },
+      {
+        "source": "Crypto Integrated / Blast",
+        "text": "Blast L2 网络宣布因运营经济不可持续而关闭，要求用户在 10 月 26 日前完成资产提取；BNB Chain 代币化股票与 ETF 规模突破 $10亿；Base 新增 26 只代币化股票，Solana 上 Powerus 股票正式上线。"
+      },
+      {
+        "source": "Crypto Integrated / Core Lightning",
+        "text": "Core Lightning 发布紧急安全更新，26.06.7 及更早版本存在高危漏洞需立即升级；Zcash 网络实现双客户端去中心化（Zebra + Zakura 同时执行相同协议规则），网络健壮性大幅提升。"
+      }
     ],
     "funding": [
-      {"source": "Qubit Capital / Crunchbase", "text": "Web3 融资延续强劲势头，2025年全年超 $200亿为2022年以来新高，机构资金加速向稳定币支付、代币化资产、托管合规、数据和基础设施等赛道集中。"},
-      {"source": "waveup.com", "text": "2026年 Web3 投资重心从投机项目转向具有真实收入、监管合规、机构背书的基础设施，DeFi 协议需展示可持续的费用收入以吸引专业资本。"},
-      {"source": "Sherlock / Crunchbase", "text": "Q1 2026 Web3 融资指数显示，机构 LP 对加密基金重拾兴趣，家族办公室和大学基金开始重新配置数字资产，行业步入机构化新阶段。"}
+      {
+        "source": "Crypto Integrated",
+        "text": "Volantis 完成 $8,800万 A 轮融资，采用光子技术大幅扩展芯片内存带宽与容量，解决 AI 训练的内存瓶颈——AI 基础设施与 Web3 技术栈深度融合趋势加速。"
+      },
+      {
+        "source": "Crypto Integrated",
+        "text": "Silicon Exchange 新平台上线：投资者为 GPU 集群提供融资，企业租用算力设备，收益流向融资方——Web3 模式渗透至 AI 算力金融化领域。"
+      },
+      {
+        "source": "Crypto Integrated / BNY",
+        "text": "BNY（纽约梅隆银行）正与 Kraken 就基础设施合作展开谈判；Anchorage Digital 宣布裁员 17%——传统金融与加密托管赛道整合加速，行业集中度提升。"
+      }
     ]
   }
 };
+
 </script>
 
 <script>
@@ -280,7 +439,7 @@ function initPage() {
   renderItems('ai-startup', d.ai.startup, 'ai');
 
   // Markets
-  if (d.date === '2026-10-01') {
+  if (['2026-10-01','2026-10-02','2026-10-03','2026-10-04','2026-10-05','2026-10-06','2026-10-07'].includes(d.date)) {
     document.getElementById('market-holiday-notice').hidden = false;
   }
   renderItems('market-overview', d.markets.overview, 'market');
