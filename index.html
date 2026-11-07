@@ -162,261 +162,246 @@
 
 <script id="report-data-block">
 const REPORT_DATA = {
-  "date": "2026-11-06",
-  "updatedAt": "17:10",
+  "date": "2026-11-07",
+  "updatedAt": "17:09",
   "ai": {
     "bigtech": [
       {
-        "source": "Dataconomy / Verdict.co.uk",
-        "text": "OpenAI发布GPT-6 Cyber：专为安全团队设计的高安全级别AI系统，可自动发现软件漏洞，仅向经审核的安全团队开放访问权限。"
+        "source": "DEV Community / TechCrunch",
+        "text": "OpenAI发布GPT-6 Cyber安全研究模型，Preparedness Framework评级为Critical级，在ExploitGym成功率48.5%，发现Firefox中81个未知高危漏洞。访问仅向认证Daybreak Red客户开放。"
+      },
+      {
+        "source": "TechCrunch",
+        "text": "Meta宣布收购多智能体平台Conductor，支持并行运行来自Anthropic、OpenAI等不同厂商AI代理。云服务将于11月20日关闭，用户须迁移数据，交易金额未披露。"
+      },
+      {
+        "source": "DEV Community / Anthropic",
+        "text": "Anthropic为Claude企业版新增安全控制：prompt钩子、工具调用前拦截器（发往DLP安全厂商）、安全中心（Beta）、多组织SSO管理及Admin API。将文本水印技术扩展至Opus 4.6/4.5、Sonnet 4.5、Haiku 4.5等旧版模型，对接EU AI Act透明度要求。"
+      },
+      {
+        "source": "TechCrunch",
+        "text": "OpenAI将最新融资规模下调约100亿美元，目标估值从1.4万亿降至1.25万亿美元。同期发布GPT-6.1 Sol Ultrafast（约300 tokens/秒）、Decisions API（路由速度10倍）和GPT-6.1 Terra（视觉推理/电脑操作）。"
       },
       {
         "source": "DEV Community",
-        "text": "Meta宣布收购AI公司Conductor，进一步布局企业级AI基础设施与工作流自动化赛道，收购金额未披露。"
-      },
-      {
-        "source": "DEV Community / Dataconomy",
-        "text": "Anthropic宣布锁定Claude Enterprise，全面强化企业版安全性，同步推出新型权限管理与数据隔离功能，剑指企业安全合规市场。"
-      },
-      {
-        "source": "HelloBro.ai / Geeky Gadgets",
-        "text": "网络流传Claude Sonnet 6泄露消息，据报Anthropic疑似在开发代号Fable 6的下一代旗舰模型，业界高度关注Anthropic产品路线图。"
+        "text": "SambaNova与超微（Supermicro）合作推出推理机架：NVIDIA GPU负责提示词处理，SambaNova SN50芯片负责token生成，首批10,000颗SN50已订购。CEO称智能体AI是下一波推理浪潮。"
       }
     ],
     "trends": [
       {
-        "source": "Dataconomy / METR",
-        "text": "METR研究发现Anthropic的AI研发速度近乎翻倍，AI辅助R&D贡献了大部分进步，标志着AI自我加速改进时代到来，引发业界对AI安全的广泛讨论。"
+        "source": "TechCrunch / Ramp AI Index",
+        "text": "Ramp AI支出指数显示：8-9月token支出仅增1.5%（7月曾达42%），与token用量持续增长形成背离。主因：OpenAI/Anthropic大幅降价、开源模型竞争、企业成本管控。10月出现小幅反弹（+8.9%）。"
       },
       {
-        "source": "Trew Knowledge Inc.",
-        "text": "AI监管新动向：多国监管机构就AI模型与互联网内容爬取问题出台新规，要求AI公司明确数据使用协议并提高训练数据透明度。"
+        "source": "TechCrunch",
+        "text": "Anthropic估值在10月由约2万亿美元跌至1.2-1.3万亿美元，IPO前景受AI支出放缓影响，信用机构预计其IPO后将获高收益垃圾评级。"
       },
       {
-        "source": "ai2roi Substack",
-        "text": "AI商业落地加速：企业级AI应用从试点走向规模化部署，Salesforce、SAP等传统软件巨头纷纷宣布AI集成路线图更新，AI+SaaS融合成为新趋势。"
+        "source": "Yahoo Finance / CNBC",
+        "text": "美国中期选举民主党获得国会两院多数后，呼吁实施全国数据中心建设暂停令，并计划对AI监管施压。AI基础设施股票大幅下挫，市场对AI投资监管收紧忧虑升温。"
       },
       {
-        "source": "VentureBeat",
-        "text": "生成式AI市场竞争格局：OpenAI在全球AI服务市场仍保持48.7%的企业连接份额，远超Anthropic（约22%）和Google（约18%），三强格局短期稳固。"
+        "source": "Yahoo Finance",
+        "text": "AI支出极度集中：前1%企业每员工月支出约$10,000，中位企业仅$12-15。研究显示1%的AI重度用户驱动80%的支出，市场极度分化，行业增长基础脆弱。"
       }
     ],
     "tech": [
       {
-        "source": "Technology.org",
-        "text": "OpenAI GPT-6 Cyber单次运行生成948个Linux内核root级漏洞利用代码，展示顶级AI系统在安全研究领域的突破性能力，同时引发AI武器化的伦理争议。"
+        "source": "OpenAI / DEV Community",
+        "text": "GPT-6 Cyber在自动化Linux内核测试中生成948个本地提权漏洞利用代码（前代GPT-5.6 Sol仅166个），Firefox漏洞挖掘发现81个未知高危漏洞，展示LLM在安全研究领域的突破性进展。"
       },
       {
-        "source": "TechXplore / SRN News",
-        "text": "Anthropic最新模型研发速度急剧提升：外部评测机构METR确认Anthropic近期模型能力进步速度约是此前的2倍，AI辅助AI研发的飞轮效应正在显现。"
+        "source": "arXiv / DEV Community",
+        "text": "新Unsatz基准测试LLM推理数学结构能力：9个模型在80个模拟系统中解决率21%-60%，传统方程发现方法在44个系统上完全失败，凸显LLM在科学推理上的优势。"
+      },
+      {
+        "source": "OpenAI",
+        "text": "OpenAI发布Decisions API（基于GPT-6 Luna），专为快速分类与路由设计，速度约为Responses API的10倍；GPT-6.1 Terra专注电脑操作和视觉推理任务。"
       },
       {
         "source": "LLM Gateway",
-        "text": "11月新模型发布动态：多家LLM提供商持续迭代，推理能力、代码生成与长上下文处理成为本月模型更新的核心竞争维度。"
-      },
-      {
-        "source": "artificialintelligence-news.com",
-        "text": "开源AI生态持续壮大：Mistral AI、01.AI等开源模型提供商持续更新旗舰模型，开源与闭源AI的性能差距正在快速收窄。"
+        "text": "2026年11月LLM模型密集发布：Anthropic的Claude Fable 5.1、Opus 5.5等降价版本上线，Meta与中国厂商开源模型持续压低市场价格，API调用成本大幅下降。"
       }
     ],
     "startup": [
       {
-        "source": "Crescendo AI / Mean CEO Blog",
-        "text": "11月AI初创融资热度持续：据不完全统计，本月AI领域VC投资金额超过数十亿美元，Agent、AI安全和垂直行业AI应用成为最受关注的三大赛道。"
+        "source": "TechCrunch / Meta",
+        "text": "Meta以未披露金额收购多智能体平台Conductor（创始人Charlie Holtz）。Conductor支持跨厂商AI代理并行工作空间，将并入Meta平台生态。"
       },
       {
-        "source": "DEV Community",
-        "text": "Meta收购Conductor：此举被视为大厂持续吃掉垂直AI初创的缩影，企业AI工作流领域并购整合浪潮加剧，中小AI公司面临被收购或边缘化的双重压力。"
+        "source": "Crunchbase",
+        "text": "2026年Q1基础AI初创公司融资额是2025年全年的两倍，但Q4增速明显放缓，市场对AI商业化变现能力的担忧上升，估值泡沫风险引发关注。"
       },
       {
-        "source": "Dataconomy",
-        "text": "Anthropic加速企业级市场布局：Claude Enterprise版本全面升级安全功能，与微软Azure、AWS Bedrock的深度集成持续推进，企业客户转化加速。"
-      },
-      {
-        "source": "ai-news-radar GitHub",
-        "text": "AI硬件初创：多家AI芯片与推理优化公司宣布新融资，市场对定制AI推理硬件的需求随着模型规模增大而持续高涨。"
+        "source": "AI Weekly",
+        "text": "AI编程代理赛道持续受关注，但市场对下一波个人AI代理（OpenAI、SpaceXAI、Meta和初创公司Instinct推出）能否复制编程代理带动支出的效果持怀疑态度。"
       }
     ]
   },
   "markets": {
     "overview": [
       {
-        "source": "TheStreet / Yahoo Finance",
-        "text": "美股今日整体小幅回暖：纳斯达克综合指数与标普500在此前遭遇重度抛售后出现技术性反弹，10月非农就业新增16.5万人超预期，但科技股仍承压，道指微涨。"
-      },
-      {
-        "source": "Yahoo Finance",
-        "text": "美股三大指数11月5日遭遇重挫（纳斯达克19个月来最大单日跌幅），11月6日触底反弹，S&P 500小幅收高，大型科技股（NVIDIA等）带动整体情绪回稳。"
+        "source": "CNN / CNBC / Fox Business",
+        "text": "11月5日美股重挫：纳斯达克暴跌5.52%（1950年以来第45差单日表现），道指跌逾1800点，S&P 500录得连续第四周下跌。科技/AI股市值合计蒸发约2.5万亿美元，七巨头单日市值损失逾1万亿美元。"
       },
       {
         "source": "新浪财经",
-        "text": "A股今日震荡分化：半导体板块受AI算力需求驱动逆势走强，券商板块受益于活跃交易量也有所表现，整体市场维持区间震荡格局，上证指数小幅波动。"
+        "text": "11月7日A股：创业板指领跌，光伏、AI、科技板块承压；外资呈现净流出态势，市场情绪偏谨慎。国家发展改革委相关政策信号受到关注。银行股表现相对稳定。"
       },
       {
-        "source": "新浪财经",
-        "text": "港股恒生指数跟随外围市场承压，受美股科技股大跌拖累，港股科技股板块明显下跌，但随着A股午后走稳，港股跌幅有所收窄。"
+        "source": "ShareTrader",
+        "text": "本周大宗商品分化：布伦特原油大跌12.7%至98.05美元/桶，黄金大涨5.0%至4,067美元/盎司，铜下跌3.9%，银上涨5.7%，铁矿石小幅上涨2.2%。"
       }
     ],
     "macro": [
       {
-        "source": "Yahoo Finance / Reuters",
-        "text": "美国10月非农就业数据超预期：新增16.5万个就业岗位，失业率维持低位，就业市场韧性令市场重新评估美联储年内降息空间，10年期美债收益率一度大幅上行。"
+        "source": "ShareTrader / US BLS",
+        "text": "美国10月非农就业新增165,000人，大幅超过近一年月均48,000人水平；失业率维持4.1%。强劲就业数据提升美联储维持高利率可能性，10年期国债收益率上行。"
       },
       {
-        "source": "247 Wall St.",
-        "text": "美国初请失业金人数创57年来新低，同日股市大跌——就业数据过强反而令市场担忧美联储推迟宽松，市场对货币政策路径的分歧进一步扩大。"
+        "source": "新浪财经",
+        "text": "美元指数维持强势，高盛研报关注美联储政策路径与大宗商品市场联动效应；日元、人民币对美元均承压。"
       },
       {
-        "source": "Bloomberg",
-        "text": "美元指数在强劲就业数据支撑下走强，对人民币、日元等亚太货币形成压力，人民币离岸汇率（CNH）小幅走弱，日元跌破关键支撑位。"
-      },
-      {
-        "source": "Fed Funds Rate Forecast / TradingEconomics",
-        "text": "美联储降息预期降温：10月就业数据发布后，市场隐含的年内再次降息概率大幅下降，Fed Watch工具显示12月维持利率不变的概率攀升至约60%。"
+        "source": "ShareTrader",
+        "text": "油价重挫的宏观背景：民主党赢得中期选举后市场押注美伊关系缓和，伊朗石油供应回升预期升温。布伦特原油一周内从$112.28/桶跌至$98.05/桶，跌幅达12.7%。"
       }
     ],
     "policy": [
       {
-        "source": "Reuters / Bloomberg",
-        "text": "美联储官员暗示观望姿态：多位地区联储主席在就业报告出炉后公开表示，当前无需急于调整利率，劳动力市场的强劲表现增加了政策决策的复杂性。"
+        "source": "CNBC / Al Jazeera",
+        "text": "美国中期选举：民主党赢得国会两院多数，呼吁立即实施全国数据中心建设暂停令，誓言对AI行业实施更严格监管。市场对AI基础设施投资前景产生重大担忧，AI基础设施股大跌。"
       },
       {
-        "source": "Bloomberg",
-        "text": "美中贸易动态：拜登政府第二任期延续对华科技出口限制政策讨论，半导体及AI芯片对华管制措辞再度收紧，中美科技脱钩预期持续强化。"
+        "source": "ShareTrader",
+        "text": "美伊外交：民主党胜选后承诺约束特朗普伊朗政策，参议员Maggie Hassan呼吁终止美伊冲突。卡塔尔代表团本周在德黑兰进行3小时谈判，但未取得突破。"
       },
       {
-        "source": "新浪财经",
-        "text": "中国政策层面：人民银行维持流动性合理宽松，但强就业数据下美元走强令人民币汇率承压，市场关注年内政策工具组合的进一步落地情况。"
+        "source": "金色财经 / Jinse",
+        "text": "中国：国务院金融工作报告要求加强RWA（真实资产代币化）监管；香港证监会（SFC）打击误导性专业头衔，降低投资者受欺诈风险。"
       }
     ],
     "institution": [
       {
-        "source": "Bloomberg / TheStreet",
-        "text": "高盛策略师：此次AI科技股大跌并非基本面驱动，属于技术性调整与仓位获利了结，维持科技股超配评级，建议逢低布局NVIDIA、微软等核心AI受益标的。"
+        "source": "Seeking Alpha",
+        "text": "市场观察：黄金矿商、贵金属、REITs、公用事业、必需消费品出现买盘，价值股和高股息股相对跑赢。建议持有10%现金仓位，对无盈利成长股保持谨慎。"
       },
       {
-        "source": "Morgan Stanley",
-        "text": "摩根士丹利：强劲就业数据令年内降息幅度预期从75bp收窄至25bp，建议客户适度降低债券久期，转向短端收益率更具吸引力的货币市场基金。"
+        "source": "BofA / ExchangeRates",
+        "text": "美国银行（BofA）下调2027年布伦特和WTI原油平均价格预测，理由是民主党胜选后伊朗供应回归概率上升，以及全球经济增速放缓对需求压制。"
       },
       {
-        "source": "CNBC",
-        "text": "纳斯达克遭遇19个月最大跌幅后多空争论加剧：看多方认为AI基本面未改变，AI算力需求长期向好；看空方指向高估值压力与利率上行双重压制。"
+        "source": "新浪财经",
+        "text": "高盛关注美联储政策路径与大宗商品市场联动；外资机构在AI股大跌后转向布局价值股和防御性板块，市场风格切换明显。"
       }
     ],
     "stocks": [
       {
-        "source": "TheStreet / CNBC",
-        "text": "NVIDIA（NVDA）：在纳斯达克前日大跌后今日出现技术性反弹，AI算力需求叙事未变，机构资金逢低介入，成为带动大盘回稳的核心力量。"
+        "source": "CNBC / Fox Business",
+        "text": "AI科技股集体崩溃：英伟达、微软、苹果、Alphabet、亚马逊等11月5日均录得重大跌幅，纳斯达克进入技术性调整区间。AI选举焦虑与监管风险是主要驱动因素。"
       },
       {
-        "source": "Yahoo Finance",
-        "text": "特斯拉（TSLA）今日逆势上涨，突破近期关键阻力位创近期新高，市场对其FSD全自动驾驶技术及Robotaxi商业化进展的乐观预期持续升温。"
-      },
-      {
-        "source": "新浪A股",
-        "text": "A股半导体板块：北方华创、中微公司、海光信息等AI芯片及设备个股今日表现突出，受益于AI算力国产化政策驱动，板块整体优于大盘。"
+        "source": "Jinse / 金色财经",
+        "text": "美股AI板块大跌拖累港股科技股，Anthropic估值报告缩水40%。A股光伏、AI相关个股承压，外资净流出明显。"
       },
       {
         "source": "新浪A股",
-        "text": "A股券商板块：中信证券、华泰证券等头部券商今日小幅上扬，市场活跃交易量回暖带动经纪业务景气度预期改善。"
+        "text": "A股11月7日热点：光伏行业、安集科技、银行股；巴菲特伯克希尔哈撒韦（持仓集中度65%在5只股票）Q3数据及回购减少受到市场关注，VR、H股动态也有关注。"
       }
     ],
     "commodity": [
       {
-        "source": "WhalesBook / YourNews",
-        "text": "黄金（XAU/USD）下跌0.6%至约4,063美元/盎司：油价反弹推升通胀担忧，同时美就业数据超预期令美元走强，双重压制下金价承压回落。"
+        "source": "ShareTrader",
+        "text": "原油：布伦特本周大跌12.7%至98.05美元/桶，WTI跌11.9%至90.62美元/桶。油价下跌主因民主党胜选后市场对伊朗石油回归的预期大幅升温。"
       },
       {
-        "source": "CNBC / Kitco",
-        "text": "原油价格反弹：WTI原油期货今日明显上涨，市场关注中东局势及OPEC+减产执行情况，油价回升加剧市场对通胀二次抬头的担忧。"
+        "source": "ShareTrader",
+        "text": "黄金：本周强劲反弹5.0%至4,067美元/盎司，周中一度触及4,140美元高点，受益于避险需求与AI市场崩跌后的资金流入。MCX黄金（印度）报约142,421卢比/10克。"
       },
       {
-        "source": "TradingEconomics",
-        "text": "铜价：受全球制造业PMI数据分化及美元走强影响，铜价维持高位震荡，市场聚焦中国需求端的政策刺激效果与落地节奏。"
+        "source": "ShareTrader",
+        "text": "白银+5.7%至51.95美元/盎司；铜-3.9%至6.2384美元/磅；铁矿石+2.2%至92.70美元/干公吨；锂碳酸盐持平CNY93,600/吨（连跌9周后企稳）；铀+2.7%至92.55美元/磅。"
       }
     ],
     "other": [
       {
-        "source": "Reuters",
-        "text": "美股IPO市场：本周无重大IPO上市，市场因Nasdaq大跌情绪趋于谨慎，多家原计划年内上市的科技独角兽据报正在重新评估窗口期。"
+        "source": "ShareTrader",
+        "text": "美国天然气：截至10月30日当周库存增加77 Bcf至3,801 Bcf，高于五年均值1.4%，同比低2.8%。"
       },
       {
-        "source": "Bloomberg",
-        "text": "美债市场：10年期美国国债收益率在强劲就业报告后快速上行，2年期与10年期利差略有收窄，市场对降息路径的不确定性显著上升。"
-      },
-      {
-        "source": "新浪财经",
-        "text": "中国房地产：11月以来重点城市商品房成交量环比持稳，政策托底效果边际显现，但市场持续关注房企资产负债表修复进度与居民购房信心恢复情况。"
+        "source": "新浪股票",
+        "text": "市场热点：光伏行业整合、RWA代币化监管收紧、伯克希尔哈撒韦Q3数据（营业利润下滑、回购减少）及恒力集团动态成为市场关注焦点。"
       }
     ]
   },
   "crypto": {
     "market": [
       {
-        "source": "CryptoTimes / CoinGabbar",
-        "text": "比特币（BTC）重挫至75,600美元：受纳斯达克大跌与强劲就业数据拖累，BTC单日跌幅约6%，加密总市值蒸发逾千亿美元，恐慌与贪婪指数滑入\"恐慌\"区间。"
+        "source": "CryptoTimes / CoinSpectator",
+        "text": "BTC今日（11月7日）维持在76,000美元附近，日内一度跌破76,000美元，当前关键支撑位75,000美元受到考验。日线动能偏弱，恢复势头脆弱。"
       },
       {
-        "source": "Crypto.news / TradersUnion",
-        "text": "BTC短暂触底后出现技术性反弹，一度重新收复76,000美元关口，但ETF资金外流压力持续（单日净流出约4.3亿美元），多空博弈剧烈。"
+        "source": "CryptoTimes",
+        "text": "美国现货比特币ETF单日净流出4.119亿美元（以iShares IBIT为主），周合计净流出约12.8亿美元；以太坊现货ETF周净流出3.65亿美元。资金持续撤离压制价格。"
       },
       {
-        "source": "CoinGabbar",
-        "text": "以太坊（ETH）同步大跌：ETH跌幅超过BTC，受ETH ETF大额赎回与市场流动性收紧双重打压，ETH/BTC汇率跌至近期低点。"
+        "source": "CryptoTicker",
+        "text": "ETH价格：本月ETH目标能否收复2,800美元仍存疑，DeFi锁仓总量（TVL）下滑6.7%，ETF持仓成本基础约3,200美元，大量ETF买家深度套牢。"
       },
       {
-        "source": "FameEX / KuCoin",
-        "text": "主要山寨币全线走弱：SOL、BNB、XRP等主流代币跌幅普遍在8-12%之间，部分小市值代币跌幅超过20%，市场风险情绪骤降。"
+        "source": "Jinse / 5oops",
+        "text": "比特币挖矿难度已连续374天低于峰值，创历史最长记录，显示全网算力和矿工收益压力持续，但网络安全性未受影响。"
       }
     ],
     "news": [
       {
-        "source": "CryptoNews.com.au / CryptoBriefing",
-        "text": "Wall Street大跌引发12亿美元加密清算：美股Nasdaq暴跌触发全市场去风险情绪，BTC期货多头仓位遭强制平仓规模逾10亿美元，单日加密市场总清算超12.5亿美元。"
+        "source": "Jinse / 金色晚报",
+        "text": "美国中期选举民主党获胜后，AI科技股大幅下跌，Anthropic估值据报缩水约40%，拖累整体Crypto市场情绪，BTC跌破76,000美元。"
       },
       {
-        "source": "CryptoBriefing",
-        "text": "比特币抹去大选后涨幅：BTC此前在选举周期的\"中期选举牛市\"预期下积累的涨幅已被完全回吐，市场对政治催化剂驱动行情的可持续性产生怀疑。"
+        "source": "Jinse / 金色财经",
+        "text": "中国国务院金融工作报告要求收紧对RWA（真实资产代币化）监管；香港SFC打击加密行业误导性专业头衔，以保护投资者权益。"
       },
       {
-        "source": "Phemex Blog",
-        "text": "分析师：此次BTC下跌核心触发器为美联储降息预期降温，而非加密行业内部事件，预计若宏观恐慌情绪缓和，BTC将寻求在72,000-75,000美元区间建立支撑。"
+        "source": "Jinse",
+        "text": "Binance法国分部宣布将于12月31日关闭所有客户账户，法国用户须年底前完成资产迁移，系欧盟MiCA监管框架收紧的结果。"
       },
       {
-        "source": "AnalyticsInsight",
-        "text": "BTC测试75,000美元支撑位：技术面显示该关键支撑若失守，下一目标位在70,000-71,000美元区间，市场期待ETF资金流入转正以稳定情绪。"
+        "source": "CoinPaper",
+        "text": "分析师预警：若BTC失守75,000美元支撑，下一目标可能跌向60,000美元。ETF持续净流出是当前最大压力来源。"
       }
     ],
     "onchain": [
       {
-        "source": "QuillAudits / Beosin",
-        "text": "2026年上半年DeFi安全事件同比大增67%，累计损失超9.35亿美元，本周继续有DeFi协议遭到黑客攻击，链上安全形势依然严峻。"
+        "source": "5oops / Jinse",
+        "text": "比特币核心开发者提出抗量子攻击的抵押方案，以应对未来量子计算对区块链安全的潜在威胁，技术方案细节正在社区讨论中。"
       },
       {
-        "source": "DEV Community / Chainalysis",
-        "text": "Chainalysis指出DeFi Burn验证存在关键盲区：价值2.92亿美元的漏洞利用绕过了主流安全审计工具，呼吁行业提升链上风险监控能力。"
+        "source": "CryptoTicker",
+        "text": "DeFi协议TVL持续下滑，本月已缩水6.7%。以太坊生态DeFi协议Morpho等面临流动性压力，整体DeFi市场低迷，用户资金撤离明显。"
       },
       {
-        "source": "Yellow.com Research",
-        "text": "Web3安全危机报告：2026年最大黑客事件已不再局限于智能合约漏洞，社会工程学攻击与跨链桥安全风险正成为主要威胁向量。"
+        "source": "DWF Labs",
+        "text": "DWF Labs宣布启动7500万美元DeFi生态支持基金，重点投资DeFi基础设施；11月Web3项目VC融资总额约8亿美元，主要集中在安全和Layer2赛道。"
       }
     ],
     "funding": [
       {
-        "source": "Crypto.news / ETF Data",
-        "text": "比特币现货ETF：11月6日单日净赎回约4.3亿美元，连续多日净流出的背景下机构情绪明显趋于谨慎，ETF持仓数据成为市场重要风向标。"
+        "source": "CryptoSlate",
+        "text": "11月加密初创企业吸引风险投资约8亿美元，主要集中在DeFi基础设施、Layer2解决方案和Web3安全赛道，整体较Q3有所回落。"
       },
       {
-        "source": "CoinDesk / TheBlock",
-        "text": "加密VC融资市场：本周加密创投整体趋于观望，宏观风险情绪令部分融资谈判放缓，但AI与区块链交叉赛道（AI Agent on-chain）依然维持较强融资热度。"
+        "source": "Jinse / OKX",
+        "text": "交易所动态：Binance法国12月底关闭所有账户；OKX和Gate.io维持正常运营，但受AI市场暴跌拖累，整体Crypto交易量有所下降。"
       },
       {
-        "source": "Stablecoin Market Data",
-        "text": "稳定币动态：USDT与USDC市场份额保持稳定，市场波动期间稳定币场内存量略有上升，显示部分资金主动切换至稳定币等待机会。"
+        "source": "ForkLog / Injective",
+        "text": "DeFi借贷协议Injective Protocol获Alan Howard和Jump Crypto领投4000万美元融资，用于扩展跨链DeFi基础设施。"
       }
     ]
   }
 };
+
 
 
 
